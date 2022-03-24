@@ -1,70 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title>Fasion-Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- MetisMenu CSS -->
-    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="../css/startmin.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-</head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div id="logo"><img src="../img/icon_fasions_1.png"></div>
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Đăng nhập</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" id="form-1">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" id="username" placeholder="Username" name="username" type="text" autofocus>
-                                </div>
-
-                                <div class="form-group">
-                                    <input class="form-control" id="password" placeholder="Password" name="password" type="password" value="">
-                                </div>
-
-                                <div class="checkbox">
-                                    <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">Nhớ mật khẩu
-                                        </label>
-                                </div>
-
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="home.html" class="btn btn-lg btn-success btn-block">Đăng nhập</a>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="login-panel panel panel-default">
+            <div id="logo"><img src="../img/icon_fasions_1.png" /></div>
+            <div class="panel-heading">
+              <h3 class="panel-title">Đăng nhập</h3>
             </div>
+            <div class="panel-body">
+              <form role="form" id="form-1">
+                <fieldset>
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      id="username"
+                      placeholder="Username"
+                      name="username"
+                      type="text"
+                      autofocus
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      id="password"
+                      placeholder="Password"
+                      name="password"
+                      type="password"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="checkbox">
+                    <label>
+                      <input
+                        name="remember"
+                        type="checkbox"
+                        value="Remember Me"
+                      />Nhớ mật khẩu
+                    </label>
+                  </div>
+
+                  <!-- Change this to a button or input when using this as a form -->
+                  <a href="home.html" class="btn btn-lg btn-success btn-block"
+                    >Đăng nhập</a
+                  >
+                </fieldset>
+              </form>
+
+              <form className="”login-form”">
+                <input
+                  className="”login-info”"
+                  onChange="{this.handleIdInput}"
+                  id="”id”"
+                  type="”text”"
+                  placeholder="”Phone"
+                  number,
+                  username
+                  or
+                  email”
+                />
+                <input
+                  className="”login-info”"
+                  onChange="{this.handlePwInput}"
+                  id="”password”"
+                  type="”password”"
+                  placeholder="Password"
+                />
+                <button
+                  className="”login-button”"
+                  disabled="{this.enableLoginButton()}"
+                  id="{this.changeLoginButtonStyle()}"
+                  type="”submit”"
+                  onClick="{this.clickLogin}"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- jQuery -->
@@ -79,8 +127,47 @@
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
     <!-- JavaScript Validation -->
+    <!-- <script>
+      const data = { username: "admin", password: "asdf1234" };
 
-
-</body>
-
+      //POST request with body equal on data in JSON format
+      fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        //Then with the data from the response in JSON...
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        //Then with the error genereted...
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    </script> -->
+    <script>
+      clickLogin = (e) => {
+        e.preventDefault();
+        fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin/", {
+          method: "POST",
+          body: JSON.stringify({
+            email: this.state.idValue,
+            password: this.state.pwValue,
+          }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            if (result.message === "SUCCESS") {
+              alert("You are logged in.");
+              this.goToMain();
+            } else {
+              alert("Please check your login information.");
+            }
+          });
+      };
+    </script>
+  </body>
 </html>

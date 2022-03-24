@@ -597,6 +597,18 @@
                                     });
                                 });
                             </script>
+                            <script type="text/javascript">
+                                var apiUrl = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIzYWQyMTMxMzhiNjUwMDIzNmMwZGM1IiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY0ODExNzcyOSwiZXhwIjoxNjQ4MjA0MTI5fQ.YOD8nr2vnK-4BUth0rFxNb5HccKOOc0E1e013pR0jfA';
+                                fetch(apiUrl, {mode: 'no-cors'}).then(response => {
+                                    console.log(response);
+                                  return response.json();
+                                }).then(data => {
+                                  // Work with JSON data here
+                                  
+                                }).catch(err => {
+                                  // Do something for an error here
+                                });
+                            </script>
 
 </body>
 
