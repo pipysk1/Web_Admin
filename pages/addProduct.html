@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <title>Fasion-Admin</title>
 
@@ -36,9 +37,7 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Fasion Admin</a>
-            </div>
+           
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -49,65 +48,44 @@
 
 
 
-            <ul class="nav navbar-right navbar-top-links">
-                <li class="dropdown navbar-inverse">
-
-
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+                
+                    <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right;margin-bottom: 72px;">&#9776;</button>
+                    <div class="navi">
+                    <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                    <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                    <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
+                    </div>
+                    
+                  </div>
+                  
+                  <div id="main">
+                   
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <!-- <li>
-                            <a href="home.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li> -->
-
-                        <li>
-                            <a href="home.html"><i class="fa fa-table fa-fw"></i>Danh sách sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="addProduct.html"><i class="fa fa-edit fa-fw"></i>Thêm sản phẩm mới</a>
-                        </li>
-
-                        <li>
-                            <a href="bill.html"><i class="fa fa-table fa-fw"></i>Danh sách hóa đơn</a>
-                        </li>
-                        <!-- /.nav-second-level -->
-
-
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+                    
+                  <div class="navedit">
+                    
+                      
+                   
+                    <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+                   
+                  </div>
             <!-- /.navbar-static-side -->
         </nav>
+        
 
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -233,6 +211,23 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
+    <script>
+        function w3_open() {
+          document.getElementById("page-wrapper").style.marginLeft = "20%";
+          document.getElementById("mySidebar").style.width = "20%";
+          document.getElementById("mySidebar").style.display = "block";
+          document.getElementById("openNav").style.display = 'none';
+          
+        }
+        function w3_close() {
+          document.getElementById("page-wrapper").style.marginLeft = "0%";
+          document.getElementById("mySidebar").style.display = "none";
+          document.getElementById("openNav").style.display = "inline-block";
+          
+        //   document.getElementById("closeNav").style.display = 'none';
+        //   document.getElementById("closeNav").style.marginLeft = "25%";
+        }
+        </script>
 
 </body>
 
