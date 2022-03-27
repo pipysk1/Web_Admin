@@ -46,6 +46,7 @@
                         <form role="form" id="form-1">
                             <fieldset>
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <input class="form-control" id="username" placeholder="Username" name="username"
                                         type="text" autofocus>
                                 </div>
@@ -53,6 +54,15 @@
                                 <div class="form-group">
                                     <input class="form-control" id="password" placeholder="Password" name="password"
                                         type="password" value="">
+=======
+                                    <input class="form-control" id="username" placeholder="Username" name="username" type="text" autofocus>
+                                    <span class="form-message"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-control" id="password" placeholder="Password" name="password" type="password" value="">
+                                    <span class="form-message"></span>
+>>>>>>> main
                                 </div>
 
                                 <div class="checkbox">
@@ -83,6 +93,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
     <!-- JavaScript Validation -->
+<<<<<<< HEAD
     <script>
         const data = { username: 'admin' , password:'asdf1234'};
 
@@ -105,6 +116,20 @@
             .catch((error) => {
                 console.error('Error:', error);
             });
+=======
+    <script src="../js/validation/validation.js"></script>
+    <script src="../js/validator/validator.js"></script>
+
+    <script>
+        Validator({
+            form: '#form-1',
+            errorSelector:'.form-message',
+            rules: [
+                Validator.isRequired('#username'),
+                Validator.isPassword('#password')
+            ]
+        })
+>>>>>>> main
     </script>
 
 </body>
