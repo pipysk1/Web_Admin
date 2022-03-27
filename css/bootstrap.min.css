@@ -1382,7 +1382,8 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #fff
+    background-color: #fff;
+    background: #5cb85c;
 }
 
 button,
@@ -6345,6 +6346,8 @@ a.list-group-item-danger.active:hover {
 }
 
 .panel-heading {
+    text-align: center;
+    font-size: 25px;
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
