@@ -1,3 +1,7 @@
+
+var token = localStorage.getItem('token');
+console.log(token);
+
 document.addEventListener("DOMContentLoaded", function () {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -7,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < data.length; i++) {
           document.querySelector("#dataTables-example").innerHTML += `<tr>
 		<th scope="row">${data[i].bill_id}</th>
-		<td>${data[i].name}</td>
 		<td>${data[i].phone_number}</td>
 		<td>${data[i].status}</td>
 		<td>${data[i].discount_id}</td>
@@ -16,13 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		<td ><a href="/pages/editBill.html" class="fa-trash"></a></td>
 	</tr>`;
         }
-        console.log(data);
+        for (let i = 0; i < data.product.length; i++) {
+          document.querySelector("#dataTables-example").innerHTML += `<tr>
+		<td>${data.product[i].name}</td>
+	</tr>`;
+        }
+        console.log(data.product[i].name);
       }
     }
   };
   xhr.open(
     "GET",
-    "https://hieuhmph12287-lab5.herokuapp.com/bills/getBills?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIzYWQyMTMxMzhiNjUwMDIzNmMwZGM1IiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY0ODM2ODczOCwiZXhwIjoxNjQ4NDU1MTM4fQ.oy-oUXMFnq0qzXz9gDovajQKAxjjEKk49kxzkQHJf20"
+    "https://hieuhmph12287-lab5.herokuapp.com/bills/getBills?token=" + token
   );
   xhr.send();
 });

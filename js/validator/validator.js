@@ -10,16 +10,27 @@ function Validator(options) {
 
     var selectorRules = {};
 
+    // Hàm thực hiện validate
     function validate(inputElement, rule) {
-        var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
         var errorMessage;
 
+        // Lấy ra các rules của selector
         var rules = selectorRules[rule.selector];
 
-
+        // Lặp qua từng rule & kiểm tra
+        // Nếu có lỗi thì dừng việc kiểm
         for (var i = 0; i < rules.length; ++i) {
-            errorMessage = rules[i](inputElement.value);
-
+            switch (inputElement.type) {
+                case 'radio':
+                case 'checkbox':
+                    errorMessage = rules[i](
+                        formElement.querySelector(rule.selector + ':checked')
+                    );
+                    break;
+                default:
+                    errorMessage = rules[i](inputElement.value);
+            }
             if (errorMessage) break;
         }
 
@@ -32,21 +43,19 @@ function Validator(options) {
         }
 
         return !errorMessage;
-
     }
 
+    // Lấy element của form cần validate
     var formElement = document.querySelector(options.form);
-
     if (formElement) {
-
-
-        formElement.onsubmit = function(e) {
+        // Khi submit form
+        formElement.onsubmit = function (e) {
             e.preventDefault();
 
             var isFormValid = true;
 
             // Lặp qua từng rules và validate
-            options.rules.forEach(function(rule) {
+            options.rules.forEach(function (rule) {
                 var inputElement = formElement.querySelector(rule.selector);
                 var isValid = validate(inputElement, rule);
                 if (!isValid) {
@@ -58,7 +67,7 @@ function Validator(options) {
                 // Trường hợp submit với javascript
                 if (typeof options.onSubmit === 'function') {
                     var enableInputs = formElement.querySelectorAll('[name]');
-                    var formValues = Array.from(enableInputs).reduce(function(values, input) {
+                    var formValues = Array.from(enableInputs).reduce(function (values, input) {
 
                         switch (input.type) {
                             case 'radio':
@@ -106,22 +115,19 @@ function Validator(options) {
                     fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin", requestOptions)
                         .then(response => response.text())
                         .then(result => {
-                            if (success == false) {
-                                console.log(success)
-                            }
-                            console.log("maimai" + result)
-                            console.log(result)
+                            var result = JSON.parse(result)
+                            // var accessTokenObj = JSON.parse(localStorage.getItem("token:"));
+                            // console.log(accessTokenObj);
+                            // var x = document.getElementById("toast")
+                            // x.className = "show";
+                            // setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+                            localStorage.setItem('token', result.token);
+                            window.location.href = "home.html";
                         })
                         .catch(error => console.log('error', error));
 
 
                 }
-                if (success === true) {
-                    console.log("Login thanh cong")
-                }
-
-                // window.location = "goolg";
-
 
             }
             // Trường hợp submit với hành vi mặc định
@@ -131,7 +137,8 @@ function Validator(options) {
         }
     }
 
-    options.rules.forEach(function(rule) {
+    // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
+    options.rules.forEach(function (rule) {
 
         // Lưu lại các rules cho mỗi input
         if (Array.isArray(selectorRules[rule.selector])) {
@@ -142,14 +149,14 @@ function Validator(options) {
 
         var inputElements = formElement.querySelectorAll(rule.selector);
 
-        Array.from(inputElements).forEach(function(inputElement) {
+        Array.from(inputElements).forEach(function (inputElement) {
             // Xử lý trường hợp blur khỏi input
-            inputElement.onblur = function() {
+            inputElement.onblur = function () {
                 validate(inputElement, rule);
             }
 
             // Xử lý mỗi khi người dùng nhập vào input
-            inputElement.oninput = function() {
+            inputElement.oninput = function () {
                 var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
                 errorElement.innerText = '';
                 getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
@@ -160,60 +167,23 @@ function Validator(options) {
 
 
 
-
-
-Validator.isUsername = function(selector, message) {
+Validator.isUsername = function (selector, message) {
     return {
         selector: selector,
 
-        test: function(value) {
+        test: function (value) {
             return value.trim() ? undefined : message || 'Vui lòng nhập tài khoản'
         }
     }
 
 }
 
-Validator.isPassword = function(selector, message) {
+Validator.isPassword = function (selector, message) {
     return {
         selector: selector,
 
-        test: function(value) {
+        test: function (value) {
             return value.trim() ? undefined : message || 'Vui lòng nhập mật khẩu'
         }
-    }
-}
-
-
-
-
-
-
-function handleLogin() {
-    var loginBtn = document.querySelector('#login-btn');
-    loginBtn.onclick = function() {
-        var name = document.querySelector('input[name="username"]').value;
-        var password = document.querySelector('input[name="password"]').value;
-
-        var myHeaders = new Headers();
-        myHeaders.append("username", name);
-        myHeaders.append("password", password);
-        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("username", name);
-        urlencoded.append("password", password);
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: urlencoded,
-            redirect: 'follow'
-        };
-
-        fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
     }
 }
