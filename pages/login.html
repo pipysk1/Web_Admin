@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script src="../api/login.js"></script>
+    <!-- <script src="../api/login.js"></script>     -->
 
 
     <title>Fasion-Admin</title>
@@ -43,7 +43,7 @@
                         <h3 class="panel-title">Đăng nhập</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" id="form-1">
+                        <form role="form" id="form-1" action="" method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" id="username" placeholder="Username" name="username" type="text" autofocus>
@@ -62,7 +62,8 @@
                                 </div>
 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="home.html" class="btn btn-lg btn-success btn-block">Đăng nhập</a>
+                                <!-- <a href="home.html" class="btn btn-lg btn-success btn-block">Đăng nhập</a> -->
+                                <button class="btn form-submit btn-lg btn-success btn-block">Đăng nhập</button>
                             </fieldset>
                         </form>
                     </div>
@@ -82,18 +83,21 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
-    <!-- JavaScript Validation -->
-    <script src="../js/validation/validation.js"></script>
+
     <script src="../js/validator/validator.js"></script>
 
     <script>
         Validator({
             form: '#form-1',
-            errorSelector:'.form-message',
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
             rules: [
-                Validator.isRequired('#username'),
-                Validator.isPassword('#password')
-            ]
+                Validator.isUsername('#username', 'Vui lòng nhập tài khoản'),
+                Validator.isPassword('#password', 'Vui lòng nhập mật khẩu')
+            ],
+            onSubmit: function(data) {
+                console.log(data)
+            }
         })
     </script>
 
