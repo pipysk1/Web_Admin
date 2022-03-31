@@ -1,6 +1,5 @@
 
 var token = localStorage.getItem('token');
-console.log(token);
 
 document.addEventListener("DOMContentLoaded", function () {
   var xhr = new XMLHttpRequest();

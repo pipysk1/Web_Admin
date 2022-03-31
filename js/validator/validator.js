@@ -116,6 +116,12 @@ function Validator(options) {
                         .then(response => response.text())
                         .then(result => {
                             var result = JSON.parse(result)
+                            $(".notify").toggleClass("active");
+                            $("#notifyType").toggleClass("success");
+                            setTimeout(function () {
+                                $(".notify").removeClass("active");
+                                $("#notifyType").removeClass("success");
+                            }, 2000);
                             // var accessTokenObj = JSON.parse(localStorage.getItem("token:"));
                             // console.log(accessTokenObj);
                             // var x = document.getElementById("toast")
@@ -125,6 +131,13 @@ function Validator(options) {
                             window.location.href = "home.html";
                         })
                         .catch(error => console.log('error', error));
+                    $(".notify").addClass("active");
+                    $("#notifyType").addClass("failure");
+
+                    setTimeout(function () {
+                        $(".notify").removeClass("active");
+                        $("#notifyType").removeClass("failure");
+                    }, 2000);
 
 
                 }
