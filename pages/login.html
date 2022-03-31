@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <!-- <script src="../api/login.js"></script>     -->
 
     <title>Fasion-Admin</title>
 
@@ -28,8 +29,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
+    <div class="notify"><span id="notifyType" class=""></span></div>
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -39,7 +40,7 @@
               <h3 class="panel-title">Đăng nhập</h3>
             </div>
             <div class="panel-body">
-              <form role="form" id="form-1">
+              <form role="form" id="form-1" action="" method="POST">
                 <fieldset>
                   <div class="form-group">
                     <input
@@ -50,6 +51,7 @@
                       type="text"
                       autofocus
                     />
+                    <span class="form-message"></span>
                   </div>
 
                   <div class="form-group">
@@ -61,6 +63,7 @@
                       type="password"
                       value=""
                     />
+                    <span class="form-message"></span>
                   </div>
 
                   <div class="checkbox">
@@ -74,40 +77,14 @@
                   </div>
 
                   <!-- Change this to a button or input when using this as a form -->
-                  <a href="home.html" class="btn btn-lg btn-success btn-block"
-                    >Đăng nhập</a
+                  <!-- <a href="home.html" class="btn btn-lg btn-success btn-block">Đăng nhập</a> -->
+                  <button
+                    class="btn form-submit btn-lg btn-success btn-block"
+                    type="submit"
                   >
+                    Đăng nhập
+                  </button>
                 </fieldset>
-              </form>
-
-              <form className="”login-form”">
-                <input
-                  className="”login-info”"
-                  onChange="{this.handleIdInput}"
-                  id="”id”"
-                  type="”text”"
-                  placeholder="”Phone"
-                  number,
-                  username
-                  or
-                  email”
-                />
-                <input
-                  className="”login-info”"
-                  onChange="{this.handlePwInput}"
-                  id="”password”"
-                  type="”password”"
-                  placeholder="Password"
-                />
-                <button
-                  className="”login-button”"
-                  disabled="{this.enableLoginButton()}"
-                  id="{this.changeLoginButtonStyle()}"
-                  type="”submit”"
-                  onClick="{this.clickLogin}"
-                >
-                  Login
-                </button>
               </form>
             </div>
           </div>
@@ -126,48 +103,24 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
-    <!-- JavaScript Validation -->
-    <!-- <script>
-      const data = { username: "admin", password: "asdf1234" };
 
-      //POST request with body equal on data in JSON format
-      fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        //Then with the data from the response in JSON...
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        //Then with the error genereted...
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    </script> -->
+    <script src="../js/validator/validator.js"></script>
     <script>
-      clickLogin = (e) => {
-        e.preventDefault();
-        fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin/", {
-          method: "POST",
-          body: JSON.stringify({
-            email: this.state.idValue,
-            password: this.state.pwValue,
-          }),
-        })
-          .then((response) => response.json())
-          .then((result) => {
-            if (result.message === "SUCCESS") {
-              alert("You are logged in.");
-              this.goToMain();
-            } else {
-              alert("Please check your login information.");
-            }
-          });
-      };
+      $(".toast").toast(option);
+    </script>
+    <script>
+      Validator({
+        form: "#form-1",
+        errorSelector: ".form-message",
+        formGroupSelector: ".form-group",
+        rules: [
+          Validator.isUsername("#username", "Vui lòng nhập tài khoản"),
+          Validator.isPassword("#password", "Vui lòng nhập mật khẩu"),
+        ],
+        onSubmit: function (data) {
+          console.log(data);
+        },
+      });
     </script>
   </body>
 </html>
