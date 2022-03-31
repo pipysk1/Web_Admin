@@ -49,21 +49,13 @@ function Validator(options) {
     var formElement = document.querySelector(options.form);
     if (formElement) {
         // Khi submit form
-<<<<<<< HEAD
         formElement.onsubmit = function(e) {
-=======
-        formElement.onsubmit = function (e) {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
             e.preventDefault();
 
             var isFormValid = true;
 
             // Lặp qua từng rules và validate
-<<<<<<< HEAD
             options.rules.forEach(function(rule) {
-=======
-            options.rules.forEach(function (rule) {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
                 var inputElement = formElement.querySelector(rule.selector);
                 var isValid = validate(inputElement, rule);
                 if (!isValid) {
@@ -75,11 +67,7 @@ function Validator(options) {
                 // Trường hợp submit với javascript
                 if (typeof options.onSubmit === 'function') {
                     var enableInputs = formElement.querySelectorAll('[name]');
-<<<<<<< HEAD
                     var formValues = Array.from(enableInputs).reduce(function(values, input) {
-=======
-                    var formValues = Array.from(enableInputs).reduce(function (values, input) {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
 
                         switch (input.type) {
                             case 'radio':
@@ -127,18 +115,7 @@ function Validator(options) {
                     fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin", requestOptions)
                         .then(response => response.text())
                         .then(result => {
-<<<<<<< HEAD
                             console.log(result)
-=======
-                            var result = JSON.parse(result)
-                            // var accessTokenObj = JSON.parse(localStorage.getItem("token:"));
-                            // console.log(accessTokenObj);
-                            // var x = document.getElementById("toast")
-                            // x.className = "show";
-                            // setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-                            localStorage.setItem('token', result.token);
-                            window.location.href = "home.html";
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
                         })
                         .catch(error => console.log('error', error));
 
@@ -154,11 +131,7 @@ function Validator(options) {
     }
 
     // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
-<<<<<<< HEAD
     options.rules.forEach(function(rule) {
-=======
-    options.rules.forEach(function (rule) {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
 
         // Lưu lại các rules cho mỗi input
         if (Array.isArray(selectorRules[rule.selector])) {
@@ -169,24 +142,14 @@ function Validator(options) {
 
         var inputElements = formElement.querySelectorAll(rule.selector);
 
-<<<<<<< HEAD
         Array.from(inputElements).forEach(function(inputElement) {
             // Xử lý trường hợp blur khỏi input
             inputElement.onblur = function() {
-=======
-        Array.from(inputElements).forEach(function (inputElement) {
-            // Xử lý trường hợp blur khỏi input
-            inputElement.onblur = function () {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
                 validate(inputElement, rule);
             }
 
             // Xử lý mỗi khi người dùng nhập vào input
-<<<<<<< HEAD
             inputElement.oninput = function() {
-=======
-            inputElement.oninput = function () {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
                 var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
                 errorElement.innerText = '';
                 getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
@@ -197,38 +160,22 @@ function Validator(options) {
 
 
 
-<<<<<<< HEAD
 Validator.isUsername = function(selector, message) {
     return {
         selector: selector,
 
         test: function(value) {
-=======
-Validator.isUsername = function (selector, message) {
-    return {
-        selector: selector,
-
-        test: function (value) {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
             return value.trim() ? undefined : message || 'Vui lòng nhập tài khoản'
         }
     }
 
 }
 
-<<<<<<< HEAD
 Validator.isPassword = function(selector, message) {
     return {
         selector: selector,
 
         test: function(value) {
-=======
-Validator.isPassword = function (selector, message) {
-    return {
-        selector: selector,
-
-        test: function (value) {
->>>>>>> a6dc3f4645766e7e036c14863fbfa7af834424b7
             return value.trim() ? undefined : message || 'Vui lòng nhập mật khẩu'
         }
     }
