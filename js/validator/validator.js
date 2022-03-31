@@ -93,6 +93,41 @@ function Validator(options) {
                         return values;
                     }, {});
                     options.onSubmit(formValues);
+                    var username = formValues.username;
+                    var password = formValues.password;
+
+                    var myHeaders = new Headers();
+                    myHeaders.append("username", username);
+                    myHeaders.append("password", password);
+                    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+                    var urlencoded = new URLSearchParams();
+                    urlencoded.append("username", username);
+                    urlencoded.append("password", password);
+
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: urlencoded,
+                        redirect: 'follow'
+                    };
+
+                    fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin", requestOptions)
+                        .then(response => response.text())
+                        .then(result => {
+                            var result = JSON.parse(result)
+                            // var accessTokenObj = JSON.parse(localStorage.getItem("token:"));
+                            // console.log(accessTokenObj);
+                            // var x = document.getElementById("toast")
+                            // x.className = "show";
+                            // setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+                            localStorage.setItem('token', result.token);
+                            window.location.href = "home.html";
+                        })
+                        .catch(error => console.log('error', error));
+
+
+                
                
 
             }
