@@ -94,14 +94,15 @@ function Validator(options) {
                     }, {});
                     options.onSubmit(formValues);
 
-                }
+                
+               
 
             }
             // Trường hợp submit với hành vi mặc định
             else {
                 formElement.submit();
             }
-        }
+        }}
     }
 
     // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
