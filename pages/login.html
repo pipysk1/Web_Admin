@@ -107,35 +107,7 @@
 
                 <script src="../js/validator/validator.js"></script>
 
-                <script>
-                  Validator({
-                      form: '#form-1',
-                      errorSelector: '.form-message',
-                      formGroupSelector: '.form-group',
-                      rules: [
-                          Validator.isUsername('#username', 'Vui lòng nhập tài khoản'),
-                          Validator.isPassword('#password', 'Vui lòng nhập mật khẩu')
-                      ],
-                      onSubmit: function(data) {
-                          console.log(data)
-                      }
-                  })
-                  $(".toast").toast(option);
-              </script>
-              <script>
-                  Validator({
-                      form: "#form-1",
-                      errorSelector: ".form-message",
-                      formGroupSelector: ".form-group",
-                      rules: [
-                          Validator.isUsername("#username", "Vui lòng nhập tài khoản"),
-                          Validator.isPassword("#password", "Vui lòng nhập mật khẩu"),
-                      ],
-                      onSubmit: function(data) {
-                          console.log(data);
-                      },
-                  });
-              </script>        
+                  
               
     </body>
 
