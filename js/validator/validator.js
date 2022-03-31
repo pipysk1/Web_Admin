@@ -49,13 +49,13 @@ function Validator(options) {
     var formElement = document.querySelector(options.form);
     if (formElement) {
         // Khi submit form
-        formElement.onsubmit = function (e) {
+        formElement.onsubmit = function(e) {
             e.preventDefault();
 
             var isFormValid = true;
 
             // Lặp qua từng rules và validate
-            options.rules.forEach(function (rule) {
+            options.rules.forEach(function(rule) {
                 var inputElement = formElement.querySelector(rule.selector);
                 var isValid = validate(inputElement, rule);
                 if (!isValid) {
@@ -67,7 +67,7 @@ function Validator(options) {
                 // Trường hợp submit với javascript
                 if (typeof options.onSubmit === 'function') {
                     var enableInputs = formElement.querySelectorAll('[name]');
-                    var formValues = Array.from(enableInputs).reduce(function (values, input) {
+                    var formValues = Array.from(enableInputs).reduce(function(values, input) {
 
                         switch (input.type) {
                             case 'radio':
@@ -115,14 +115,7 @@ function Validator(options) {
                     fetch("https://hieuhmph12287-lab5.herokuapp.com/admins/loginAdmin", requestOptions)
                         .then(response => response.text())
                         .then(result => {
-                            var result = JSON.parse(result)
-                            // var accessTokenObj = JSON.parse(localStorage.getItem("token:"));
-                            // console.log(accessTokenObj);
-                            // var x = document.getElementById("toast")
-                            // x.className = "show";
-                            // setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-                            localStorage.setItem('token', result.token);
-                            window.location.href = "home.html";
+                            console.log(result)
                         })
                         .catch(error => console.log('error', error));
 
@@ -138,7 +131,7 @@ function Validator(options) {
     }
 
     // Lặp qua mỗi rule và xử lý (lắng nghe sự kiện blur, input, ...)
-    options.rules.forEach(function (rule) {
+    options.rules.forEach(function(rule) {
 
         // Lưu lại các rules cho mỗi input
         if (Array.isArray(selectorRules[rule.selector])) {
@@ -149,14 +142,14 @@ function Validator(options) {
 
         var inputElements = formElement.querySelectorAll(rule.selector);
 
-        Array.from(inputElements).forEach(function (inputElement) {
+        Array.from(inputElements).forEach(function(inputElement) {
             // Xử lý trường hợp blur khỏi input
-            inputElement.onblur = function () {
+            inputElement.onblur = function() {
                 validate(inputElement, rule);
             }
 
             // Xử lý mỗi khi người dùng nhập vào input
-            inputElement.oninput = function () {
+            inputElement.oninput = function() {
                 var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
                 errorElement.innerText = '';
                 getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
@@ -167,22 +160,22 @@ function Validator(options) {
 
 
 
-Validator.isUsername = function (selector, message) {
+Validator.isUsername = function(selector, message) {
     return {
         selector: selector,
 
-        test: function (value) {
+        test: function(value) {
             return value.trim() ? undefined : message || 'Vui lòng nhập tài khoản'
         }
     }
 
 }
 
-Validator.isPassword = function (selector, message) {
+Validator.isPassword = function(selector, message) {
     return {
         selector: selector,
 
-        test: function (value) {
+        test: function(value) {
             return value.trim() ? undefined : message || 'Vui lòng nhập mật khẩu'
         }
     }
