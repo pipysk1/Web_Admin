@@ -31,9 +31,8 @@ function renderProducts(products) {
         <th>${product.gender}</th>
         <th>${product.type}</th>
         <th><img style="width:70%;height:100px" src="${product.src}"/></th>
-        <th>"Xem"</th>
-        <th>Edit</th>
-        <th>Xóa</th>
+        <th><button>Sửa</button></th>
+        <th><button>Xóa</button></th>
 
         </tr>
         `
