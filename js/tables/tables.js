@@ -1,18 +1,7 @@
 
-const loader = document.querySelector("#loading");
 
 // showing loading
-function displayLoading() {
-    loader.classList.add("display");
-    // to stop loading after some time
-    setTimeout(() => {
-        loader.classList.remove("display");
-    }, 5000);
-}
 
-function hideLoading() {
-    loader.classList.remove("display");
-}
 
 
 var token = localStorage.getItem('token');
@@ -33,18 +22,18 @@ async function getAllProducts(callback) {
         .then(function (response) {
             hideLoading()
 
-        .then(function(response) {
+                .then(function (response) {
 
-            return response.json();
-        }).then(callback);
-}
+                    return response.json();
+                }).then(callback);
+        }
 
 function renderProducts(products) {
-    var tbody = document.querySelector('#data');
-    var seq = 0;
+                var tbody = document.querySelector('#data');
+                var seq = 0;
 
-    var htmls = products.map(function(product) {
-        return `
+                var htmls = products.map(function (product) {
+                    return `
         <tr>
         <th>${seq += 1}</th>
         <th>${product.name}</th>
@@ -61,8 +50,8 @@ function renderProducts(products) {
         </tr>
         `
 
-    });
-    tbody.innerHTML = htmls.join('');
+                });
+                tbody.innerHTML = htmls.join('');
 
-    // }
-}
+                // }
+            }
