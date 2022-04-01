@@ -1,5 +1,3 @@
-
-
 // showing loading
 
 
@@ -14,21 +12,21 @@ function start() {
 }
 start();
 
-        async function getAllProducts(callback) {
-            displayLoading()
-            await fetch(fasionApi)
-                .then(function (response) {
-                    hideLoading()
-                    return response.json();
-                }).then(callback);
-        }
+async function getAllProducts(callback) {
+    displayLoading()
+    await fetch(fasionApi)
+        .then(function(response) {
+            hideLoading()
+            return response.json();
+        }).then(callback);
+}
 
 function renderProducts(products) {
-                var tbody = document.querySelector('#data');
-                var seq = 0;
+    var tbody = document.querySelector('#data');
+    var seq = 0;
 
-                var htmls = products.map(function (product) {
-                    return `
+    var htmls = products.map(function(product) {
+        return `
         <tr>
         <th>${seq += 1}</th>
         <th>${product.name}</th>
@@ -45,8 +43,8 @@ function renderProducts(products) {
         </tr>
         `
 
-                });
-                tbody.innerHTML = htmls.join('');
+    });
+    tbody.innerHTML = htmls.join('');
 
-                // }
-            }
+    // }
+}
