@@ -2,20 +2,22 @@
 
 
 
+
 var token = localStorage.getItem('token');
 // console.log(token);
+var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
 var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=' + token;
 
 function start() {
     getAllProducts(renderProducts);
-
+    pagesAddProduct();
 }
 start();
 
 async function getAllProducts(callback) {
     displayLoading()
-    await fetch(fasionApi)
+    await fetch(url + 'products/getProducts' + '?token=' + token)
         .then(function(response) {
             hideLoading()
             return response.json();
@@ -59,4 +61,11 @@ function handleDeleteProduct() {
 
 function handleEditProduct() {
 
+}
+
+function pagesAddProduct() {
+    var btnAddProducts = document.querySelector('.form-submit');
+    btnAddProducts.onclick = function() {
+        window.location.href = "addProduct.html";
+    }
 }
