@@ -1,3 +1,20 @@
+
+const loader = document.querySelector("#loading");
+
+// showing loading
+function displayLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+
+function hideLoading() {
+    loader.classList.remove("display");
+}
+
+
 var token = localStorage.getItem('token');
 // console.log(token);
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
@@ -10,8 +27,14 @@ function start() {
 start();
 
 async function getAllProducts(callback) {
+    displayLoading()
     await fetch(fasionApi)
+
+        .then(function (response) {
+            hideLoading()
+
         .then(function(response) {
+
             return response.json();
         }).then(callback);
 }
