@@ -1,52 +1,53 @@
 var token = localStorage.getItem('token');
 // console.log(token);
-// var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
+var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
 var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=' + token;
 
 function start() {
-    // getAllProducts(renderProducts);
+    getAllProducts(renderProducts);
     handleCreateForm();
 }
 start();
 
-// async function getAllProducts(callback) {
-//     await fetch(fasionApi)
-//         .then(function (response) {
-//             return response.json();
-//         }).then(callback);
-// }
+async function getAllProducts(callback) {
+    await fetch(fasionApi)
+        .then(function(response) {
+            return response.json();
+        }).then(callback);
+}
 
-// function renderProducts(products) {
-//     var tbody = document.querySelector('#data');
-//     var seq = 0;
+function renderProducts(products) {
+    var tbody = document.querySelector('#data');
+    var seq = 0;
 
-//     var htmls = products.map(function (product) {
-//         return `
-//         <tr>
-//         <th>${seq += 1}</th>
-//         <th>${product.name}</th>
-//         <th>${product.status}</th>
-//         <th>${product.old_price}</th>
-//         <th>${product.price}</th>
-//         <th>${product.gender}</th>
-//         <th>${product.type}</th>
-//         <th><img style="width:70%;height:100px" src="${product.src}"/></th>
-//         <th>"Xem"</th>
-//         <th>Edit</th>
-//         <th>Xóa</th>
+    var htmls = products.map(function(product) {
+        return `
+        <tr>
+        <th>${seq += 1}</th>
+        <th>${product.name}</th>
+        <th>${product.status}</th>
+        <th>${product.old_price}</th>
+        <th>${product.price}</th>
+        <th>${product.gender}</th>
+        <th>${product.type}</th>
+        <th><img style="width:70%;height:100px" src="${product.src}"/></th>
+        <th>"Xem"</th>
+        <th>Edit</th>
+        <th>Xóa</th>
 
-//         </tr>
-//         `
+        </tr>
+        `
 
-//     });
-//     tbody.innerHTML = htmls.join('');
-//     // tableHead.innerHTML = htmls.join('');
-// }
+    });
+    tbody.innerHTML = htmls.join('');
+    //     // tableHead.innerHTML = htmls.join('');
+    // }
+}
 
 function handleCreateForm() {
 
     var createBtn = document.querySelector('#create');
-    createBtn.onclick = function (e) {
+    createBtn.onclick = function(e) {
         e.preventDefault();
         var name_products = document.querySelector('input[name="name_products"]').value;
         var status = document.querySelector('input[name="optionsRadios"]').value;
@@ -79,7 +80,7 @@ function handleCreateForm() {
     }
 }
 
-$(".image-box").click(function (event) {
+$(".image-box").click(function(event) {
     var previewImg = $(this).children("img");
 
     $(this)
@@ -90,10 +91,10 @@ $(".image-box").click(function (event) {
     $(this)
         .siblings()
         .children("input")
-        .change(function () {
+        .change(function() {
             var reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 var urll = e.target.result;
                 $(previewImg).attr("src", urll);
                 previewImg.parent().css("background", "transparent");
