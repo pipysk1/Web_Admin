@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <!-- <script src="../api/login.js"></script>     -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <title>Fasion-Admin</title>
 
@@ -16,6 +17,12 @@
 
     <!-- MetisMenu CSS -->
     <link href="../css/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- DataTables CSS -->
+    <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../css/dataTables/dataTables.responsive.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link href="../css/startmin.css" rel="stylesheet" />
@@ -32,57 +39,116 @@
 </head>
 
 <body>
-    <div class="notify"><span id="notifyType" class=""></span></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div id="logo"><img src="../img/icon_fasions_1.png" /></div>
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Đăng nhập</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" id="form-1" action="" method="POST">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" id="username" placeholder="Username" name="username" type="text" autofocus />
-                                    <span class="form-message"></span>
-                                </div>
+    <div id="wrapper">
+        <!-- Navigation -->
 
-                                <div class="form-group">
-                                    <input class="form-control" id="password" placeholder="Password" name="password" type="password" value="" />
-                                    <span class="form-message"></span>
-                                </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-                                <div class="checkbox">
-                                    <label>
-                      <input
-                        name="remember"
-                        type="checkbox"
-                        value="Remember Me"
-                      />Nhớ mật khẩu
-                    </label>
-                                </div>
+        <!-- /.navbar-top-links -->
 
-                                <!-- Change this to a button or input when using this as a form -->
-                                <!-- <a href="home.html" class="btn btn-lg btn-success btn-block">Đăng nhập</a> -->
-                                <button class="btn form-submit btn-lg btn-success btn-block" type="submit">
-                    Đăng nhập
-                  </button>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Change this to a button or input when using this as a form -->
-                <!-- <a href="home.html" class="btn btn-lg btn-success btn-block">Đăng nhập</a> -->
-                </fieldset>
-                </form>
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+            <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right; margin-bottom: 72px">
+          &#9776;
+        </button>
+            <div class="navi">
+                <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a
+          >
+          <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
+                <a href="status.html" class="w3-bar-item w3-button">Process Bills</a>
             </div>
         </div>
+
+        <div id="main" style="margin-left: 290px">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
+              >
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="login.html"
+                ><i class="fa fa-sign-out fa-fw"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <div class="navedit">
+          <button
+            id="openNav"
+            class="w3-button w3-xlarge"
+            onclick="w3_open()"
+            style="display: none"
+          >
+            &#9776;
+          </button>
+        </div>
+
+        <div id="page-wrapper">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1 class="page-header">Home</h1>
+              </div>
+              <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Danh sách sản phẩm</div>
+
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-striped table-bordered table-hover"
+                        id="dataTables-example"
+                      >
+                        <thead>
+                          <tr>
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Trạng thái sản phẩm</th>
+                            <th>Giá cũ sản phẩm</th>
+                            <th>Giá mới sản phẩm</th>
+                            <th>Giới tính</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Ảnh sản phẩm</th>
+                            <th>Chi tiết sản phẩm</th>
+                            <th>Sửa Thông tin sản phẩm</th>
+                            <th>Xóa sản phẩm</th>
+                          </tr>
+                        </thead>
+                        <tbody id="data">
+                          <div id="loading"></div>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                  </div>
+                  <!-- /.panel-body -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+      </div>
     </div>
-    </div>
-    </div>
+
+    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../js/jquery.min.js"></script>
@@ -93,27 +159,38 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../js/metisMenu.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="../js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
+    <script src="../js/loading.js"></script>
 
-    <script src="../js/validator/validator.js"></script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-        $(".toast").toast(option);
-    </script>
-    <script>
-        Validator({
-            form: "#form-1",
-            errorSelector: ".form-message",
-            formGroupSelector: ".form-group",
-            rules: [
-                Validator.isUsername("#username", "Vui lòng nhập tài khoản"),
-                Validator.isPassword("#password", "Vui lòng nhập mật khẩu"),
-            ],
-            onSubmit: function(data) {
-                console.log(data);
-            },
+      $(document).ready(function () {
+        $("#dataTables-example").DataTable({
+          responsive: true,
         });
+      });
     </script>
-</body>
+    <script src="../js/tables/tables.js"></script>
+    <script>
+      function w3_open() {
+        document.getElementById("main").style.marginLeft = "20%";
+        document.getElementById("mySidebar").style.width = "20%";
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("openNav").style.display = "none";
+      }
+      function w3_close() {
+        document.getElementById("main").style.marginLeft = "0%";
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("openNav").style.display = "inline-block";
 
+        //   document.getElementById("closeNav").style.display = 'none';
+        //   document.getElementById("closeNav").style.marginLeft = "25%";
+      }
+    </script>
+  </body>
 </html>
