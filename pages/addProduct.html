@@ -38,7 +38,7 @@
         <!-- Navigation -->
 
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -47,197 +47,196 @@
 
 
 
-            <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
 
-                <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()"
-                    style="float: right;margin-bottom: 72px;">&#9776;</button>
-                <div class="navi">
-                    <a href="./home.html" class="w3-bar-item w3-button">Home</a>
-                    <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
-                    <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
-                    <a href="status.html" class="w3-bar-item w3-button">Process Bills</a>
-                </div>
-
+            <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right;margin-bottom: 72px;">&#9776;</button>
+            <div class="navi">
+                <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
+                <a href="status.html" class="w3-bar-item w3-button">Process Bills</a>
             </div>
 
-            <div id="main" style="margin-left:290px">
+        </div>
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li>
-                            <a href="./changePassword.html"
-                              ><i class="fa fa-user fa-fw"></i> Change Password</a
+        <div id="main" style="margin-left:290px">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
                             >
                           </li>
                         <li class="divider"></li>
                         <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
+                    </li>
+                </ul>
+            </li>
 
-                <div class="navedit">
-
-
-
-                    <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()" style="display: none;">&#9776;</button>
-
-                </div>
-                <!-- /.navbar-static-side -->
+            <div class="navedit">
 
 
-                <div id="page-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h1 class="page-header">Thêm sản phẩm</h1>
-                            </div>
-                            <!-- /.col-lg-12 -->
+
+                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()" style="display: none;">&#9776;</button>
+
+            </div>
+            <!-- /.navbar-static-side -->
+
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Thêm sản phẩm</h1>
                         </div>
-                        <!-- /.row -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        Thêm sản phẩm
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <form role="form">
-                                                    <div class="form-group">
-                                                        <label>Tên sản phẩm</label>
-                                                        <input class="form-control" placeholder="Tên sản phẩm"
-                                                            type="text">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Status</label>
-                                                        <div class="radio">
-                                                            <label>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Thêm sản phẩm
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <form role="form">
+                                                <div class="form-group">
+                                                    <label>Tên sản phẩm</label>
+                                                    <input class="form-control" placeholder="Tên sản phẩm" type="text" name="name_products">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Status</label>
+                                                    <div class="radio">
+                                                        <label>
                                                                 <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios1" value="option1" checked>Hot
+                                                                    id="optionsRadios1" value="Hot Trending" checked>Hot
                                                                 Trending
                                                             </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios2" value="option2">New Arrival
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios3" value="option3">Hot Sale
-                                                            </label>
-                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Giới tính</label>
-                                                        <div class="radio">
-                                                            <label>
+                                                    <div class="radio">
+                                                        <label>
                                                                 <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios1" value="option1" checked>Nam
+                                                                    id="optionsRadios2" value="New Arrival">New Arrival
                                                             </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios2" value="option2">Nữ
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios3" value="option3">Khác
-                                                            </label>
-                                                        </div>
                                                     </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                    id="optionsRadios3" value="Hot Sale">Hot Sale
+                                                            </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Giới tính</label>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios1"
+                                                                    id="optionsRadios1" value="Nam" checked>Nam
+                                                            </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios1"
+                                                                    id="optionsRadios2" value="Nữ">Nữ
+                                                            </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios1"
+                                                                    id="optionsRadios3" value="Khác">Khác
+                                                            </label>
+                                                    </div>
+                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label>Loại sản phẩm</label>
-                                                        <select class="form-control">
+                                                <div class="form-group">
+                                                    <label>Loại sản phẩm</label>
+                                                    <select class="form-control" id="list-type">
                                                             <option>Áo khoác</option>
                                                             <option>Áo thun</option>
                                                             <option>Áo Vest</option>
                                                             <option>Giày</option>
                                                             <option>Túi sách</option>
                                                         </select>
-                                                    </div>
+                                                </div>
 
-                                                    <div class="form-group">
-                                                        <label>File input</label>
-                                                        <input type="file">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Giá sản phẩm</label>
-                                                        <input class="form-control" placeholder="Giá sản phẩm"
-                                                            type="number">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Giá cũ sản phẩm</label>
-                                                        <input class="form-control" placeholder="Giá sản phẩm"
-                                                            type="number">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Mô tả sản phẩm</label>
-                                                        <textarea class="form-control" rows="3"></textarea>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <label>File input</label>
+                                                    <input type="file" id="imgFile">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Bộ sưu tập</label>
+                                                    <input class="form-control" placeholder="Bộ sưu tập" type="text" name="collection_id">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Giá sản phẩm</label>
+                                                    <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Giá cũ sản phẩm</label>
+                                                    <input name="numberold" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Mô tả sản phẩm</label>
+                                                    <textarea id="product_detail" class="form-control" rows="3"></textarea>
+                                                </div>
 
-
-
-
-                                                    <button type="submit" class="btn btn-default">Submit Button</button>
-                                                    <button type="reset" class="btn btn-default">Reset Button</button>
-                                                </form>
-                                            </div>
+                                                <button id="create" class="btn btn-default">Create</button>
+                                                <button type="reset" class="btn btn-default">Reset Button</button>
+                                            </form>
                                         </div>
-                                        <!-- /.row (nested) -->
                                     </div>
-                                    <!-- /.panel-body -->
+                                    <!-- /.row (nested) -->
                                 </div>
-                                <!-- /.panel -->
+                                <!-- /.panel-body -->
                             </div>
-                            <!-- /.col-lg-12 -->
+                            <!-- /.panel -->
                         </div>
-                        <!-- /.row -->
+                        <!-- /.col-lg-12 -->
                     </div>
-                    <!-- /.container-fluid -->
+                    <!-- /.row -->
                 </div>
-                <!-- /#page-wrapper -->
-
+                <!-- /.container-fluid -->
             </div>
-            <!-- /#wrapper -->
+            <!-- /#page-wrapper -->
 
-            <!-- jQuery -->
-            <script src="../js/jquery.min.js"></script>
+        </div>
+        <!-- /#wrapper -->
 
-            <!-- Bootstrap Core JavaScript -->
-            <script src="../js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
 
-            <!-- Metis Menu Plugin JavaScript -->
-            <script src="../js/metisMenu.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
 
-            <!-- Custom Theme JavaScript -->
-            <script src="../js/startmin.js"></script>
-            <script>
-                function w3_open() {
-                  document.getElementById("main").style.marginLeft = "20%";
-                  document.getElementById("mySidebar").style.width = "20%";
-                  document.getElementById("mySidebar").style.display = "block";
-                  document.getElementById("openNav").style.display = "none";
-                }
-                function w3_close() {
-                  document.getElementById("main").style.marginLeft = "0%";
-                  document.getElementById("mySidebar").style.display = "none";
-                  document.getElementById("openNav").style.display = "inline-block";
-          
-                  //   document.getElementById("closeNav").style.display = 'none';
-                  //   document.getElementById("closeNav").style.marginLeft = "25%";
-                }
-              </script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../js/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../js/startmin.js"></script>
+        <script>
+            function w3_open() {
+                document.getElementById("main").style.marginLeft = "20%";
+                document.getElementById("mySidebar").style.width = "20%";
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("openNav").style.display = "none";
+            }
+
+            function w3_close() {
+                document.getElementById("main").style.marginLeft = "0%";
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("openNav").style.display = "inline-block";
+
+                //   document.getElementById("closeNav").style.display = 'none';
+                //   document.getElementById("closeNav").style.marginLeft = "25%";
+            }
+        </script>
+
+        <script src="../js/tables/tables.js"></script>
 </body>
 
 </html>
