@@ -11,19 +11,14 @@ var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduc
 
 function start() {
     getAllProducts(renderProducts);
-    handleCreateForm();
 }
 start();
 
-async function getAllProducts(callback) {
-    displayLoading()
-    await fetch(fasionApi)
-
-        .then(function (response) {
-            hideLoading()
-
+        async function getAllProducts(callback) {
+            displayLoading()
+            await fetch(fasionApi)
                 .then(function (response) {
-
+                    hideLoading()
                     return response.json();
                 }).then(callback);
         }
