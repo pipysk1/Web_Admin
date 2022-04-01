@@ -1,3 +1,7 @@
+var token = localStorage.getItem('token');
+var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
+
+
 function handleCreateForm() {
 
     var createBtn = document.querySelector('#create');
@@ -12,6 +16,8 @@ function handleCreateForm() {
         var price = document.querySelector('input[name="numbernew"]').value;
         var old_price = document.querySelector('input[name="numberold"]').value;
         var product_detail = document.getElementById('product_detail').value;
+
+
         var formData = new FormData();
         formData.append("name", name_products);
         formData.append("gender", gender);
@@ -22,17 +28,32 @@ function handleCreateForm() {
         formData.append("collection_id", collection_id);
         formData.append("type", type);
         formData.append("file", file);
-        console.log(file)
-        var requestOptions = {
-            method: 'POST',
-            body: formData,
-            redirect: 'follow'
-        };
-        fetch("https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIzYWQyMTMxMzhiNjUwMDIzNmMwZGM1IiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY0ODcyNDE3MiwiZXhwIjoxNjQ4ODEwNTcyfQ.8LnZ5rGBqOQtXbXmDgta6WbsuwGblflnqonUShj-2Ew", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        createProduct(formData);
+
     }
+}
+
+function createProduct(data) {
+    var requestOptions = {
+        method: 'POST',
+        body: data,
+        redirect: 'follow'
+    };
+    fetch(url + "products/addProduct?token=" + token, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                alert("Thêm sản phẩm không thành công");
+                throw new Error('Network response was not OK');
+
+            } else {
+                window.location.href = "home.html";
+                return response.text();
+            }
+
+        })
+
+    .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
 
 $(".image-box").click(function(event) {
@@ -59,5 +80,4 @@ $(".image-box").click(function(event) {
             reader.readAsDataURL(this.files[0]);
         });
 });
-
 handleCreateForm();
