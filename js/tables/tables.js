@@ -9,6 +9,7 @@ var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduc
 
 function start() {
     getAllProducts(renderProducts);
+
 }
 start();
 
@@ -36,15 +37,26 @@ function renderProducts(products) {
         <th>${product.gender}</th>
         <th>${product.type}</th>
         <th><img style="width:70%;height:100px" src="${product.src}"/></th>
-        <th>"Xem"</th>
-        <th>Edit</th>
-        <th>Xóa</th>
+        <th><button id="edit">Sửa</button></th>
+        <th><button id="delete">Xóa</button></th>
 
         </tr>
         `
 
     });
     tbody.innerHTML = htmls.join('');
+    handleDeleteProduct();
+}
 
-    // }
+function handleDeleteProduct() {
+    var deleteProduct = document.getElementById('delete');
+    console.log(deleteProduct);
+    deleteProduct.onclick = function(e) {
+        e.preventDefault();
+        alert("Chức năng này đang được phát triển");
+    }
+}
+
+function handleEditProduct() {
+
 }
