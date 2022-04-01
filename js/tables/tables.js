@@ -1,3 +1,4 @@
+
 const loader = document.querySelector("#loading");
 
 // showing loading
@@ -13,31 +14,36 @@ function hideLoading() {
     loader.classList.remove("display");
 }
 
+
 var token = localStorage.getItem('token');
-console.log(token);
+// console.log(token);
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
+var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=' + token;
+
 function start() {
     getAllProducts(renderProducts);
+    handleCreateForm();
 }
 start();
 
 async function getAllProducts(callback) {
     displayLoading()
     await fetch(fasionApi)
+
         .then(function (response) {
             hideLoading()
+
+        .then(function(response) {
+
             return response.json();
         }).then(callback);
 }
 
 function renderProducts(products) {
-    var listProducts = document.querySelector('#list-products');
-    var tableHead = document.querySelector('thead');
-    var tBodyHead = document.querySelector('tbody');
     var tbody = document.querySelector('#data');
     var seq = 0;
 
-    var htmls = products.map(function (product) {
+    var htmls = products.map(function(product) {
         return `
         <tr>
         <th>${seq += 1}</th>
@@ -51,11 +57,12 @@ function renderProducts(products) {
         <th>"Xem"</th>
         <th>Edit</th>
         <th>Xóa</th>
-        
+
         </tr>
         `
 
     });
     tbody.innerHTML = htmls.join('');
-    // tableHead.innerHTML = htmls.join('');
+
+    // }
 }
