@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <title>Fasion-Admin</title>
-
+    <link rel="stylesheet" href="../css/update.css">
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
@@ -111,6 +111,12 @@
                     <div><button class="form-submit">Add New Product</button></div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
+                    <div>
+                      <input type="text" placeholder="name" id="name">
+                    </div>
+                    <div>
+                      <input type="text" placeholder="status" id="status">
+                    </div>
                     <div class="table-responsive">
                       <table
                         class="table table-striped table-bordered table-hover"
@@ -131,7 +137,7 @@
                           </tr>
                         </thead>
                         <tbody id="data">
-                          <div id="loading"></div>
+                          <div id="loading"></div>              
                         </tbody>
                       </table>
                     </div>
@@ -147,7 +153,110 @@
         <!-- /#page-wrapper -->
       </div>
     </div>
+    <!-- modal -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Nội dung form đăng nhập -->
+  <div class="modal-content">
+      <form action="#">
+          <span class="close">&times;</span>
+          <h2>Sửa sản phẩm</h2>
+          <div class="form-group">
+            <label>Tên sản phẩm</label>
+            <input id="nameproduct" class="form-control" placeholder="Tên sản phẩm" type="text" name="name_products">
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <div class="radio">
+              <label>
+                      <input type="radio" name="optionsRadios"
+                          id="optionsRadios1" value="Hot Trending" checked>Hot
+                      Trending
+                  </label>
+          </div>
+          <div class="radio">
+              <label>
+                      <input type="radio" name="optionsRadios"
+                          id="optionsRadios2" value="New Arrival">New Arrival
+                  </label>
+          </div>
+          <div class="radio">
+              <label>
+                      <input type="radio" name="optionsRadios"
+                          id="optionsRadios3" value="Hot Sale">Hot Sale
+                  </label>
+          </div>
+      </div>
+      <div class="form-group">
+        <label>Giới tính</label>
+        <div class="radio">
+            <label>
+                    <input type="radio" name="optionsRadios1"
+                        id="optionsRadios1" value="Nam" checked>Nam
+                </label>
+        </div>
+        <div class="radio">
+            <label>
+                    <input type="radio" name="optionsRadios1"
+                        id="optionsRadios2" value="Nữ">Nữ
+                </label>
+        </div>
+        <div class="radio">
+            <label>
+                    <input type="radio" name="optionsRadios1"
+                        id="optionsRadios3" value="Khác">Khác
+                </label>
+        </div>
+    </div>
 
+    <div class="form-group">
+        <label>Loại sản phẩm</label>
+        <select class="form-control" id="list-type">
+                <option>Áo khoác</option>
+                <option>Áo thun</option>
+                <option>Áo Vest</option>
+                <option>Giày</option>
+                <option>Túi sách</option>
+            </select>
+    </div>
+
+    <div class="col-ting">
+        <div class="control-group file-upload" id="file-upload1">
+            <div class="image-box text-center">
+                <p>Upload Image</p>
+                <img src="" alt="">
+            </div>
+            <div class="controls" style="display: none;">
+                <input type="file" name="contact_image_1" id="imgFile" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Bộ sưu tập</label>
+        <input class="form-control" placeholder="Bộ sưu tập" type="text" name="collection_id">
+    </div>
+    <div class="form-group">
+        <label>Giá sản phẩm</label>
+        <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
+    </div>
+    <div class="form-group">
+        <label>Giá cũ sản phẩm</label>
+        <input name="numberold" class="form-control" placeholder="Giá sản phẩm" type="number">
+    </div>
+    <div class="form-group">
+        <label>Mô tả sản phẩm</label>
+        <textarea id="product_detail" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="btn-add">
+        <button id="create" class="btn btn-default form-submit btn-lg btn-success btn-block">Create</button>
+        <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset Button</button>
+    </div>
+      </form>
+  </div>
+</div>
+<!-- end -->
+ 
     <!-- /#wrapper -->
 
     <!-- jQuery -->
