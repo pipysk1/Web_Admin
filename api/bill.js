@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		<td>${data[i].status}</td>
 		<td>${data[i].discount_value}</td>
 		<td>${data[i].payment_type}</td>
-		<td ><a href="/pages/editBill.html"   onclick="detailBill('${data[i].bill_id}')" class="fa fa-edit fa-fw"></a></td>
-		<td ><a href="/pages/editBill.html" class="fa-trash"></a></td>
+		<td ><a href="editBill.html"   onclick="detailBill('${data[i].bill_id}')" class="fa fa-edit fa-fw"></a></td>
 	</tr>`;
                 }
             }
@@ -36,7 +35,8 @@ function detailBill(id) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].bill_id == id)
             localStorage.setItem('id_bill', data[i].bill_id)
-        console.log(id)
+            
+    
     }
 
 }

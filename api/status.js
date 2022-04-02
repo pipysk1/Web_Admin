@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		<td>${data[i].status}</td>
 		<td>${data[i].discount_id}</td>
 		<td>${data[i].payment_type}</td>
-		<td ><a href="/pages/editBill.html" class="fa fa-edit fa-fw"></a></td>
-		<td ><a href="/pages/editBill.html" class="fa-trash"></a></td>
+		<td ><a href="editBill.html" class="fa fa-edit fa-fw"></a></td>
 	</tr>`;
                 }
             }
