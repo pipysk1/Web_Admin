@@ -87,7 +87,7 @@ function createProduct(data) {
 }
 
 
-}
+
 
 $(".image-box").click(function(event) {
     var previewImg = $(this).children("img");
