@@ -1,6 +1,7 @@
 
 var token = localStorage.getItem('token');
 
+
 document.addEventListener("DOMContentLoaded", function () {
   var xhr = new XMLHttpRequest();
   displayLoading();
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         hideLoading();
         var data = JSON.parse(this.responseText);
         for (let i = 0; i < data.length; i++) {
-          document.querySelector("#dataTables-example").innerHTML += `<tr>
+          document.querySelector("#main_table").innerHTML += `<tr>
 		<th scope="row">${data[i].bill_id}</th>
     <td>${data[i].product[0].name}</td>
 		<td>${data[i].phone_number}</td>
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		<td ><a href="/pages/editBill.html" class="fa fa-edit fa-fw"></a></td>
 		<td ><a href="/pages/editBill.html" class="fa-trash"></a></td>
 	</tr>`;
+
         }
       }
     }
@@ -30,3 +32,4 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   xhr.send();
 });
+

@@ -29,6 +29,7 @@ function renderProducts(products) {
     var seq = 0;
 
     var htmls = products.map(function(product) {
+        console.log(product.name)
         return `
         <tr>
         <th>${seq += 1}</th>
@@ -46,6 +47,7 @@ function renderProducts(products) {
         `
 
     });
+
     tbody.innerHTML = htmls.join('');
     handleDeleteProduct();
 }

@@ -11,12 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 var data = JSON.parse(this.responseText);
                 for (let i = 0; i < data.length; i++) {
                     document.querySelector("#main_table").innerHTML += `<tr>
-		<th scope="row">${data[i].bill_id}</th>
-        <td>${data[i].product[0].name}</td>
+		<th scope="row">${data[i]._id}</th>
+        <td>${data[i].email}</td>
 		<td>${data[i].phone_number}</td>
-		<td>${data[i].status}</td>
-		<td>${data[i].discount_id}</td>
-		<td>${data[i].payment_type}</td>
+		<td>${data[i].full_name}</td>
 		<td ><a href="/pages/editBill.html" class="fa fa-edit fa-fw"></a></td>
 		<td ><a href="/pages/editBill.html" class="fa-trash"></a></td>
 	</tr>`;
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     xhr.open(
         "GET",
-        "https://hieuhmph12287-lab5.herokuapp.com/bills/getProcessBills?token=" + token
+        "https://hieuhmph12287-lab5.herokuapp.com/users/getAllUsers?token=" + token
     );
     xhr.send();
 });
