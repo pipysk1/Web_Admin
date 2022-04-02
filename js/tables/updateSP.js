@@ -25,8 +25,8 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var name_products = document.querySelector('input[name="name_products"]').value = data[i].name;
-            var status = document.querySelector('input[name="optionsRadios"]').value = data[i].status;
-            var gender = document.querySelector('input[name="optionsRadios1"]').value = data[i].gender;
+            var status = document.getElementById('list-type2').value = data[i].status;
+            var gender = document.getElementById('list-type1').value = data[i].gender;
             var type = document.getElementById('list-type').value = data[i].type;
             let file = document.getElementById("imgFile").files[0] = data[i].file;
             var collection_id = document.querySelector('input[name="collection_id"]').value = data[i].collection_id;
@@ -39,8 +39,8 @@ function renderProducts(products) {
     createBtn.onclick = function(e) {
         e.preventDefault();
         name_products = document.querySelector('input[name="name_products"]').value;
-        status = document.querySelector('input[name="optionsRadios"]').value;
-        gender = document.querySelector('input[name="optionsRadios1"]').value;
+        status = document.getElementById('list-type2').value;
+        gender = document.getElementById('list-type1').value;
         type = document.getElementById('list-type').value;
         file = document.getElementById("imgFile").files[0];
         collection_id = document.querySelector('input[name="collection_id"]').value;
@@ -49,6 +49,7 @@ function renderProducts(products) {
         product_detail = document.getElementById('product_detail').value;
         console.log(status)
         var formData = new FormData();
+        formData.append("product_id", id);
         formData.append("name", name_products);
         formData.append("gender", gender);
         formData.append("price", price);
