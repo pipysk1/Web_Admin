@@ -948,7 +948,7 @@ table.dataTable thead .sorting:after {
   to {
     transform: rotate(360deg);
   }
-
+}
 .col-ting {
   width: 25em;
   margin: 0 auto;
@@ -998,4 +998,9 @@ table.dataTable thead .sorting:after {
   width: 50%;
   padding: 10px;
 
+}
+.form-add{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < data.length; i++) {
           document.querySelector("#dataTables-example").innerHTML += `<tr>
 		<th scope="row">${data[i].bill_id}</th>
-    <td>${data[i].product}</td>
+    <td>${data[i].product[0].name}</td>
 		<td>${data[i].phone_number}</td>
 		<td>${data[i].status}</td>
 		<td>${data[i].discount_id}</td>
