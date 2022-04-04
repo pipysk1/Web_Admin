@@ -32,17 +32,8 @@ function handleLogin(data) {
         })
         .then(result => {
             var result = JSON.parse(result)
-                // $(".notify").toggleClass("active");
-                // $("#notifyType").toggleClass("success");
-                // setTimeout(function() {
-                //     $(".notify").removeClass("active");
-                //     $("#notifyType").removeClass("success");
-                // }, 2000);
-
             localStorage.setItem('token', result.token);
 
-
-            // window.location.href = "home.html";
         })
         .catch(error => console.log('error', error));
     $(".notify").addClass("active");

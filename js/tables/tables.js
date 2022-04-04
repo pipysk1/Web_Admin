@@ -46,32 +46,10 @@ function renderProducts(products) {
         <th><img style="width:70%;height:100px" src="${data[i].src}"/></th>
         <th><button id="myBtn" onclick="handleEditProduct('${data[i].product_id}')">Sửa</button></th>
         <th><button onclick="handleDeleteProduct()">Xóa</button></th>
+        <th><button onclick="handleAddVariant('${data[i].product_id}')">Tạo loại sản phẩm</button></th>
         </tr>
         `
     }
-
-
-    // var htmls = products.map(function(product) {
-
-    //     return `
-    //         <tr id="${product.product_id}">
-    //         <th>${seq += 1}</td>
-    //         <th >${product.name}</th>
-    //         <th>${product.status}</th>
-    //         <th>${product.old_price}</th>
-    //         <th>${product.price}</th>
-    //         <th>${product.gender}</th>
-    //         <th>${product.type}</th>
-    //         <th><img style="width:70%;height:100px" src="${product.src}"/></th>
-    //         <th><button id="myBtn" onclick="handleEditProduct()">Sửa</button></th>
-    //         <th><button onclick="handleDeleteProduct()">Xóa</button></th>
-    //         </tr>
-    //         `
-    // });
-
-    // tbody.innerHTML = htmls.join('');
-
-    // handleEditProduct();
 }
 
 function handleDeleteProduct() {
@@ -79,6 +57,14 @@ function handleDeleteProduct() {
     alert("đang update")
 }
 
+function handleAddVariant(id) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].product_id == id) {
+            localStorage.setItem('id', data[i].product_id);
+            window.location.href = "addVariant.html";
+        }
+    }
+}
 
 
 
@@ -90,22 +76,6 @@ function handleEditProduct(id) {
             window.location.href = "updateProduct.html";
         }
     }
-
-    // var editProduct = document.getElementById('myBtn');
-    // var modal = document.getElementById('myModal');
-    // var btn = document.getElementById("myBtn");
-    // var span = document.getElementsByClassName("close")[0];
-    // btn.onclick = function() {
-    //     modal.style.display = "block";
-    // }
-    // span.onclick = function() {
-    //     modal.style.display = "none";
-    // }
-    // window.onclick = function(event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
 }
 
 
