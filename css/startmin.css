@@ -893,57 +893,66 @@ table.dataTable thead .sorting:after {
 #loading.display {
     visibility: visible;
 }
-
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-    .col-ting {
-        width: 25em;
-        margin: 0 auto;
-        margin-top: 3em;
-        margin-bottom: 3em;
-    }
-    .col-ting {
-        width: 25em;
-        margin: 0 auto;
-        margin-top: 3em;
-        margin-bottom: 3em;
-    }
-    .col-ting {
-        width: 25em;
-        margin: 0 auto;
-        margin-top: 3em;
-        margin-bottom: 3em;
-    }
-    .file-upload .image-box {
-        margin: 0 auto;
-        margin-top: 1em;
-        height: 15em;
-        width: 20em;
-        background: #777;
-        cursor: pointer;
-        overflow: hidden;
-    }
-    .file-upload .image-box img {
-        height: 100%;
-        display: none;
-    }
-    .file-upload .image-box p {
-        position: relative;
-        top: 45%;
-        color: #fff;
-    }
-    .form-add {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
-    }
-    .btn-add {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.col-ting {
+  width: 25em;
+  margin: 0 auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.col-ting {
+  width: 25em;
+  margin: 0 auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.col-ting {
+  width: 25em;
+  margin: 0 auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.file-upload .image-box {
+  margin: 0 auto;
+  margin-top: 1em;
+  height: 15em;
+  width: 20em;
+  background: #777;
+  cursor: pointer;
+  overflow: hidden;
+}
+.file-upload .image-box img {
+  height: 100%;
+  display: none;
+}
+.file-upload .image-box p {
+  position: relative;
+  top: 45%;
+  color: #fff;
+}
+.form-add {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.btn-add {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+
+}
+.form-add{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}

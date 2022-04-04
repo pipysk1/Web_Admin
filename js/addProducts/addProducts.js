@@ -34,6 +34,7 @@ function handleCreateForm() {
 }
 
 function createProduct(data) {
+    displayLoading()
     var requestOptions = {
         method: 'POST',
         body: data,
@@ -42,11 +43,12 @@ function createProduct(data) {
     fetch(url + "products/addProduct?token=" + token, requestOptions)
         .then(response => {
             if (!response.ok) {
+                hideLoading()
                 alert("Thêm sản phẩm không thành công");
                 throw new Error('Network response was not OK');
 
             } else {
-                alert("Thêm sản phẩm thành công");
+                hideLoading()
                 window.location.href = "home.html";
                 return response.text();
             }
