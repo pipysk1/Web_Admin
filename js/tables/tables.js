@@ -66,12 +66,37 @@ function handleAddVariant(id) {
     }
 }
 
+//xem
+function showAllType(id){
+    displayLoading();
+    var formData = new FormData();
+    formData.append("product", id);
+
+    var requestOptions = {
+        method: 'GET',
+        body: formData,
+        redirect: 'follow'
+    };
+    fetch(url + "products/addProduct?token=" + token, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                hideLoading()
+                alert("Không tìm thấy sản phẩm");
+                throw new Error('Network response was not OK');
+
+            } else {
+                hideLoading()
+                window.location.href = "home.html";
+                return response.text();
+            }
+
+        })
+}
 
 
 function handleEditProduct(id) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
-
             localStorage.setItem('id', data[i].product_id);
             window.location.href = "updateProduct.html";
         }

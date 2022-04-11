@@ -177,7 +177,8 @@
                                                 </div>
                                                 <div class="btn-add">
                                                     <div id="loading"></div>
-                                                    <button id="create" class="btn btn-default form-submit btn-lg btn-success btn-block">Add</button>
+                                                    <div id="btn-confirm" class="btn btn-default form-submit btn-lg btn-success btn-block" data-toggle="modal" 
+                                                        data-target="#div-comfirm" >Add</div>
                                                     <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset Button</button>
                                                 </div>
                                             </form>
@@ -199,6 +200,58 @@
 
         </div>
         <!-- /#wrapper -->
+
+        <!-- show comfirm-->
+        <div class="modal fade" id="div-comfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Thông tin cập nhật</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div id="view-info-content">
+                        <table>
+                            <tr>
+                                <td>ID sản phẩm</td>
+                                <td> <span id="c-id"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Mầu sắc</td>
+                                <td> <span id="c-color"></span></td>
+                            </tr>
+                            <tr>
+                                <td>RBG</td>
+                                <td> <span id="c-rbg"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Kích cỡ</td>
+                                <td> <span id="c-size"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Giá sản phẩm</td>
+                                <td> <span id="c-price"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Số lượng</td>
+                                <td> <span id="c-stock"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Mô tả</td>
+                                <td><span id="c-des"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                  <button id="create" type="button" class="btn btn-primary">Thêm</button>
+                </div>
+              </div>
+            </div>
+        </div>
 
         <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>
