@@ -77,6 +77,7 @@ function createProduct(data) {
                 throw new Error('Network response was not OK');
 
             } else {
+                alert("Update thành công");
                 window.location.href = "home.html";
                 return response.text();
             }

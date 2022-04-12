@@ -1,8 +1,4 @@
 // showing loading
-
-
-
-
 var token = localStorage.getItem('token');
 // console.log(token);
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
@@ -44,17 +40,62 @@ function renderProducts(products) {
         <th >${data[i].gender}</th>
         <th >${data[i].type}</th>
         <th><img style="width:70%;height:100px" src="${data[i].src}"/></th>
+        <th><button id="btnShow" onclick="handleDetailPrroduct('${data[i].product_id}')" >Xem</button></th>
         <th><button id="myBtn" onclick="handleEditProduct('${data[i].product_id}')">Sửa</button></th>
-        <th><button onclick="handleDeleteProduct()">Xóa</button></th>
+        <th><button onclick="handleDeleteProduct('${data[i].product_id}')">Xóa</button></th>
         <th><button onclick="handleAddVariant('${data[i].product_id}')">Tạo loại sản phẩm</button></th>
         </tr>
         `
     }
 }
 
-function handleDeleteProduct() {
+function reFresh() {
+    window.open(location.reload(true))
+}
+window.setInterval("reFresh()", 30000);
 
-    alert("đang update")
+function handleDeleteProduct(id) {
+
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].product_id == id) {
+            console.log(id);
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+                "product_id": id
+            });
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            var result = confirm("Bạn có muốn xóa sản phẩm: " + data[i].name)
+            fetch(url + 'products/hideProduct' + '?token=' + token, requestOptions)
+                .then(response => {
+                    if (result == true) {
+                        if (!response.ok) {
+                            alert("Xóa không thành công sản phẩm: " + data[i].name);
+                        } else {
+                            alert("Xóa thành công sản phẩm: " + data[i].name);
+                            reFresh();
+                        }
+                    }
+
+                })
+                .catch(error => console.log('error', error));
+        }
+    }
+}
+
+function handleDetailPrroduct(id) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].product_id == id) {
+            localStorage.setItem('id', data[i].product_id);
+            window.location.href = "detailProduct.html";
+        }
+    }
 }
 
 function handleAddVariant(id) {

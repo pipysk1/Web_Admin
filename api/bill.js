@@ -1,18 +1,20 @@
 var token = localStorage.getItem('token');
 var data = [];
-document.addEventListener("DOMContentLoaded", function() {
+var current_page = 1;
+var records_per_page = 5;
+document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
     displayLoading();
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (this.readyState === 4) {
             if (this.status === 200) {
                 hideLoading();
                 data = JSON.parse(this.responseText);
                 console.log(data)
                 for (let i = 0; i < data.length; i++) {
-                    document.querySelector("#dataTables-example").innerHTML += `<tr>
-		<th scope="row">${data[i].bill_id}</th>
-    <td>${data[i].product[0].name}</td>
+                    document.querySelector("#main_table").innerHTML += `<tr>
+		<th scope="row">${data[i].bill_id.slice(0, 6)}</th>
+    <td>${data[i].name_receiver}</td>
 		<td>${data[i].phone_number}</td>
 		<td>${data[i].status}</td>
 		<td>${data[i].discount_value}</td>
@@ -35,8 +37,93 @@ function detailBill(id) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].bill_id == id)
             localStorage.setItem('id_bill', data[i].bill_id)
-            
-    
+
+
     }
 
 }
+function prevPage() {
+    if (current_page > 1) {
+        current_page--;
+        changePage(current_page);
+    }
+}
+
+function nextPage() {
+    if (current_page < numPages()) {
+        current_page++;
+        changePage(current_page);
+    }
+}
+
+function changePage(page) {
+    var btn_next = document.getElementById("btn_next");
+    var btn_prev = document.getElementById("btn_prev");
+    var listing_table = document.getElementById("main_table");
+    var page_span = document.getElementById("page");
+
+    // Validate page
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+
+    listing_table.innerHTML = "";
+
+    for (var i = (page - 1) * records_per_page; i < (page * records_per_page) && i < data.length; i++) {
+        document.querySelector("#main_table").innerHTML += `<tr>
+		<th scope="row">${data[i].bill_id.slice(0, 6)}</th>
+    <td>${data[i].product[0].name}</td>
+		<td>${data[i].phone_number}</td>
+        <td>${data[i].address_detail}</td>
+		<td>${data[i].status}</td>
+		<td>${data[i].discount_value}</td>
+        <td>${data[i].date_created}</td>
+		<td>${data[i].payment_type}</td>
+		<td ><a href="editBill.html"   onclick="detailBill('${data[i].bill_id}')" class="fa fa-edit fa-fw"></a></td>
+	</tr>`;
+    }
+    page_span.innerHTML = page + "/" + numPages();
+
+    if (page == 1) {
+        btn_prev.style.visibility = "hidden";
+    } else {
+        btn_prev.style.visibility = "visible";
+    }
+
+    if (page == numPages()) {
+        btn_next.style.visibility = "hidden";
+    } else {
+        btn_next.style.visibility = "visible";
+    }
+}
+
+function numPages() {
+    return Math.ceil(data.length / records_per_page);
+}
+
+window.onload = function () {
+    changePage(1);
+};
+
+function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("dataTables-example");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[2];
+        console.log(td)
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+

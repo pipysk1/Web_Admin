@@ -1,0 +1,33 @@
+.product {
+    margin: 12px auto 48px auto;
+    display: flex;
+    max-width: 740px;
+    min-height: 360px;
+}
+
+.product-img {
+    flex: 1;
+    margin-left: 48px;
+    width: 100%;
+    background-position: 50%;
+}
+
+.detail-product {
+    flex: 1;
+}
+
+.name-name {
+    font-size: 24px;
+}
+
+.name-price {
+    margin-top: 12px;
+    font-size: 22px;
+    color: blue;
+}
+
+.name-type {
+    margin-top: 12px;
+    font-size: 22px;
+    color: blue;
+}
