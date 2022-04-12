@@ -109,46 +109,64 @@
                                     Bill Detail
                                 </div>
                                 <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <div id="loading"></div>
-                                        <div class="form-group">
+                                <div id="loading"></div>
+                                <div class="grid-container">
+                                    
+                                        <div class="form-group grid-item">
                                             <label>Bill id</label>
                                             <input id="bill_id" class="form-control"  type="text" name="bill_id" disabled>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group grid-item">
                                             <label>Name</label>
                                             <input id="name" class="form-control"  type="text" name="name_products" disabled>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group grid-item">
                                             <label>Number Phone</label>
                                             <input id="phone" class="form-control"  type="text" name="phone" disabled>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group grid-item">
                                             <label>Status</label>
                                             <input id="status" class="form-control"  type="text" name="status" disabled>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group grid-item">
                                             <label>Discount</label>
                                             <input id="discount" class="form-control"  type="text" name="discount" disabled>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group grid-item">
                                             <label>Adddress</label>
                                             <input id="address" class="form-control"  type="text" name="discount" disabled>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group grid-item">
                                             <label>Payment type</label>
                                             <input id="payment" class="form-control"  type="text" name="payment" disabled>
                                         </div>
-                                        <div class="form-group">
-                                            <label> Price</label>
-                                            <input id="price" class="form-control"  type="text" name="payment" disabled>
+                                        <div class="form-group grid-item">
+                                            <label> Total Price</label>
+                                            <input id="total" class="form-control"  type="text" name="payment" disabled>
                                         </div>
-                                        
-                                    </div>
+                                       
                                     <!-- /.table-responsive -->
 
                                 </div>
+                                <table class="table table-striped table-bordered table-hover"
+                                >
+                                <thead>
+                                    <tr>
+                                        <th>Name Products</th>
+                                        <th>Image</th>
+                                        <th>Quantity</th>
+                                        <th>Size</th>
+                                        <th>Status</th>
+                                        <th>Color</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                    <tbody id="main_table">
+                                        <div id="loading"></div>
+                                    </tbody>
+                                </table>
+
+                                
                                 <!-- /.panel-body -->
                             </div>
                             <!-- /.panel -->

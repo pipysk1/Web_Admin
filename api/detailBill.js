@@ -7,6 +7,21 @@ var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?t
 getAllProducts(renderProducts);
 
 
+function sum(input) {
+
+    if (toString.call(input) !== "[object Array]")
+        return false;
+
+    var total = 0;
+    for (var i = 0; i < input.length; i++) {
+        if (isNaN(input[i])) {
+            continue;
+        }
+        total += Number(input[i]);
+    }
+    return total;
+}
+
 
 async function getAllProducts(callback) {
     displayLoading();
@@ -33,9 +48,34 @@ function renderProducts(products) {
             var discount_value = document.getElementById('discount').value = data[i].discount_value;
             var payment_type = document.getElementById('payment').value = data[i].payment_type;
             var address = document.getElementById('address').value = data[i].address_detail;
-            var price = document.getElementById('price').value = data[i].product[0].price;
+
+            product = data[i].product
+            for (let i = 0; i < product.length; i++) {
+                document.querySelector("#main_table").innerHTML += `<tr>
+		<th scope="row">${product[i].name}</th>
+    <td><img style="width:70%;height:100px" src="${product[i].src}"/></th></td>
+    <td>${product[i].quantity}</td>
+    <td>${product[i].size}</td>
+    <td>${product[i].status}</td>
+    <td>${product[i].color}</td>
+    <td id="price">${product[i].price}</td></tr>
+    `;
+
+            }
         }
     }
+    $(function () {
+
+        var TotalValue = 0;
+
+        $(" #price").each(function (index, value) {
+            currentRow = parseFloat($(this).text());
+            TotalValue += currentRow
+        });
+
+        document.getElementById('total').value = TotalValue;
+
+    });
 
 
 }

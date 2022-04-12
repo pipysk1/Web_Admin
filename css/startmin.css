@@ -1016,3 +1016,69 @@ main .list .item:hover {
 	background-color: #44EEAA;
 	box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+  }
+
+  
+  .wrapper {
+	margin: 0 auto;
+	margin-top: 150px;
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.list__item {
+	text-transform: uppercase;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+	background: rgba(255, 255, 255, 0.75);
+	margin: 7px 0;
+	border-radius: 6px;
+	width: 50%;
+	height: 30px;
+}
+
+.pagination {
+	margin-top: 10px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pagination__btn {
+	border: 1px solid #ddd;
+	background: #fff;
+	border-radius: 50%;
+	margin: 0 7px;
+	outline: none;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.pagination__btn-active {
+	background-color: #408AD2;
+	color: #fff;
+}
+
+.pagination__btn-active {
+	background-color: #408AD2;
+	color: #fff;
+}
