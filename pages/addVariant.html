@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <title>Fasion-Admin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/startmin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+
+            <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right;margin-bottom: 72px;">&#9776;</button>
+            <div class="navi">
+                <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
+                <a href="status.html" class="w3-bar-item w3-button">Process Bills</a>
+                <a href="user.html" class="w3-bar-item w3-button">Users</a>
+            </div>
+
+        </div>
+
+        <div id="main" style="margin-left:290px">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
+                            >
+                          </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+
+            <div class="navedit">
+
+
+
+                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()" style="display: none;">&#9776;</button>
+
+            </div>
+            <!-- /.navbar-static-side -->
+
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Tạo loại sản phẩm</h1>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Tạo loại sản phẩm
+                                </div>
+                                <div class="panel-body">
+                                  
+                                    <div class="row form-add">
+                                        <div class="col-lg-12">
+                                            <form role="form">
+                                                <div class="form-group">
+                                                    <label>ID sản phẩm</label>
+                                                    <input id="nameproduct" class="form-control" placeholder="ID sản phẩm" type="text" name="id">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Màu sắc</label>
+                                                    <input id="color" class="form-control" placeholder="Màu sắc" type="text" name="color">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>RGB</label>
+                                                    <input id="rgb" class="form-control" placeholder="RGB" type="text" name="rgb">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Kích cỡ</label>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                    id="optionsRadios1" value="S" checked>S
+                                                            </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                    id="optionsRadios2" value="M">M
+                                                            </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                    id="optionsRadios3" value="L">L
+                                                            </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                    id="optionsRadios3" value="XL">XL
+                                                            </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                                <input type="radio" name="optionsRadios"
+                                                                    id="optionsRadios3" value="XXL">XXL
+                                                            </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-ting">
+                                                    <div class="control-group file-upload" id="file-upload1">
+                                                        <div class="image-box text-center">
+                                                            <p>Upload Image</p>
+                                                            <img src="" alt="">
+                                                        </div>
+                                                        <div class="controls" style="display: none;">
+                                                            <input type="file" name="contact_image_1" id="imgFile" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Giá sản phẩm</label>
+                                                    <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Số lượng sản phẩm</label>
+                                                    <input name="numberold" class="form-control" placeholder="Số lượng sản phẩm" type="number">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Mô tả sản phẩm</label>
+                                                    <textarea id="product_detail" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="btn-add">
+                                                    <div id="loading"></div>
+                                                    <button id="create" class="btn btn-default form-submit btn-lg btn-success btn-block">Add</button>
+                                                    <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset Button</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.row (nested) -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../js/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../js/startmin.js"></script>
+        <script src="../js/loading.js"></script>
+        <script>
+            function w3_open() {
+                document.getElementById("main").style.marginLeft = "20%";
+                document.getElementById("mySidebar").style.width = "20%";
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("openNav").style.display = "none";
+            }
+
+            function w3_close() {
+                document.getElementById("main").style.marginLeft = "0%";
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("openNav").style.display = "inline-block";
+
+                //   document.getElementById("closeNav").style.display = 'none';
+                //   document.getElementById("closeNav").style.marginLeft = "25%";
+            }
+        </script>
+
+        <script src="../js/addVariant/addVariant.js"></script>
+</body>
+
+</html>
