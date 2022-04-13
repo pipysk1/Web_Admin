@@ -1,8 +1,13 @@
 var token = localStorage.getItem('token');
 
 var id = localStorage.getItem('id');
+console.log(id);
 
-
+var addVariant = document.getElementById('addVariant');
+addVariant.onclick = function(e){
+    e.preventDefault();
+    window.location.href = "addVariant.html";
+}
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 
 getAllProducts(renderProducts);
@@ -54,11 +59,12 @@ function renderProducts(products) {
             <th>${seq+=1}</th>
             <th>${variant[i].color}</th>
             <th>${variant[i].rgb}</th>
-            <th>${variant[i].rgb}</th>
             <th>${variant[i].size}</th>
             <th>${variant[i].price}</th>
             <th>${variant[i].stock}</th>
-            <th>${variant[i].stock}</th>
+            <th><img src="${variant[i].src}" style="width:70%;height:100px"/></th>
+            <th><button id="myBtn" onclick="handleEditProduct('${variant[i].variant_id}')">Sửa</button></th>
+            <th><button>Xóa</button></th>
             </tr>`
             }
         }
@@ -66,5 +72,13 @@ function renderProducts(products) {
 
 
     }
+   
 
 }
+function handleEditProduct(id){
+  console.log(id)
+  localStorage.setItem('id',id);
+  window.location.href = "editVariant.html";
+}
+
+
