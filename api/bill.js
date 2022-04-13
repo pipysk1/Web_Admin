@@ -2,6 +2,7 @@ var token = localStorage.getItem('token');
 var data = [];
 var current_page = 1;
 var records_per_page = 5;
+var editor;
 document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
     displayLoading();
@@ -10,18 +11,39 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.status === 200) {
                 hideLoading();
                 data = JSON.parse(this.responseText);
-                console.log(data)
-                for (let i = 0; i < data.length; i++) {
-                    document.querySelector("#main_table").innerHTML += `<tr>
-		<th scope="row">${data[i].bill_id.slice(0, 6)}</th>
-    <td>${data[i].name_receiver}</td>
-		<td>${data[i].phone_number}</td>
-		<td>${data[i].status}</td>
-		<td>${data[i].discount_value}</td>
-		<td>${data[i].payment_type}</td>
-		<td ><a href="editBill.html"   onclick="detailBill('${data[i].bill_id}')" class="fa fa-edit fa-fw"></a></td>
-	</tr>`;
-                }
+                $('#table2').DataTable({
+                    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                    data: data,
+
+                    columns: [
+                        { data: 'bill_id' },
+                        { data: 'name_receiver' },
+                        { data: 'phone_number' },
+                        { data: 'address_detail' },
+                        { data: 'status' },
+                        { data: 'discount_value' },
+                        { data: 'date_created' },
+                        { data: 'payment_type' },
+                    ],
+                    "aoColumnDefs": [
+                        {
+                            "aTargets": [8],
+                            "mData": "userId",
+                            "mRender": function (data, type, full) {
+                                return '<a href="editBill.html"   class="fa fa-edit fa-fw"></a>';
+                            }
+                        }
+                    ],
+
+                    "pageLength": 5
+                });
+                $('#table2 tbody').on('click', 'button', function () {
+                    var data = table.row($(this).parents('tr')).data();
+                    console.log(data);
+                    $('#userEditModal').modal('show');
+                });
+
+
             }
         }
     };
