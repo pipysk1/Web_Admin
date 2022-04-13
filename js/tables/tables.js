@@ -15,7 +15,7 @@ start();
 async function getAllProducts(callback) {
     displayLoading()
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function(response) {
+        .then(function (response) {
             hideLoading()
             return response.json();
         }).then(callback);
@@ -28,26 +28,88 @@ function renderProducts(products) {
     var seq = 0;
 
     data = products;
-    console.log(data);
-    for (let i = 0; i < data.length; i++) {
-        tbody.innerHTML +=
-            `<tr>
-        <th>${seq += 1}</td>
-        <th >${data[i].name}</th>
-        <th >${data[i].status}</th>
-        <th >${data[i].old_price}</th>
-        <th >${data[i].price}</th>
-        <th >${data[i].gender}</th>
-        <th >${data[i].type}</th>
-        <th><img style="width:70%;height:100px" src="${data[i].src}"/></th>
-        <th><button id="btnShow" onclick="handleDetailPrroduct('${data[i].product_id}')" >Xem</button></th>
-        <th><button id="myBtn" onclick="handleEditProduct('${data[i].product_id}')">Sửa</button></th>
-        <th><button onclick="handleDeleteProduct('${data[i].product_id}')">Xóa</button></th>
-        <th><button onclick="handleAddVariant('${data[i].product_id}')">Tạo loại sản phẩm</button></th>
-        </tr>
-        `
-    }
+
+    $('#tableHome').on('click', '.Mybtn', function () {
+
+        var RowIndex = $(this).closest('tr');
+        var data = Dtable.row(RowIndex).data();
+        alert(data[1]);
+    });
+    $('#tableHome').DataTable({
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+
+        data: data,
+
+
+        columns: [
+            {
+                "data": null, "render": function (data, type, full, meta) {
+                    return meta.row + 1;
+                }
+            },
+            { data: 'name' },
+            { data: 'status' },
+            { data: 'old_price' },
+            { data: 'price' },
+            { data: 'gender' },
+            { data: 'type' },
+            {
+                "data": "src",
+                "render": function (data) {
+                    var img = data;
+                    return '<img src="' + img + '" height="150px" width="150px" >';
+                }
+            },
+            {
+                "data": null,
+                "render": function (data, type, row) {
+                    return `<div class="text-center">
+                    <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data.product_id}')" >
+                       <i class='far fa-trash-alt'></i> Xem 
+                    </button></div>
+                `;
+                }, "width": "5%"
+            },
+            {
+                "data": null,
+                "render": function (data, type, row) {
+                    return `<div class="text-center">
+                    <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data.product_id}')" >
+                       <i class='far fa-trash-alt'></i> Sửa
+                    </button></div>
+                `;
+                }, "width": "5%"
+            },
+            {
+                "data": null,
+                "render": function (data, type, row) {
+                    return `<div class="text-center">
+                    <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data.product_id}')" >
+                       <i class='far fa-trash-alt'></i> Xóa
+                    </button></div>
+                `;
+                }, "width": "5%"
+            },
+            {
+                "data": null,
+                "render": function (data, type, row) {
+                    return `<div class="text-center">
+                    <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data.product_id}')" >
+                       <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
+                    </button></div>
+                `;
+                }, "width": "5%"
+            }
+        ],
+
+
+
+        "pageLength": 5
+    });
+
+
 }
+
 
 function reFresh() {
     window.open(location.reload(true))
@@ -55,7 +117,6 @@ function reFresh() {
 window.setInterval("reFresh()", 30000);
 
 function handleDeleteProduct(id) {
-
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             console.log(id);
@@ -65,6 +126,7 @@ function handleDeleteProduct(id) {
             var raw = JSON.stringify({
                 "product_id": id
             });
+
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
@@ -87,7 +149,11 @@ function handleDeleteProduct(id) {
                 .catch(error => console.log('error', error));
         }
     }
+
 }
+
+
+
 
 function handleDetailPrroduct(id) {
     for (let i = 0; i < data.length; i++) {
@@ -122,7 +188,7 @@ function handleEditProduct(id) {
 
 function pagesAddProduct() {
     var btnAddProducts = document.querySelector('.form-submit');
-    btnAddProducts.onclick = function() {
+    btnAddProducts.onclick = function () {
         window.location.href = "addProduct.html";
     }
 }
