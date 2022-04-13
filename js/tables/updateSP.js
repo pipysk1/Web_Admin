@@ -7,6 +7,7 @@ var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?t
 var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=' + token;
 
 getAllProducts(renderProducts);
+test();
 
 
 
@@ -22,32 +23,70 @@ var data = []
 function renderProducts(products) {
     data = products;
     console.log(data)
+    var rates = document.getElementsByName('optionsRadios1');
+
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
-            var name_products = document.querySelector('input[name="name_products"]').value = data[i].name;
-            var status = document.getElementById('list-type2').value = data[i].status;
-            var gender = document.getElementById('list-type1').value = data[i].gender;
-            var type = document.getElementById('list-type').value = data[i].type;
-            let file = document.getElementById("imgFile").files[0] = data[i].file;
-            var collection_id = document.querySelector('input[name="collection_id"]').value = data[i].collection_id;
-            var price = document.querySelector('input[name="numbernew"]').value = data[i].price;
-            var old_price = document.querySelector('input[name="numberold"]').value = data[i].old_price;
-            var product_detail = document.getElementById('product_detail').value = data[i].product_detail;
+            document.querySelector('input[name="name_products"]').value = data[i].name;
+
+            var dataStatus = document.getElementsByName('optionsRadios').value = data[i].status;
+
+            console.log("gán dữ liệu" + dataStatus)
+            if (dataStatus == "Hot Trending") {
+                console.log("1 " + dataStatus)
+                document.getElementById('optionsRadios1').checked = dataStatus;
+            } else if (dataStatus == "New Arrival") {
+                console.log("2 " + dataStatus)
+
+                document.getElementById('optionsRadios2').checked = dataStatus;
+            } else {
+                console.log("3 " + dataStatus)
+
+                document.getElementById('optionsRadios3').checked = dataStatus;
+            }
+
+            var gender1 = document.getElementsByName('optionsRadios1').value = data[i].gender;
+
+            console.log(gender1)
+
+            if (gender1 == "Female") {
+                document.getElementById('gender2').checked = gender1;
+            } else if (gender1 == "Male") {
+                document.getElementById('gender1').checked = gender1;
+            } else {
+                document.getElementById('gender3').checked = gender1;
+            }
+
+
+            document.getElementById('list-type').value = data[i].type;
+            document.getElementById("imgFile").files[0] = data[i].file;
+            document.querySelector('input[name="collection_id"]').value = data[i].collection_id;
+            document.querySelector('input[name="numbernew"]').value = data[i].price;
+            document.querySelector('input[name="numberold"]').value = data[i].old_price;
+            document.getElementById('product_detail').value = data[i].product_detail;
         }
     }
+}
+
+function test() {
     var createBtn = document.querySelector('#create');
     createBtn.onclick = function(e) {
         e.preventDefault();
-        name_products = document.querySelector('input[name="name_products"]').value;
-        status = document.getElementById('list-type2').value;
-        gender = document.getElementById('list-type1').value;
-        type = document.getElementById('list-type').value;
-        file = document.getElementById("imgFile").files[0];
-        collection_id = document.querySelector('input[name="collection_id"]').value;
-        price = document.querySelector('input[name="numbernew"]').value;
-        old_price = document.querySelector('input[name="numberold"]').value;
-        product_detail = document.getElementById('product_detail').value;
-        console.log(status)
+        var name_products = document.querySelector('input[name="name_products"]').value;
+        var status = document.querySelector('input[name="optionsRadios"]:checked').value;
+        console.log("test " + status)
+
+        var gender = document.querySelector('input[name="optionsRadios1"]:checked').value;
+        console.log("test " + gender)
+        var type = document.getElementById('list-type').value;
+
+
+        var file = document.getElementById("imgFile").files[0];
+        var collection_id = document.querySelector('input[name="collection_id"]').value;
+        var price = document.querySelector('input[name="numbernew"]').value;
+        var old_price = document.querySelector('input[name="numberold"]').value;
+        var product_detail = document.getElementById('product_detail').value;
+
         var formData = new FormData();
         formData.append("product_id", id);
         formData.append("name", name_products);
@@ -78,8 +117,10 @@ function createProduct(data) {
 
             } else {
                 alert("Update thành công");
-                window.location.href = "home.html";
-                return response.text();
+
+                return response.text() && (window.location.href = "home.html");
+
+
             }
 
         })

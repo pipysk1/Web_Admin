@@ -9,6 +9,7 @@ function handleCreateForm() {
         e.preventDefault();
         var name_products = document.querySelector('input[name="name_products"]').value;
         var status = document.querySelector('input[name="optionsRadios"]:checked').value;
+        console.log(status)
         var gender = document.querySelector('input[name="optionsRadios1"]:checked').value;
         var type = document.getElementById('list-type').value;
         let file = document.getElementById("imgFile").files[0];
@@ -16,8 +17,6 @@ function handleCreateForm() {
         var price = document.querySelector('input[name="numbernew"]').value;
         var old_price = document.querySelector('input[name="numberold"]').value;
         var product_detail = document.getElementById('product_detail').value;
-        console.log(gender);
-        console.log(status);
 
         console.log(name_products);
         var formData = new FormData();
@@ -30,7 +29,7 @@ function handleCreateForm() {
         formData.append("collection_id", collection_id);
         formData.append("type", type);
         formData.append("file", file);
-        createProduct(formData);
+        // createProduct(formData);
 
     }
 }
