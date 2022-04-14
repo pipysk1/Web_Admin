@@ -65,6 +65,9 @@
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
                 <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
                 <a href="user.html" class="w3-bar-item w3-button">Users</a>
+                <a href="notification.html" class="w3-bar-item w3-button"
+                >Notification</a
+              >
             </div>
 
         </div>
@@ -116,7 +119,7 @@
                                         <table id="table2" style="width: 100%;" class="cell-border compact stripe">
                                             <thead>
                                                 <tr>
-                                                    <th>Bill ID</th>
+                                                    <th>Index</th>
                                                     <th>Name </th>
                                                     <th>Number Phone</th>
                                                     <th>Address</th>
@@ -124,14 +127,27 @@
                                                     <th>Discount</th>
                                                     <th>Date</th>
                                                     <th>Payment type</th>
-                                                    <th>Edit</th>
+                                                    <th>Detail</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="main_table">
                                                 <div id="loading"></div>
-                                                <td ><a href="editBill.html"   onclick="detailBill('${data[i].bill_id}')" class="fa fa-edit fa-fw"></a></td>
+                
 
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Name </th>
+                                                    <th>Number Phone</th>
+                                                    <th>Address</th>
+                                                    <th>Status</th>
+                                                    <th>Discount</th>
+                                                    <th></th>
+                                                    <th>Payment type</th>
+                                                    <th></th>
+                                                </tr>
+                                            </tfoot>
                                         </table>
 
                                         <div id="pagination-container"></div>
@@ -182,6 +198,7 @@
                 <!-- Custom Theme JavaScript -->
                 <script src="../js/startmin.js"></script>
                 <script src="../js/loading.js"></script>
+                
 
                 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
