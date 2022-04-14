@@ -1,6 +1,8 @@
 var token = localStorage.getItem('token');
 
-
+if (localStorage.getItem("token") === null) {
+    window.location.href = "login.html";
+}
 function changePassword() {
     var inputPass = document.getElementById("changePass").value;
     var confirm_password = document.getElementById("confirm_password").value;

@@ -68,15 +68,13 @@
                                 <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                                </li>
                                 <li>
                                     <a href="./changePassword.html"
                                       ><i class="fa fa-user fa-fw"></i> Change Password</a
                                     >
                                   </li>
                                 <li class="divider"></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout </button>
                                 </li>
                             </ul>
                         </li>
@@ -156,6 +154,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
+    <script src="../js/logout.js"></script>
     <script>
         function w3_open() {
           document.getElementById("main").style.marginLeft = "20%";
