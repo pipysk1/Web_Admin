@@ -1,6 +1,9 @@
 var token = localStorage.getItem('token');
 var id = localStorage.getItem('id');
 var id_bill = localStorage.getItem('id_bill')
+if (localStorage.getItem("token") === null) {
+    window.location.href = "login.html";
+}
 // console.log(token);
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;

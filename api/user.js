@@ -1,6 +1,9 @@
 
 var token = localStorage.getItem('token');
 var data = [];
+if (localStorage.getItem("token") === null) {
+    window.location.href = "login.html";
+}
 document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
     displayLoading();

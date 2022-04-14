@@ -11,6 +11,7 @@
     <title>Fasion-Admin</title>
     <link rel="stylesheet" href="../css/update.css" />
     <!-- Bootstrap Core CSS -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- MetisMenu CSS -->
@@ -99,9 +100,9 @@
             </li>
             <li class="divider"></li>
             <li>
-              <a href="login.html"
-                ><i class="fa fa-sign-out fa-fw"></i> Logout</a
-              >
+              <button class="btn-logOut" onclick="logOut()">
+                <i class="fa fa-sign-out fa-fw"></i>Logout
+              </button>
             </li>
           </ul>
         </li>
@@ -358,6 +359,7 @@
     <script src="../js/loading.js"></script>
 
     <script src="../js/tables/tables.js"></script>
+    <script src="../js/logout.js"></script>
     <script>
       function w3_open() {
         document.getElementById("main").style.marginLeft = "20%";

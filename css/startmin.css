@@ -1055,3 +1055,15 @@ main .list .item:hover {
 	background-color: #408AD2;
 	color: #fff;
 }
+
+.btn-logOut{
+    background: border-box;
+    border: aliceblue;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
