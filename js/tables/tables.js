@@ -1,5 +1,8 @@
 // showing loading
 var token = localStorage.getItem('token');
+if (localStorage.getItem("token") === null) {
+    window.location.href = "login.html";
+}
 // console.log(token);
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
@@ -174,7 +177,7 @@ function handleAddVariant(id) {
 }
 
 //xem
-function showAllType(id){
+function showAllType(id) {
     displayLoading();
     var formData = new FormData();
     formData.append("product", id);
