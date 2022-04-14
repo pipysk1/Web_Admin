@@ -29,7 +29,7 @@ function handleCreateForm() {
         formData.append("collection_id", collection_id);
         formData.append("type", type);
         formData.append("file", file);
-        // createProduct(formData);
+        createProduct(formData);
 
     }
 }
