@@ -1,6 +1,6 @@
 
 var token = localStorage.getItem('token');
-
+var data = [];
 document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
     displayLoading();
@@ -8,17 +8,36 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.readyState === 4) {
             if (this.status === 200) {
                 hideLoading();
-                var data = JSON.parse(this.responseText);
-                for (let i = 0; i < data.length; i++) {
-                    document.querySelector("#main_table").innerHTML += `<tr>
-		<th scope="row">${data[i]._id}</th>
-        <td>${data[i].email}</td>
-		<td>${data[i].phone_number}</td>
-		<td>${data[i].full_name}</td>
-		<td ><a href="/pages/editBill.html" class="fa fa-edit fa-fw"></a></td>
-		<td ><a href="/pages/editBill.html" class="fa-trash"></a></td>
-	</tr>`;
-                }
+                data = JSON.parse(this.responseText);
+                console.log(data)
+                $('#tableUser').DataTable({
+                    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                    data: data,
+
+                    columns: [
+                        { data: '_id' },
+                        { data: 'email' },
+                        { data: 'phone_number' },
+                        { data: 'full_name' },
+                        { data: 'address_detail' },
+                        { data: 'sub_district' },
+                        { data: 'district' },
+                        { data: 'city' },
+
+                        {
+                            "data": null,
+                            "render": function (data, type, row) {
+                                return `<div class="text-center">
+                                <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="detailUser('${data._id}')" >
+                                   <i class='far fa-trash-alt'></i> Xem 
+                                </button></div>
+                            `;
+                            }, "width": "5%"
+                        },
+                    ],
+
+                    "pageLength": 5
+                });
             }
         }
     };
@@ -28,3 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     xhr.send();
 });
+function detailUser(id) {
+    console.log(data)
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]._id == id) {
+            localStorage.setItem('user_id', data[i]._id)
+            window.location.href = "editUser.html";
+        }
+
+
+
+    }
+
+}
