@@ -1,7 +1,6 @@
 var token = localStorage.getItem('token');
 var data = [];
-var current_page = 1;
-var records_per_page = 5;
+
 
 document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
@@ -11,12 +10,18 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.status === 200) {
                 hideLoading();
                 data = JSON.parse(this.responseText);
+
                 $('#table2').DataTable({
+
                     "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
                     data: data,
 
                     columns: [
-                        { data: 'bill_id' },
+                        {
+                            "data": null, "render": function (data, type, full, meta) {
+                                return meta.row + 1;
+                            }
+                        },
                         { data: 'name_receiver' },
                         { data: 'phone_number' },
                         { data: 'address_detail' },
@@ -35,15 +40,30 @@ document.addEventListener("DOMContentLoaded", function () {
                             }, "width": "5%"
                         },
                     ],
+                    initComplete: function () {
+                        this.api().columns([1, 2, 3, 7, 4, 5]).every(function () {
+                            var column = this;
+                            var select = $('<select><option value=""></option></select>')
+                                .appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                        $(this).val()
+                                    );
+
+                                    column
+                                        .search(val ? '^' + val + '$' : '', true, false)
+                                        .draw();
+                                });
+
+                            column.data().unique().sort().each(function (d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>')
+                            });
+
+                        });
+                    },
 
                     "pageLength": 5
                 });
-                $('#table2 tbody').on('click', 'button', function () {
-                    var data = table.row($(this).parents('tr')).data();
-                    console.log(data);
-                    $('#userEditModal').modal('show');
-                });
-
 
             }
         }
@@ -56,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // href="/pages/editBill.html" 
 function detailBill(id) {
-
+    console.log(data)
     for (let i = 0; i < data.length; i++) {
         if (data[i].bill_id == id)
             localStorage.setItem('id_bill', data[i].bill_id)
@@ -64,5 +84,6 @@ function detailBill(id) {
 
 
     }
+
 
 }
