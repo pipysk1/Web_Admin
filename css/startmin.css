@@ -990,14 +990,14 @@ main .list .item:hover {
 .grid-container {
     display: grid;
     padding: 10px;
-    grid-template-columns: 356px 200px;
+    grid-template-columns: auto auto auto;
     margin: auto;
-    width: 50%;
     padding: 10px;
   }
   .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
+    border: 1px solid;
   }
 
   
