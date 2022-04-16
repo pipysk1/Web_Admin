@@ -36,11 +36,11 @@ function handleLogin(data) {
 
         })
         .catch(error => console.log('error', error));
-    $(".notify").addClass("active");
-    $("#notifyType").addClass("failure");
+    // $(".notify").addClass("active");
+    // $("#notifyType").addClass("failure");
 
-    setTimeout(function() {
-        $(".notify").removeClass("active");
-        $("#notifyType").removeClass("failure");
-    }, 2000);
+    // setTimeout(function() {
+    //     $(".notify").removeClass("active");
+    //     $("#notifyType").removeClass("failure");
+    // }, 2000);
 }

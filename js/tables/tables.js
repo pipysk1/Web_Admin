@@ -18,7 +18,7 @@ start();
 async function getAllProducts(callback) {
     displayLoading()
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function (response) {
+        .then(function(response) {
             hideLoading()
             return response.json();
         }).then(callback);
@@ -31,22 +31,26 @@ function renderProducts(products) {
     var seq = 0;
 
     data = products;
+    console.log(data)
 
-    $('#tableHome').on('click', '.Mybtn', function () {
+    $('#tableHome').on('click', '.Mybtn', function() {
 
         var RowIndex = $(this).closest('tr');
         var data = Dtable.row(RowIndex).data();
         alert(data[1]);
     });
     $('#tableHome').DataTable({
-        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        "lengthMenu": [
+            [5, 10, 25, 50, -1],
+            [5, 10, 25, 50, "All"]
+        ],
 
         data: data,
 
 
-        columns: [
-            {
-                "data": null, "render": function (data, type, full, meta) {
+        columns: [{
+                "data": null,
+                "render": function(data, type, full, meta) {
                     return meta.row + 1;
                 }
             },
@@ -58,50 +62,54 @@ function renderProducts(products) {
             { data: 'type' },
             {
                 "data": "src",
-                "render": function (data) {
+                "render": function(data) {
                     var img = data;
                     return '<img src="' + img + '" height="150px" width="150px" >';
                 }
             },
             {
                 "data": null,
-                "render": function (data, type, row) {
+                "render": function(data, type, row) {
                     return `<div class="text-center">
                     <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data.product_id}')" >
                        <i class='far fa-trash-alt'></i> Xem 
                     </button></div>
                 `;
-                }, "width": "5%"
+                },
+                "width": "5%"
             },
             {
                 "data": null,
-                "render": function (data, type, row) {
+                "render": function(data, type, row) {
                     return `<div class="text-center">
                     <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data.product_id}')" >
                        <i class='far fa-trash-alt'></i> Sửa
                     </button></div>
                 `;
-                }, "width": "5%"
+                },
+                "width": "5%"
             },
             {
                 "data": null,
-                "render": function (data, type, row) {
+                "render": function(data, type, row) {
                     return `<div class="text-center">
                     <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data.product_id}')" >
                        <i class='far fa-trash-alt'></i> Xóa
                     </button></div>
                 `;
-                }, "width": "5%"
+                },
+                "width": "5%"
             },
             {
                 "data": null,
-                "render": function (data, type, row) {
+                "render": function(data, type, row) {
                     return `<div class="text-center">
                     <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data.product_id}')" >
                        <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
                     </button></div>
                 `;
-                }, "width": "5%"
+                },
+                "width": "5%"
             }
         ],
 
@@ -216,7 +224,7 @@ function handleEditProduct(id) {
 
 function pagesAddProduct() {
     var btnAddProducts = document.querySelector('.form-submit');
-    btnAddProducts.onclick = function () {
+    btnAddProducts.onclick = function() {
         window.location.href = "addProduct.html";
     }
 }
