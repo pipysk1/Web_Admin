@@ -4,7 +4,7 @@ var id = localStorage.getItem('id');
 console.log(id);
 
 var addVariant = document.getElementById('addVariant');
-addVariant.onclick = function(e){
+addVariant.onclick = function(e) {
     e.preventDefault();
     window.location.href = "addVariant.html";
 }
@@ -42,7 +42,7 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var variant = data[i].variant;
-            console.log(variant[i].product_id)
+
             img.innerHTML += `
             <img style="width:70%;" src="${data[i].src}"/>
 `
@@ -72,13 +72,12 @@ function renderProducts(products) {
 
 
     }
-   
+
 
 }
-function handleEditProduct(id){
-  console.log(id)
-  localStorage.setItem('id',id);
-  window.location.href = "editVariant.html";
+
+function handleEditProduct(id) {
+    console.log(id)
+    localStorage.setItem('id', id);
+    window.location.href = "editVariant.html";
 }
-
-
