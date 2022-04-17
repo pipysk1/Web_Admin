@@ -1,6 +1,7 @@
 var variant_id = localStorage.getItem('id');
 console.log(variant_id);
 var token = localStorage.getItem('token');
+console.log(token)
 
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 
@@ -67,7 +68,7 @@ function editVariant(formdata) {
         redirect: 'follow'
     };
 
-    fetch(url + "variants/updateVariant?token=" + token, requestOptions)
+    fetch(url + 'variants/updateVariant?token=' + token, requestOptions)
         .then(response => {
             if (!response.ok) {
                 alert("False")
