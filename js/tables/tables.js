@@ -1,5 +1,6 @@
 // showing loading
 var token = localStorage.getItem('token');
+console.log(token)
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
@@ -18,7 +19,7 @@ start();
 async function getAllProducts(callback) {
     displayLoading()
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function (response) {
+        .then(function(response) {
             hideLoading()
             return response.json();
         }).then(callback);
@@ -250,7 +251,7 @@ function handleEditProduct(id) {
 
 function pagesAddProduct() {
     var btnAddProducts = document.querySelector('.form-submit');
-    btnAddProducts.onclick = function () {
+    btnAddProducts.onclick = function() {
         window.location.href = "addProduct.html";
     }
 }
