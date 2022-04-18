@@ -30,10 +30,11 @@ async function getAllProducts(callback) {
     displayLoading();
     await fetch(url + 'bills/getBills' + '?token=' + token)
 
-        .then(function (response) {
-            return response.json();
+    .then(function(response) {
 
-        }).then(callback);
+        return response.json();
+
+    }).then(callback);
     hideLoading();
 }
 
@@ -67,11 +68,11 @@ function renderProducts(products) {
             }
         }
     }
-    $(function () {
+    $(function() {
 
         var TotalValue = 0;
 
-        $(" #price").each(function (index, value) {
+        $(" #price").each(function(index, value) {
             currentRow = parseFloat($(this).text());
             TotalValue += currentRow
         });
