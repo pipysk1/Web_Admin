@@ -1,5 +1,6 @@
 var token = localStorage.getItem('token');
-var id = localStorage.getItem('id');
+var id = localStorage.getItem('bill_id');
+console.log(id)
 var id_bill = localStorage.getItem('id_bill')
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
@@ -65,6 +66,7 @@ function renderProducts(products) {
     `;
 
             }
+
         }
     }
     $(function () {

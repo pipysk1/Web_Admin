@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             "data": null,
                             "render": function (data, type, row) {
                                 return `<div class="text-center">
-                                <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="detailBill('${data.product_id}')" >
-                                   <i class='far fa-trash-alt'></i> Xem 
-                                </button></div>
+                                <button class='btn btn-primary text-white' style='cursor:pointer; width:150px;'  onclick="detailBill('${data.bill_id}')" >
+                       <i class='far fa-trash-alt'></i> Xem
+                    </button></div>
                             `;
                             }, "width": "5%"
                         },
@@ -78,14 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // href="/pages/editBill.html" 
 function detailBill(id) {
-    console.log(data)
+    window.location.href = "editBill.html";
     for (let i = 0; i < data.length; i++) {
-        if (data[i].bill_id == id)
-            localStorage.setItem('id_bill', data[i].bill_id)
-        window.location.href = "editBill.html";
+        if (data[i].product_id == id) {
+            localStorage.setItem('bill_id', data[i].product_id);
 
-
+        }
     }
-
-
 }
