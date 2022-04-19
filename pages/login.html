@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,7 +9,7 @@
     <!-- <script src="../api/login.js"></script>     -->
 
     <title>Fasion-Admin</title>
-
+    <link rel="icon" href="/img/icon_fasions_1.png" />
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
@@ -29,45 +28,57 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="notify"><span id="notifyType" class=""></span></div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div id="logo"><img src="../img/icon_fasions_1.png" /></div>
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Đăng nhập</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" id="form-1" action="" method="POST">
-                            <!-- <fieldset> -->
-                            <div class="form-group">
-                                <input class="form-control" id="username" placeholder="Username" name="username" type="text" autofocus />
-                                <span class="form-message"></span>
-                            </div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="login-panel panel panel-default">
+            <div id="logo"><img src="../img/icon_fasions_1.png" /></div>
+            <div class="panel-heading">
+              <h3 class="panel-title">Đăng nhập</h3>
+            </div>
+            <div class="panel-body">
+              <form role="form" id="form-1" action="" method="POST">
+                <!-- <fieldset> -->
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    id="username"
+                    placeholder="Username"
+                    name="username"
+                    type="text"
+                    autofocus
+                  />
+                  <span class="form-message"></span>
+                </div>
 
-                            <div class="form-group">
-                                <input class="form-control" id="password" placeholder="Password" name="password" type="password" value="" />
-                                <span class="form-message"></span>
-                            </div>
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    id="password"
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value=""
+                  />
+                  <span class="form-message"></span>
+                </div>
 
-                            <!-- <div class="checkbox">
+                <!-- <div class="checkbox">
                                 <label>
                   <input name="remember" type="checkbox" value="Remember Me" />Nhớ mật khẩu </label>
                             </div> -->
 
-                            <button class="form-submit">Đăng nhập</button>
-
-                        </form>
-                    </div>
-                </div>
+                <button class="form-submit">Đăng nhập</button>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-
 
     <!-- jQuery -->
     <!-- <script src="../js/jquery.min.js"></script> -->
@@ -87,23 +98,22 @@
         $(".toast").toast(option);
     </script> -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mong muốn của chúng ta
-            Validator({
-                form: '#form-1',
-                formGroupSelector: '.form-group',
-                errorSelector: '.form-message',
-                rules: [
-                    Validator.isUsername('#username'),
-                    Validator.minLength('#password', 6),
-                ],
-                onSubmit: function(data) {
-                    handleLogin(data)
-                    console.log(data);
-                }
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mong muốn của chúng ta
+        Validator({
+          form: "#form-1",
+          formGroupSelector: ".form-group",
+          errorSelector: ".form-message",
+          rules: [
+            Validator.isUsername("#username"),
+            Validator.minLength("#password", 6),
+          ],
+          onSubmit: function (data) {
+            handleLogin(data);
+            console.log(data);
+          },
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
