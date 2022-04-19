@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <script src="../api/bill.js"></script> -->
+
+    <title>Fasion-Admin</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/startmin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+        <!-- /.navbar-top-links -->
+
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+
+            <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right;margin-bottom: 72px;">&#9776;</button>
+            <div class="navi">
+                <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
+                <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
+                <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
+                <a href="user.html" class="w3-bar-item w3-button">Users</a>
+                <a href="notification.html" class="w3-bar-item w3-button">Notification</a
+              >
+            </div>
+
+        </div>
+
+        <div id="main" style="margin-left: 290px">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
+                            >
+                          </li>
+                        <li class="divider"></li>
+                        <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout </button>
+                    </li>
+                </ul>
+            </li>
+
+            <div class="navedit">
+
+
+
+                <button id="openNav" class="w3-button w3-xlarge" style="display: none" onclick="w3_open()">&#9776;</button>
+
+            </div>
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Bill</h1>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Bill Detail
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div id="loading"></div>
+                               
+
+                                <div class="grid-container">
+                                    
+                                        <div class="form-group grid-item">
+                                            <label>Bill id</label>
+                                            <input id="bill_id" class="form-control"  type="text" name="bill_id" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label>Name</label>
+                                            <input id="name" class="form-control"  type="text" name="name_products" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label>Number Phone</label>
+                                            <input id="phone" class="form-control"  type="text" name="phone" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label>Status</label>
+                                            <input id="status" class="form-control"  type="text" name="status" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label>Discount</label>
+                                            <input id="discount" class="form-control"  type="text" name="discount" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label>Adddress</label>
+                                            <input id="address" class="form-control"  type="text" name="discount" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label>Payment type</label>
+                                            <input id="payment" class="form-control"  type="text" name="payment" disabled>
+                                        </div>
+                                        <div class="form-group grid-item">
+                                            <label> Total Price</label>
+                                            <input id="total" class="form-control"  type="text" name="payment" disabled>
+                                        </div>
+                                       
+                                    <!-- /.table-responsive -->
+
+                                </div>
+                                <div class="btn-add">
+                                    <button type="button" id="accept"  class="btn btn-success"> Xác nhận đơn hàng </button>
+                                    <button type="button" id="tranfer" class="btn btn-primary">Đang giao hàng </button>
+                                    <button type="button" id="finish" class="btn btn-info">Đã giao hàng </button>
+                                    <button type="button" id="cancel" class="btn btn-danger">Hủy đơn hàng</button>
+                                </div>
+                                <h1>SHOPPING CART</h1>
+                                <hr/>
+                                <table class="table table-striped table-bordered table-hover"
+                                >
+                                <thead>
+                                    <tr>
+                                        <th>Name Products</th>
+                                        <th>Image</th>
+                                        <th>Quantity</th>
+                                        <th>Size</th>
+                                        <th>Status</th>
+                                        <th>Color</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                    <tbody id="main_table">
+                                        <div id="loading"></div>
+                                    </tbody>
+                                </table>
+                               
+                                
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- /.row -->
+
+                    <!-- /.row -->
+
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+
+
+
+
+            <!-- /.navbar-static-side -->
+            </nav>
+            <!-- /.navbar-static-side -->
+            </nav>
+
+
+            <!-- /#wrapper -->
+
+            <!-- jQuery -->
+            <!-- <script src="../js/jquery.min.js"></script> -->
+
+            <!-- Bootstrap Core JavaScript -->
+            <script src="../js/bootstrap.min.js"></script>
+
+            <!-- Metis Menu Plugin JavaScript -->
+            <script src="../js/metisMenu.min.js"></script>
+
+            <!-- DataTables JavaScript -->
+            <!-- <script src="../js/dataTables/jquery.dataTables.min.js"></script> -->
+            <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+
+            <!-- Custom Theme JavaScript -->
+            <script src="../js/startmin.js"></script>
+            <script src="../js/loading.js"></script>
+            <script src="../js/logout.js"></script>
+
+            <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+            <script>
+                function w3_open() {
+                    document.getElementById("main").style.marginLeft = "20%";
+                    document.getElementById("mySidebar").style.width = "20%";
+                    document.getElementById("mySidebar").style.display = "block";
+                    document.getElementById("openNav").style.display = "none";
+                }
+
+                function w3_close() {
+                    document.getElementById("main").style.marginLeft = "0%";
+                    document.getElementById("mySidebar").style.display = "none";
+                    document.getElementById("openNav").style.display = "inline-block";
+
+                    //   document.getElementById("closeNav").style.display = 'none';
+                    //   document.getElementById("closeNav").style.marginLeft = "25%";
+                }
+            </script>
+            <script src="../api/detailBill.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+.container {
+    width: auto;
+    margin: auto;
+    text-align: center;
+}
+
+
+/* Định dạng phần form đăng nhập*/
+
+.form-group {
+    width: 50%;
+    margin: auto;
+    display: block;
+    height: 50px;
+}
+
+.form-group input {
+    float: right;
+    width: 70%;
+    height: 25px;
+    margin-right: 20px;
+    line-height: 50px;
+}
+
+.form-group b {
+    font-size: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #868585;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+table tr:nth-child(even) {
+    background-color: white;
+}

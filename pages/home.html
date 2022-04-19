@@ -2,207 +2,198 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
     <title>Fasion-Admin</title>
-
+    <link rel="stylesheet" href="../css/update.css" />
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- MetisMenu CSS -->
-    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet" />
 
     <!-- DataTables CSS -->
-    <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="../css/dataTables/dataTables.responsive.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/startmin.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
+        <!-- /.navbar-top-links -->
 
-
-
-            <!-- /.navbar-top-links -->
-
-            <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-                
-                <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right;margin-bottom: 72px;">&#9776;</button>
-                <div class="navi">
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+            <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right; margin-bottom: 72px">
+          &#9776;
+        </button>
+            <div class="navi">
                 <a href="./home.html" class="w3-bar-item w3-button">Home</a>
                 <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
-                </div>
-                
-              </div>
-              
-              <div id="main">
-               
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                
-              <div class="navedit">
-                
-                  
-               
-                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-               
-              </div>
+                <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
+                <a href="user.html" class="w3-bar-item w3-button">Users</a>
+                <a href="notification.html" class="w3-bar-item w3-button">Notification</a>
+            </div>
+        </div>
+
+        <div id="main" style="margin-left: 290px">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="name_admin">
+                    <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
+              >
+            </li>
+            <li class="divider"></li>
+            <li>
+              <button class="btn-logOut" onclick="logOut()">
+                <i class="fa fa-sign-out fa-fw"></i>Logout
+              </button>
+            </li>
+          </ul>
+        </li>
+
+        <div class="navedit">
+          <button
+            id="openNav"
+            class="w3-button w3-xlarge"
+            onclick="w3_open()"
+            style="display: none"
+          >
+            &#9776;
+          </button>
+        </div>
 
         <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Home</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Danh sách sản phẩm
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover"
-                                        id="dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Tên sản phẩm</th>
-                                                <th>Trạng thái sản phẩm</th>
-                                                <th>Giá cũ sản phẩm</th>
-                                                <th>Giá mới sản phẩm</th>
-                                                <th>Giới tính</th>
-                                                <th>Loại sản phẩm</th>
-                                                <th>Ảnh sản phẩm</th>
-                                                <th>Chi tiết sản phẩm</th>
-                                                <th>Sửa Thông tin sản phẩm</th>
-                                                <th>Xóa sản phẩm</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="data">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-
-                <!-- /.row -->
-
-                <!-- /.row -->
-
-                <!-- /.row -->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1 class="page-header">Home</h1>
+              </div>
+              <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Danh sách sản phẩm</div>
+                  <div>
+                    <button class="form-submit">Add New Product</button>
+                  </div>
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                    <div class="table-responsive">
+                      <table
+                        class="cell-border compact stripe"
+                        style="width: 100%;"
+                        id="tableHome"
+                      >
+                        <thead>
+                          <tr>
+                            <th col-index=1 >STT</th>
+                            <th col-index=2 >Tên sản phẩm</th>
+                            <th col-index=3 >Trạng thái sản phẩm
+                              <select class="table-filter">
+                                <option value="all"></option>
+                                  </select>
+                            </th>
+                            <th col-index=4 >Giá cũ sản phẩm</th>
+                            <th col-index=5 >Giá mới sản phẩm</th>
+                            <th col-index=6 >Giới tính
+                              <select class="table-filter">
+                                <option value="all"></option>
+                            </th>
+                            <th col-index=7 >Loại sản phẩm
+                              <select class="table-filter">
+                                <option value="all"></option>
+                            </th>
+                            <th col-index=8 >Ảnh sản phẩm</th>
+                            <th col-index=9 >Chi tiết sản phẩm</th>
+                            <th col-index=10 >Sửa Thông tin sản phẩm</th>
+                            <th col-index=11>Xóa sản phẩm</th>
+                            <th col-index=12 >Tạo loại sản phẩm</th>
+                          </tr>
+                        </thead>
+                        <tbody id="data">
+                          <div id="loading"></div>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                  </div>
+                  <!-- /.panel-body -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
+      </div>
+    </div>
 
-                            </div>
-                            <!-- /#wrapper -->
+    <!-- /#wrapper -->
 
-                            <!-- jQuery -->
-                            <script src="../js/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
 
-                            <!-- Bootstrap Core JavaScript -->
-                            <script src="../js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
 
-                            <!-- Metis Menu Plugin JavaScript -->
-                            <script src="../js/metisMenu.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenu.min.js"></script>
 
-                            <!-- DataTables JavaScript -->
-                            <script src="../js/dataTables/jquery.dataTables.min.js"></script>
-                            <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="../js/dataTables/jquery.dataTables.min.js"></script>
 
-                            <!-- Custom Theme JavaScript -->
-                            <script src="../js/startmin.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/loading.js"></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
-            });
-        });
-    </script>
     <script src="../js/tables/tables.js"></script>
+    <script src="../js/logout.js"></script>
     <script>
-        function w3_open() {
-          document.getElementById("main").style.marginLeft = "20%";
-          document.getElementById("mySidebar").style.width = "20%";
-          document.getElementById("mySidebar").style.display = "block";
-          document.getElementById("openNav").style.display = 'none';
-          
-        }
-        function w3_close() {
-          document.getElementById("main").style.marginLeft = "0%";
-          document.getElementById("mySidebar").style.display = "none";
-          document.getElementById("openNav").style.display = "inline-block";
-          
+      function w3_open() {
+        document.getElementById("main").style.marginLeft = "20%";
+        document.getElementById("mySidebar").style.width = "20%";
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("openNav").style.display = "none";
+      }
+      function w3_close() {
+        document.getElementById("main").style.marginLeft = "0%";
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("openNav").style.display = "inline-block";
+
         //   document.getElementById("closeNav").style.display = 'none';
         //   document.getElementById("closeNav").style.marginLeft = "25%";
-        }
-        </script>
-        <script>
-            window.location.href = 'login.html';
-        </script>
+      }
 
-</body>
-
+    
+    </script>
+  </body>
 </html>
