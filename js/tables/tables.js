@@ -1,8 +1,13 @@
 // showing loading
 var token = localStorage.getItem('token');
 console.log(token)
+
+
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
+    localStorage.removeItem("token");
+    // } else if (history.back()) {
+    //     window.location.href = "login.html";
 }
 // console.log(token);
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'

@@ -1,7 +1,8 @@
 var token = localStorage.getItem('token');
 var id = localStorage.getItem('bill_id');
 console.log(id)
-var id_bill = localStorage.getItem('id_bill')
+var id_bill = localStorage.getItem('bill_id')
+console.log(id_bill)
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
@@ -31,10 +32,10 @@ async function getAllProducts(callback) {
     displayLoading();
     await fetch(url + 'bills/getBills' + '?token=' + token)
 
-        .then(function (response) {
-            return response.json();
+    .then(function(response) {
+        return response.json();
 
-        }).then(callback);
+    }).then(callback);
     hideLoading();
 }
 
@@ -43,8 +44,9 @@ function renderProducts(products) {
     data = products;
     console.log(data)
     for (let i = 0; i < data.length; i++) {
-        if (data[i].bill_id == id_bill) {
 
+        if (data[i].bill_id == id_bill) {
+            console.log(data[i].bill_id)
             var bill_id = document.getElementById('bill_id').value = data[i].bill_id.slice(0, 6);
             var name_products = document.getElementById('name').value = data[i].name_receiver;
             var phone_number = document.getElementById('phone').value = data[i].phone_number;
@@ -69,11 +71,11 @@ function renderProducts(products) {
 
         }
     }
-    $(function () {
+    $(function() {
 
         var TotalValue = 0;
 
-        $(" #price").each(function (index, value) {
+        $(" #price").each(function(index, value) {
             currentRow = parseFloat($(this).text());
             TotalValue += currentRow
         });
