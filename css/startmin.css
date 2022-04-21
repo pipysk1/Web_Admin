@@ -1067,3 +1067,10 @@ main .list .item:hover {
     color: #333;
     white-space: nowrap;
 }
+#table-filter{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: transparent;
+    padding: 4px;
+}
