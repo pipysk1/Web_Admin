@@ -37,12 +37,8 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var variant = data[i].variant;
-<<<<<<< HEAD
             console.log(variant_id);
             console.log(variant[i].product_id)
-=======
-            console.log(variant)
->>>>>>> main
             img.innerHTML += `
             <img style="width:70%;" src="${data[i].src}"/>
 `
