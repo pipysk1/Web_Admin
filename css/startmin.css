@@ -1074,3 +1074,10 @@ main .list .item:hover {
     background-color: transparent;
     padding: 4px;
 }
+#img{
+    display: inline;
+    border: 1px solid #ddd;
+    /* border-radius: 4px; */
+    padding: 5px;
+    width: 150px;
+}
