@@ -4,7 +4,7 @@ var id = localStorage.getItem('id');
 console.log(id);
 
 var addVariant = document.getElementById('addVariant');
-addVariant.onclick = function(e) {
+addVariant.onclick = function (e) {
     e.preventDefault();
     window.location.href = "addVariant.html";
 }
@@ -14,7 +14,7 @@ getAllProducts(renderProducts);
 
 async function getAllProducts(callback) {
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function(response) {
+        .then(function (response) {
             return response.json();
         }).then(callback);
 }
@@ -24,7 +24,7 @@ var data = []
 function renderProducts(products) {
     var img = document.getElementById('img-detail');
     var name = document.getElementById('detail-product')
-        // var name = document.getElementById('name');
+    // var name = document.getElementById('name');
     var price = document.getElementById('price');
     var type = document.getElementById('type');
     var tbody = document.getElementById('data');
@@ -37,8 +37,7 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var variant = data[i].variant;
-            console.log(variant_id);
-            console.log(variant[i].product_id)
+            console.log(variant)
             img.innerHTML += `
             <img style="width:70%;" src="${data[i].src}"/>
 `
@@ -53,15 +52,15 @@ function renderProducts(products) {
             for (let i = 0; i < variant.length; i++) {
                 tbody.innerHTML += `
             <tr>
-            <th>${seq+=1}</th>
+            <th>${seq += 1}</th>
             <th>${variant[i].color}</th>
             <th>${variant[i].rgb}</th>
             <th>${variant[i].size}</th>
             <th>${variant[i].price}</th>
             <th>${variant[i].stock}</th>
             <th><img src="${variant[i].src}" style="width:70%;height:100px"/></th>
-            <th><button id="myBtn" onclick="handleEditVariant('${variant[i].variant_id}')">Sửa</button></th>
-            <th><button onclick="handleDeleteVariant('${data[i].variant_id}')">Xóa</button></th>
+            <th><button id="myBtn" onclick="handleEditProduct('${variant[i].variant_id}')">Sửa</button></th>
+            <th><button onclick="handleDeleteVariant('${variant[i].variant_id}')">Xóa</button></th>
             </tr>`
             }
         }
@@ -70,49 +69,42 @@ function renderProducts(products) {
 
     }
 
-}
-function handleEditVariant(id){
-  console.log(id)
-  localStorage.setItem('id',id);
-  window.location.href = "editVariant.html";
+
 }
 
-
+function handleEditProduct(id) {
+    console.log(id)
+    localStorage.setItem('id', id);
+    window.location.href = "editVariant.html";
+}
 
 function handleDeleteVariant(id) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].variant_id == id) {
-            console.log(id);
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-            var raw = JSON.stringify({
-                "variant_id": id
-            });
+    var raw = JSON.stringify({
+        "variant_id": id
+    });
 
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-            var result = confirm("Bạn có muốn xóa sản phẩm: " + data[i].name)
-            fetch(url + 'variants/hideVariant' + '?token=' + token, requestOptions)
-                .then(response => {
-                    if (result == true) {
-                        if (!response.ok) {
-                            alert("Xóa không thành công sản phẩm: " + data[i].name);
-                        } else {
-                            alert("Xóa thành công sản phẩm: " + data[i].name);
-                            reFresh();
-                        }
-                    }
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+    var result = confirm("Bạn có muốn xóa sản phẩm: " + id)
 
-                })
-                .catch(error => console.log('error', error));
+    fetch(url + 'variants/hideVariant?token=' + token, requestOptions)
+        .then(response => {
+            if (result == true) {
+                if (!response.ok) {
+                    alert('Xóa không thành công !')
+                } else {
+                    alert('Xóa thành công.')
+                }
+            }
         }
-    }
-
+        )
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
-
-
