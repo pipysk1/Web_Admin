@@ -1,0 +1,3 @@
+[submodule "Web_Admin"]
+	path = Web_Admin
+	url = https://github.com/pipysk1/Web_Admin.git

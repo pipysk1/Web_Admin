@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <title>Fasion-Admin</title>
-
+     <link rel="icon" href="../img/icon_fasions_1.png" />
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -53,11 +53,11 @@
             <div class="navi">
                 <a href="./home.html" class="w3-bar-item w3-button">Home</a>
                 <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
                 <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
                 <a href="user.html" class="w3-bar-item w3-button">Users</a>
-                <a href="notification.html" class="w3-bar-item w3-button"
-                >Notification</a
+                <a href="notification.html" class="w3-bar-item w3-button">Notification</a
               >
             </div>
 
@@ -171,13 +171,13 @@
                                                 </div>
 
                                                 <div class="col-ting">
-                                                    <div class="control-group file-upload" id="file-upload1">
+                                                    <div class="control-group" id="file-upload1">
                                                         <div class="image-box text-center">
-                                                            <p>Upload Image</p>
-                                                            <img src="" alt="">
+                                                            <!-- <p>Upload Image</p> -->
+                                                            <img src="" alt="" style="display: inline;" id="img">
                                                         </div>
                                                         <div class="controls" style="display: none;">
-                                                            <input type="file" name="contact_image_1" id="imgFile" />
+                                                            <input type="file" name="contact_image_1" id="imgFile"  accept=".jpg, .jpeg, .png"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -201,58 +201,58 @@
                                                 <div class="btn-add">
                                                     <button id="create" class="btn btn-default form-submit btn-lg btn-success btn-block">Update</button>
                                                     <a href="./home.html" class="btn btn-default form-submit btn-lg btn-success btn-block">Back Home</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- /.row (nested) -->
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
-                            <!-- /.panel -->
-                        </div>
-                        <!-- /.col-lg-12 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
             </div>
-            <!-- /#page-wrapper -->
-
+            </form>
         </div>
-        <!-- /#wrapper -->
+    </div>
+    <!-- /.row (nested) -->
+    </div>
+    <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
 
-        <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
+    </div>
+    <!-- /#wrapper -->
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
-        <script src="../js/logout.js"></script>
-        <script>
-            function w3_open() {
-                document.getElementById("main").style.marginLeft = "20%";
-                document.getElementById("mySidebar").style.width = "20%";
-                document.getElementById("mySidebar").style.display = "block";
-                document.getElementById("openNav").style.display = "none";
-            }
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenu.min.js"></script>
 
-            function w3_close() {
-                document.getElementById("main").style.marginLeft = "0%";
-                document.getElementById("mySidebar").style.display = "none";
-                document.getElementById("openNav").style.display = "inline-block";
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/logout.js"></script>
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "20%";
+            document.getElementById("mySidebar").style.width = "20%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = "none";
+        }
 
-                //   document.getElementById("closeNav").style.display = 'none';
-                //   document.getElementById("closeNav").style.marginLeft = "25%";
-            }
-        </script>
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
 
-        <script src="../js/tables/updateSP.js"></script>
+            //   document.getElementById("closeNav").style.display = 'none';
+            //   document.getElementById("closeNav").style.marginLeft = "25%";
+        }
+    </script>
+
+    <script src="../js/tables/updateSP.js"></script>
 
 </body>
 

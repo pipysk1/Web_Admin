@@ -4,7 +4,7 @@ var id = localStorage.getItem('id');
 console.log(id);
 
 var addVariant = document.getElementById('addVariant');
-addVariant.onclick = function(e){
+addVariant.onclick = function(e) {
     e.preventDefault();
     window.location.href = "addVariant.html";
 }
@@ -18,12 +18,7 @@ async function getAllProducts(callback) {
             return response.json();
         }).then(callback);
 }
-async function getAllProducts(callback) {
-    await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function(response) {
-            return response.json();
-        }).then(callback);
-}
+
 var data = []
 
 function renderProducts(products) {
@@ -42,8 +37,12 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var variant = data[i].variant;
+<<<<<<< HEAD
             console.log(variant_id);
             console.log(variant[i].product_id)
+=======
+            console.log(variant)
+>>>>>>> main
             img.innerHTML += `
             <img style="width:70%;" src="${data[i].src}"/>
 `
@@ -54,6 +53,7 @@ function renderProducts(products) {
             <p style="font-size:22px;margin-top:12px" >${data[i].type}</p>
             <p style="font-size:22px;margin-top:12px" >${data[i].product_detail}</p>
             `
+
             for (let i = 0; i < variant.length; i++) {
                 tbody.innerHTML += `
             <tr>
@@ -73,7 +73,6 @@ function renderProducts(products) {
 
 
     }
-   
 
 }
 function handleEditVariant(id){
@@ -81,6 +80,7 @@ function handleEditVariant(id){
   localStorage.setItem('id',id);
   window.location.href = "editVariant.html";
 }
+
 
 
 function handleDeleteVariant(id) {

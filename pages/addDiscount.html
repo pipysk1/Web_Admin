@@ -55,7 +55,7 @@
                 <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
                 <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
-                <a href="status.html" class="w3-bar-item w3-button">Process Bills</a>
+                <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
                 <a href="user.html" class="w3-bar-item w3-button">Users</a>
                 <a href="notification.html" class="w3-bar-item w3-button">Notification</a
               >
@@ -75,7 +75,7 @@
                             >
                           </li>
                         <li class="divider"></li>
-                        <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout </button>
+                        <li>  <button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout </button>
                     </li>
                 </ul>
             </li>
@@ -93,68 +93,49 @@
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">Sửa loại sản phẩm</h1>
-                        </div>
+                        <div class="col-lg-12"> <h1 class="page-header">Thêm mã khuyến mại</h1>  </div>
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Sửa loại sản phẩm
-                                </div>
+                                <div class="panel-heading"> Thêm mã khuyễn mại </div>
                                 <div class="panel-body">
-                                  
                                     <div class="row form-add">
                                         <div class="col-lg-12">
                                             <form role="form">
                                                 <div class="form-group">
-                                                    <label>ID sản phẩm</label>
-                                                    <input id="nameproduct" class="form-control" placeholder="ID sản phẩm" type="text" name="id">
+                                                    <label>Code khuyến mại</label>
+                                                    <input id="code" class="form-control" placeholder="Code khuyến mại" type="text" name="code">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Số tiền giảm</label>
+                                                    <input class="form-control" placeholder="Số lượng code" type="number" name="value" id="value">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Màu sắc</label>
-                                                    <input id="color" class="form-control" placeholder="Màu sắc" type="text" name="color">
+                                                    <label>max_used_by_user</label>
+                                                    <input id="max_used_by_user" name="max_used_by_user" class="form-control" placeholder="max_used_by_user" type="number">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>RGB</label>
-                                                    <input id="rgb" class="form-control" placeholder="RGB" type="text" name="rgb">
+                                                    <label>max_used</label>
+                                                    <input name="max_used_by_user" id="max_used" class="form-control" placeholder="max_used" type="number">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Size</label>
-                                                    <select class="form-control" id="list-type">
-                                                            <option>S</option>
-                                                            <option>M</option>
-                                                            <option>L</option>
-                                                            <option>XL</option>
-                                                            <option>XXL</option>
-                                                        </select>
-                                                </div>
-                                                <div class="col-ting">
-                                                    <div class="control-group file-upload" id="file-upload1">
-                                                        <div class="image-box text-center">
-                                                            <p>Upload Image</p>
-                                                            <img src="" alt="">
-                                                        </div>
-                                                        <div class="controls" style="display: none;">
-                                                            <input type="file" name="contact_image_1" id="imgFile" />
-                                                        </div>
-                                                    </div>
+                                                    <label>date_start</label>
+                                                    <br>
+                                                    <input name="max_used_by_user" id="date_start" type="date">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Giá sản phẩm</label>
-                                                    <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                    <label>date_end</label>
+                                                    <br>
+                                                    <input id="date_end" name="max_used_by_user"  type="date">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Số lượng sản phẩm</label>
-                                                    <input name="numberold" class="form-control" placeholder="Số lượng sản phẩm" type="number">
-                                                </div>
+                                              
                                                 <div class="btn-add">
-                                                    <div id="loading"></div>
-                                                    <div id="btn-confirm" class="btn btn-default form-submit btn-lg btn-success btn-block" data-toggle="modal" 
-                                                        data-target="#div-comfirm" >Sửa</div>
+                                                    <!-- <div id="loading"></div> -->
+                                                    <button id="create-discount" class="btn btn-default form-submit btn-lg btn-success btn-block">Create</button>
                                                     <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset Button</button>
                                                 </div>
                                             </form>
@@ -176,58 +157,6 @@
 
         </div>
         <!-- /#wrapper -->
-
-        <!-- show comfirm-->
-       <!-- <div class="modal fade" id="div-comfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Thông tin cập nhật</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <div id="view-info-content">
-                        <table>
-                            <tr>
-                                <td>ID sản phẩm</td>
-                                <td> <span id="c-id"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Mầu sắc</td>
-                                <td> <span id="c-color"></span></td>
-                            </tr>
-                            <tr>
-                                <td>RBG</td>
-                                <td> <span id="c-rbg"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Kích cỡ</td>
-                                <td> <span id="c-size"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Giá sản phẩm</td>
-                                <td> <span id="c-price"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Số lượng</td>
-                                <td> <span id="c-stock"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Mô tả</td>
-                                <td><span id="c-des"></span></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                  <button id="create" type="button" class="btn btn-primary">Thêm</button>
-                </div>
-              </div>
-            </div>
-        </div> -->
 
         <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>
@@ -260,7 +189,8 @@
             }
         </script>
 
-        <script src="../js/addVariant/editVariant.js"></script>
+        <script src="../js/discount/addDiscount.js"></script>
+
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 var variant_id = localStorage.getItem('id');
 console.log(variant_id);
 var token = localStorage.getItem('token');
+console.log(token)
 
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 
@@ -67,7 +68,7 @@ function editVariant(formdata) {
         redirect: 'follow'
     };
 
-    fetch("https://hieuhmph12287-lab5.herokuapp.com/variants/updateVariant?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIzZGM0ZjFjNDgxOTYwMDIzZmZlYjM2IiwidXNlcm5hbWUiOiJtYWljb2RlIiwiaWF0IjoxNjQ5NzgwMTA2LCJleHAiOjE2NDk4NjY1MDZ9.BFaFTqF6OneAUjVgUPTPXgPAV8IEdega_SJZI96MggQ", requestOptions)
+    fetch(url + 'variants/updateVariant?token=' + token, requestOptions)
         .then(response => {
             if (!response.ok) {
                 alert("False")
@@ -121,7 +122,7 @@ var requestOptions = {
     redirect: 'follow'
 };
 
-fetch("https://hieuhmph12287-lab5.herokuapp.com/variants/updateVariant?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjIzZGM0ZjFjNDgxOTYwMDIzZmZlYjM2IiwidXNlcm5hbWUiOiJtYWljb2RlIiwiaWF0IjoxNjQ5NzgwMTA2LCJleHAiOjE2NDk4NjY1MDZ9.BFaFTqF6OneAUjVgUPTPXgPAV8IEdega_SJZI96MggQ", requestOptions)
+fetch(url + 'variants/updateVariant?token=' + token, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

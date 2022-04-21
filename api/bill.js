@@ -13,40 +13,45 @@ document.addEventListener("DOMContentLoaded", function () {
                 hideLoading();
                 data = JSON.parse(this.responseText);
 
-                $('#table2').DataTable({
+                var table = $('#table2').DataTable({
 
-                    "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                    "lengthMenu": [
+                        [5, 10, 25, 50, -1],
+                        [5, 10, 25, 50, "All"]
+                    ],
+                    "searching": true,
                     data: data,
-
-                    columns: [
-                        {
-                            "data": null, "render": function (data, type, full, meta) {
-                                return meta.row + 1;
-                            }
-                        },
-                        { data: 'name_receiver' },
-                        { data: 'phone_number' },
-                        { data: 'address_detail' },
-                        { data: 'status' },
-                        { data: 'discount_value' },
-                        { data: 'date_created' },
-                        { data: 'payment_type' },
-                        {
-                            "data": null,
-                            "render": function (data, type, row) {
-                                return `<div class="text-center">
-                                <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="detailBill('${data.product_id}')" >
-                                   <i class='far fa-trash-alt'></i> Xem 
-                                </button></div>
+                    dom: 'lrtip',
+                    columns: [{
+                        "data": null,
+                        "render": function (data, type, full, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    { data: 'name_receiver' },
+                    { data: 'phone_number' },
+                    { data: 'address_detail' },
+                    { data: 'status' },
+                    { data: 'discount_value' },
+                    { data: 'date_created' },
+                    { data: 'payment_type' },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return `<div class="text-center">
+                                <button class='btn btn-primary text-white' style='cursor:pointer; width:150px;'  onclick="detailBill('${data.bill_id}')" >
+                       <i class='far fa-trash-alt'></i> Xem
+                    </button></div>
                             `;
-                            }, "width": "5%"
                         },
+                        "width": "5%"
+                    },
                     ],
                     initComplete: function () {
                         this.api().columns([1, 2, 3, 7, 4, 5]).every(function () {
                             var column = this;
                             var select = $('<select><option value=""></option></select>')
-                                .appendTo($(column.footer()).empty())
+                                .appendTo('<label>&nbsp; App ID:</label>')
                                 .on('change', function () {
                                     var val = $.fn.dataTable.util.escapeRegex(
                                         $(this).val()
@@ -66,7 +71,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     "pageLength": 5
                 });
-
+                $('#table-filter').on('change', function () {
+                    table.search(this.value).draw();
+                });
+                $('#myInputTextField').keyup(function () {
+                    table.search($(this).val()).draw();
+                })
             }
         }
     };
@@ -78,14 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // href="/pages/editBill.html" 
 function detailBill(id) {
-    console.log(data)
+    window.location.href = "editBill.html";
     for (let i = 0; i < data.length; i++) {
-        if (data[i].bill_id == id)
-            localStorage.setItem('id_bill', data[i].bill_id)
-        window.location.href = "editBill.html";
+        if (data[i].bill_id == id) {
+            console.log(id)
+            localStorage.setItem('bill_id', id);
 
-
+        }
     }
-
-
 }

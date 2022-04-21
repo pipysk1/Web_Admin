@@ -1,7 +1,13 @@
 // showing loading
 var token = localStorage.getItem('token');
+console.log(token)
+
+
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
+    localStorage.removeItem("token");
+    // } else if (history.back()) {
+    //     window.location.href = "login.html";
 }
 // console.log(token);
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
@@ -18,7 +24,7 @@ start();
 async function getAllProducts(callback) {
     displayLoading()
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function (response) {
+        .then(function(response) {
             hideLoading()
             return response.json();
         }).then(callback);
@@ -31,84 +37,118 @@ function renderProducts(products) {
     var seq = 0;
 
     data = products;
+    console.log(data)
 
-    $('#tableHome').on('click', '.Mybtn', function () {
-
-        var RowIndex = $(this).closest('tr');
-        var data = Dtable.row(RowIndex).data();
-        alert(data[1]);
-    });
-    $('#tableHome').DataTable({
-        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-
-        data: data,
-
-
-        columns: [
-            {
-                "data": null, "render": function (data, type, full, meta) {
-                    return meta.row + 1;
-                }
-            },
-            { data: 'name' },
-            { data: 'status' },
-            { data: 'old_price' },
-            { data: 'price' },
-            { data: 'gender' },
-            { data: 'type' },
-            {
-                "data": "src",
-                "render": function (data) {
-                    var img = data;
-                    return '<img src="' + img + '" height="150px" width="150px" >';
-                }
-            },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    return `<div class="text-center">
-                    <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data.product_id}')" >
-                       <i class='far fa-trash-alt'></i> Xem 
-                    </button></div>
-                `;
-                }, "width": "5%"
-            },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    return `<div class="text-center">
-                    <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data.product_id}')" >
-                       <i class='far fa-trash-alt'></i> Sửa
-                    </button></div>
-                `;
-                }, "width": "5%"
-            },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    return `<div class="text-center">
-                    <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data.product_id}')" >
-                       <i class='far fa-trash-alt'></i> Xóa
-                    </button></div>
-                `;
-                }, "width": "5%"
-            },
-            {
-                "data": null,
-                "render": function (data, type, row) {
-                    return `<div class="text-center">
-                    <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data.product_id}')" >
-                       <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
-                    </button></div>
-                `;
-                }, "width": "5%"
-            }
-        ],
+    for (let i = 0; i < data.length; i++) {
+        tbody.innerHTML +=
+            `<tr>
+<th>${seq++}</th>
+<th>${data[i].name}</th>
+<th>${data[i].status}</th>
+<th>${data[i].old_price}</th>
+<th>${data[i].price}</th>
+<th>${data[i].gender}</th>
+<th>${data[i].type}</th>
+<th><img src="${data[i].src}" height="100px" width="70px" /></th>
+<th><button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data[i].product_id}')">  <i class='far fa-trash-alt'>Xem</i></button></th>
+<th> <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data[i].product_id}')" >
+                  <i class='far fa-trash-alt'></i> Sửa
+                </button></th>
+<th> <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data[i].product_id}')" >
+                    <i class='far fa-trash-alt'></i> Xóa
+                </button></th>
+<th> <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data[i].product_id}')" >
+               <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
+                </button></th>
+            </tr>`
 
 
+    }
 
-        "pageLength": 5
-    });
+    // $('#tableHome').on('click', '.Mybtn', function() {
+
+    //     var RowIndex = $(this).closest('tr');
+    //     var data = Dtable.row(RowIndex).data();
+    //     alert(data[1]);
+    // });
+    // $('#tableHome').DataTable({
+    //     "lengthMenu": [
+    //         [5, 10, 25, 50, -1],
+    //         [5, 10, 25, 50, "All"]
+    //     ],
+
+    //     data: data,
+
+
+    //     columns: [{
+    //             "data": null,
+    //             "render": function(data, type, full, meta) {
+    //                 return meta.row + 1;
+    //             }
+    //         },
+    //         { data: 'name' },
+    //         { data: 'status' },
+    //         { data: 'old_price' },
+    //         { data: 'price' },
+    //         { data: 'gender' },
+    //         { data: 'type' },
+    //         {
+    //             "data": "src",
+    //             "render": function(data) {
+    //                 var img = data;
+    //                 return '<img src="' + img + '" height="150px" width="150px" >';
+    //             }
+    //         },
+    //         {
+    //             "data": null,
+    //             "render": function(data, type, row) {
+    //                 return `<div class="text-center">
+    //                 <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data.product_id}')" >
+    //                    <i class='far fa-trash-alt'></i> Xem 
+    //                 </button></div>
+    //             `;
+    //             },
+    //             "width": "5%"
+    //         },
+    //         {
+    //             "data": null,
+    //             "render": function(data, type, row) {
+    //                 return `<div class="text-center">
+    //                 <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data.product_id}')" >
+    //                    <i class='far fa-trash-alt'></i> Sửa
+    //                 </button></div>
+    //             `;
+    //             },
+    //             "width": "5%"
+    //         },
+    //         {
+    //             "data": null,
+    //             "render": function(data, type, row) {
+    //                 return `<div class="text-center">
+    //                 <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data.product_id}')" >
+    //                    <i class='far fa-trash-alt'></i> Xóa
+    //                 </button></div>
+    //             `;
+    //             },
+    //             "width": "5%"
+    //         },
+    //         {
+    //             "data": null,
+    //             "render": function(data, type, row) {
+    //                 return `<div class="text-center">
+    //                 <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data.product_id}')" >
+    //                    <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
+    //                 </button></div>
+    //             `;
+    //             },
+    //             "width": "5%"
+    //         }
+    //     ],
+
+
+
+    //     "pageLength": 5
+    // });
 
 
 }
@@ -216,7 +256,7 @@ function handleEditProduct(id) {
 
 function pagesAddProduct() {
     var btnAddProducts = document.querySelector('.form-submit');
-    btnAddProducts.onclick = function () {
+    btnAddProducts.onclick = function() {
         window.location.href = "addProduct.html";
     }
 }
