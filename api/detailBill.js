@@ -1,6 +1,8 @@
 var token = localStorage.getItem('token');
-var id = localStorage.getItem('id');
-var id_bill = localStorage.getItem('id_bill')
+var id = localStorage.getItem('bill_id');
+console.log(id)
+var id_bill = localStorage.getItem('bill_id')
+console.log(id_bill)
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
@@ -43,8 +45,9 @@ function renderProducts(products) {
     data = products;
     console.log(data)
     for (let i = 0; i < data.length; i++) {
-        if (data[i].bill_id == id_bill) {
 
+        if (data[i].bill_id == id_bill) {
+            console.log(data[i].bill_id)
             var bill_id = document.getElementById('bill_id').value = data[i].bill_id.slice(0, 6);
             var name_products = document.getElementById('name').value = data[i].name_receiver;
             var phone_number = document.getElementById('phone').value = data[i].phone_number;
@@ -66,6 +69,7 @@ function renderProducts(products) {
     `;
 
             }
+
         }
     }
     $(function() {
@@ -82,4 +86,101 @@ function renderProducts(products) {
     });
 
 
+<<<<<<< HEAD
 }
+=======
+}
+
+function tranfer() {
+
+    fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/transferOrder/' + id_bill + '?&token=' + token, {
+        method: 'GET', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert("change status succes!!")
+            window.location.href = "bill.html";
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
+
+var submitBtn = document.getElementById('tranfer');
+submitBtn.addEventListener('click', tranfer);
+
+//accept
+function accept() {
+
+    fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/confirmOrder/' + id_bill + '?&token=' + token, {
+        method: 'GET', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert("change status succes!!")
+            window.location.href = "bill.html";
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
+
+var submitBtn = document.getElementById('accept');
+submitBtn.addEventListener('click', accept);
+
+//finish
+function finish() {
+
+    fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/finishOrder/' + id_bill + '?&token=' + token, {
+        method: 'GET', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert("change status succes!!")
+            window.location.href = "bill.html";
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
+
+var submitBtn = document.getElementById('finish');
+submitBtn.addEventListener('click', finish);
+
+//cancel
+function cancel() {
+
+    fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/cancelOrder/' + id_bill + '?&token=' + token, {
+        method: 'GET', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert("change status succes!!")
+            window.location.href = "bill.html";
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+}
+
+var submitBtn = document.getElementById('cancel');
+submitBtn.addEventListener('click', cancel);
+
+
+>>>>>>> main

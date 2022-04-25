@@ -41,6 +41,7 @@ function handleFormAddVariant() {
         product_id = document.querySelector('#nameproduct').value;
         var color = document.querySelector('input[name="color"]').value;
         var rgb = document.querySelector('input[name="rgb"]').value;
+        console.log(rgb)
         var size = document.querySelector('input[name="optionsRadios"]:checked').value;
         var price = document.querySelector('input[name="numbernew"]').value;
         var stock = document.querySelector('input[name="numberold"]').value;
@@ -73,7 +74,7 @@ function createAddVariant(data) {
         method: 'POST',
         body: data,
     };
-    fetch(url + "variants/addVariant" + "?token=" + token, requestOption)
+    fetch(url + "variants/addVariant?token=" + token, requestOption)
         .then(Response => {
             if (!Response.ok) {
                 alert('Thêm loại sản phẩm không thành công');

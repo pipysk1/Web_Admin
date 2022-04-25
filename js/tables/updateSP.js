@@ -62,7 +62,8 @@ function renderProducts(products) {
 
 
             document.getElementById('list-type').value = data[i].type;
-            document.getElementById("imgFile").files[0] = data[i].file;
+            document.getElementById("imgFile").files[0] = data[i].src;
+            document.getElementById("img").src = data[i].src
             document.querySelector('input[name="collection_id"]').value = data[i].collection_id;
             document.querySelector('input[name="numbernew"]').value = data[i].price;
             document.querySelector('input[name="numberold"]').value = data[i].old_price;
@@ -102,7 +103,6 @@ function test() {
         formData.append("type", type);
         formData.append("file", file);
         createProduct(formData);
-
     }
 }
 

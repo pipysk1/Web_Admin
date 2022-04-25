@@ -8,10 +8,10 @@ function changePassword() {
     var body = document.getElementById("body").value;
     var data = { title: title, body: body };
     if (title == "") {
-        alert("please input title")
+        alert("Please input title")
     }
     if (body == "") {
-        alert("please comfirm Details")
+        alert("Please comfirm Details")
     }
     else {
         fetch('https://hieuhmph12287-lab5.herokuapp.com/notify/sendNotifyMultiUser?token=' + token, {
@@ -24,13 +24,11 @@ function changePassword() {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                alert("change password succes!!")
+                alert("Push notification succes!!")
                 window.location.href = "notification.html";
             })
             .catch((error) => {
-                console.log('Success:', data);
-                alert("change password succes!!")
-                window.location.href = "notification.html";
+                console.log(error)
             });
     }
 }

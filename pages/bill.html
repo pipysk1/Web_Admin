@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="../api/bill.js"></script>
+    <!-- <script src="../api/bill.js"></script> -->
 
     <title>Fasion-Admin</title>
 
@@ -17,7 +17,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
+     <link rel="icon" href="../img/icon_fasions_1.png" />
     <!-- MetisMenu CSS -->
     <link href="../css/metisMenu.min.css" rel="stylesheet">
 
@@ -114,6 +114,19 @@
 
                                         <div class="table-responsive">
                                             <table id="table2" style="width: 100%;" class="cell-border compact stripe">
+                                                <p style="float: right;">
+                                                    Status: 
+                                                    <select id="table-filter">
+                                                    <option value="">All</option>
+                                                    <option>Đang xử lý</option>
+                                                    <option>Đã xác nhận</option>
+                                                    <option>Đang vận chuyển	</option>
+                                                    <option>Đã hoàn thành</option>
+                                                    <option>Đã hủy</option>
+                                                    </select>
+                                                    </p>
+                                                    <p style="float: left;"> Search: <input type="text" id="myInputTextField"></p>
+                                                   
                                                 <thead>
                                                     <tr>
                                                         <th>Index</th>
@@ -132,19 +145,6 @@
 
 
                                                 </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th>Name </th>
-                                                        <th>Number Phone</th>
-                                                        <th>Address</th>
-                                                        <th>Status</th>
-                                                        <th>Discount</th>
-                                                        <th></th>
-                                                        <th>Payment type</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </tfoot>
                                             </table>
 
                                             <div id="pagination-container"></div>
@@ -217,6 +217,7 @@
                             //   document.getElementById("closeNav").style.marginLeft = "25%";
                         }
                     </script>
+                    <script src="../api/bill.js"></script>
 
 </body>
 
