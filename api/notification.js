@@ -3,6 +3,7 @@ var token = localStorage.getItem('token');
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
+
 function changePassword() {
     var title = document.getElementById("title").value;
     var body = document.getElementById("body").value;
@@ -12,19 +13,18 @@ function changePassword() {
     }
     if (body == "") {
         alert("Please comfirm Details")
-    }
-    else {
+    } else {
         fetch('https://hieuhmph12287-lab5.herokuapp.com/notify/sendNotifyMultiUser?token=' + token, {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
             .then(response => response.text())
             .then(text => console.log(text))
             .then(data => {
-                console.log('Success:', data);
+
                 alert("Push notification succes!!")
                 window.location.href = "notification.html";
             })
@@ -36,4 +36,3 @@ function changePassword() {
 
 var submitBtn = document.getElementById('btn-password');
 submitBtn.addEventListener('click', changePassword);
-

@@ -39,14 +39,36 @@ function renderProducts(products) {
             var variant = data[i].variant;
 
             img.innerHTML += `
-            <img style="width:70%;" src="${data[i].src}"/>
-`
-            name.innerHTML += `
-            <span style="font-size:24px" >${data[i].name}</span>
-            <p style="font-size:22px;color:blue;margin-top:12px" >${data[i].price}</p>
-            <p style="font-size:22px;margin-top:12px" >${data[i].gender}</p>
-            <p style="font-size:22px;margin-top:12px" >${data[i].type}</p>
-            <p style="font-size:22px;margin-top:12px" >${data[i].product_detail}</p>
+            <div class="card">
+            <div class = "product-imgs">
+            <img  src="${data[i].src}"/>
+            </div>
+            <div class="product-content">
+            <h2 class ="product-title">${data[i].name}</h2>
+           <div class="product-status" >
+           <p  class = "product-status">${data[i].status}</p>
+           </div>
+           <div class="product-gender">
+           <p class="product-gender">Gender:  <span>${data[i].gender}</span></p>
+
+           </div>
+           <div>
+           <p class="product-gender">Type:  <span>${data[i].type}</span></p>
+           </div>
+
+           <div>
+           <select data-id="value"></select>
+           </div>
+
+            <div class = "product-price">
+            <p class = "last-price">Old Price: <span>${data[i].old_price}</span></p>
+            <p class = "new-price">New Price: <span>${data[i].price}</span></p>
+            </div>
+            <div class = "product-detail">
+            <h2>Product Description : </h2>
+            <p>${data[i].product_detail}</p>
+            </div>
+            </div>
             `
 
             for (let i = 0; i < variant.length; i++) {
@@ -64,17 +86,11 @@ function renderProducts(products) {
             </tr>`
             }
         }
-
-
-
     }
-
-
 }
 
 function handleEditProduct(id) {
-
-    localStorage.setItem('id', id);
+    localStorage.setItem('id_variant', id);
     window.location.href = "editVariant.html";
 }
 

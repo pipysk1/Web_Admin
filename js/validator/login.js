@@ -1,3 +1,8 @@
+window.onbeforeunload = function() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id_varriant");
+
+};
 //call api login
 function handleLogin(data) {
     var url = 'https://hieuhmph12287-lab5.herokuapp.com/'

@@ -4,7 +4,7 @@ var id_bill = localStorage.getItem('user_id')
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
-// console.log(token);
+
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/users/getAllUsers?token=' + token;
 getAllProducts(renderProducts);
@@ -30,17 +30,17 @@ async function getAllProducts(callback) {
     displayLoading();
     await fetch(url + 'users/getAllUsers' + '?token=' + token)
 
-        .then(function (response) {
-            return response.json();
+    .then(function(response) {
+        return response.json();
 
-        }).then(callback);
+    }).then(callback);
     hideLoading();
 }
 
 function renderProducts(products) {
 
     data = products;
-    console.log(data)
+
     for (let i = 0; i < data.length; i++) {
         if (data[i]._id == id_bill) {
 
@@ -51,7 +51,7 @@ function renderProducts(products) {
             var discount_value = document.getElementById('discount').value = data[i].sub_district;
             var payment_type = document.getElementById('payment').value = data[i].district;
             var address = document.getElementById('address').value = data[i].city;
-            console.log(data[i].city)
+
 
 
         }

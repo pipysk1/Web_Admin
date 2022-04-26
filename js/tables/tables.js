@@ -4,8 +4,6 @@ var token = localStorage.getItem('token');
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
     localStorage.removeItem("token");
-    // } else if (history.back()) {
-    //     window.location.href = "login.html";
 }
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
@@ -20,7 +18,6 @@ start();
 
 var charactersList = document.getElementById('data');
 var searchBar = document.getElementById('searchBar');
-var data = [];
 var data = [];
 
 
@@ -41,14 +38,18 @@ async function getAllProducts() {
 
 function displayCharacters(characters) {
     var seq = 0;
+
     var tbody = characters
         .map((character) => {
+            var price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(character.price);
+            var old_price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(character.old_price);
+
             return ` <tr>
             <th>${seq++}</th>
             <th>${character.name}</th>
             <th>${character.status}</th>
-            <th>${character.old_price}</th>
-            <th>${character.price}</th>
+            <th>${old_price}</th>
+            <th>${price}</th>
             <th>${character.gender}</th>
             <th>${character.type}</th>
             <th><img src="${character.src}" height="100px" width="70px" /></th>
@@ -109,8 +110,8 @@ searchBar.addEventListener('keyup', (e) => {
         return (
             character.name.toLowerCase().includes(searchString) ||
             character.gender.toLowerCase().includes(searchString) ||
-            character.status.toLowerCase().includes(searchString)
-
+            character.status.toLowerCase().includes(searchString) ||
+            character.type.toLowerCase().includes(searchString)
         );
     });
     displayCharacters(filteredCharacters);

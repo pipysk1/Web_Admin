@@ -1,7 +1,7 @@
-var variant_id = localStorage.getItem('id');
-console.log(variant_id);
+var variant_id = localStorage.getItem('id_variant');
+
 var token = localStorage.getItem('token');
-console.log(token)
+
 
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 
@@ -21,12 +21,12 @@ var data = []
 function renderProducts(products) {
     var btnAddVariant = document.getElementById('btn-confirm');
     data = products;
-    // console.log(data)
+
     for (let i = 0; i < data.length; i++) {
         if (data[i].variant_id == variant_id) {
-            // console.log(data[i].variant_id);
+
             var nameproduct = document.querySelector('input[name="id"]').value = data[i].variant_id;
-            console.log(nameproduct);
+
             var color = document.querySelector('input[name="color"]').value = data[i].color;
             var rgb = document.querySelector('input[name="rgb"]').value = data[i].rgb;
             var size = document.getElementById('list-type').value = data[i].size;
