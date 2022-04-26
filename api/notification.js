@@ -21,7 +21,8 @@ function changePassword() {
             },
             body: JSON.stringify(data),
         })
-            .then(response => response.json())
+            .then(response => response.text())
+            .then(text => console.log(text))
             .then(data => {
                 console.log('Success:', data);
                 alert("Push notification succes!!")
