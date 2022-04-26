@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <title>Fasion-Admin</title>
-     <link rel="icon" href="../img/icon_fasions_1.png" />
+    <link rel="icon" href="../img/icon_fasions_1.png" />
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -179,7 +179,8 @@
                                                             <img src="" alt="">
                                                         </div>
                                                         <div class="controls" style="display: none;">
-                                                            <input type="file" name="contact_image_1" id="imgFile" accept=".jpg, .jpeg, .png" />
+                                                            <input type="file" name="contact_image_1" onchange="ValidateFileUpload()" id="imgFile" />
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -194,7 +195,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Giá cũ sản phẩm</label>
-                                                    <input name="numberold" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                    <input name="numberold" class="form-control" placeholder="Giá sản phẩm"  type="number">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Mô tả sản phẩm</label>

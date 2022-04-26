@@ -1,12 +1,12 @@
 var token = localStorage.getItem('token');
 var id = localStorage.getItem('bill_id');
-console.log(id)
+
 var id_bill = localStorage.getItem('bill_id')
-console.log(id_bill)
+
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
-// console.log(token);
+
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
 getAllProducts(renderProducts);
@@ -32,22 +32,22 @@ async function getAllProducts(callback) {
     displayLoading();
     await fetch(url + 'bills/getBills' + '?token=' + token)
 
-        .then(function (response) {
+    .then(function(response) {
 
-            return response.json();
+        return response.json();
 
-        }).then(callback);
+    }).then(callback);
     hideLoading();
 }
 
 function renderProducts(products) {
 
     data = products;
-    console.log(data)
+
     for (let i = 0; i < data.length; i++) {
 
         if (data[i].bill_id == id_bill) {
-            console.log(data[i].bill_id)
+
             var bill_id = document.getElementById('bill_id').value = data[i].bill_id.slice(0, 6);
             var name_products = document.getElementById('name').value = data[i].name_receiver;
             var phone_number = document.getElementById('phone').value = data[i].phone_number;
@@ -72,11 +72,11 @@ function renderProducts(products) {
 
         }
     }
-    $(function () {
+    $(function() {
 
         var TotalValue = 0;
 
-        $(" #price").each(function (index, value) {
+        $(" #price").each(function(index, value) {
             currentRow = parseFloat($(this).text());
             TotalValue += currentRow
         });
@@ -91,11 +91,11 @@ function renderProducts(products) {
 function tranfer() {
 
     fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/transferOrder/' + id_bill + '?&token=' + token, {
-        method: 'GET', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             alert("change status succes!!")
@@ -114,11 +114,11 @@ submitBtn.addEventListener('click', tranfer);
 function accept() {
 
     fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/confirmOrder/' + id_bill + '?&token=' + token, {
-        method: 'GET', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             alert("change status succes!!")
@@ -137,11 +137,11 @@ submitBtn.addEventListener('click', accept);
 function finish() {
 
     fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/finishOrder/' + id_bill + '?&token=' + token, {
-        method: 'GET', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             alert("change status succes!!")
@@ -160,11 +160,11 @@ submitBtn.addEventListener('click', finish);
 function cancel() {
 
     fetch('https://hieuhmph12287-lab5.herokuapp.com/bills/cancelOrder/' + id_bill + '?&token=' + token, {
-        method: 'GET', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
+            method: 'GET', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json())
         .then(data => {
             alert("change status succes!!")
@@ -178,5 +178,3 @@ function cancel() {
 
 var submitBtn = document.getElementById('cancel');
 submitBtn.addEventListener('click', cancel);
-
-

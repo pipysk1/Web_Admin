@@ -1,8 +1,8 @@
 var id = localStorage.getItem('id')
-console.log(id)
+
 
 var token = localStorage.getItem('token');
-console.log(token)
+
 var url = "https://hieuhmph12287-lab5.herokuapp.com/";
 
 function start() {
@@ -27,10 +27,8 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var product_id = document.querySelector('#nameproduct').value = data[i].product_id
-            console.log(product_id);
         }
     }
-    console.log(data);
 }
 
 function handleFormAddVariant() {

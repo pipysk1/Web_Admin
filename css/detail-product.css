@@ -1,33 +1,88 @@
-.product {
-    margin: 12px auto 48px auto;
-    display: flex;
-    max-width: 740px;
-    min-height: 360px;
+.card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    background-color: #e2e2e2;
+    padding: 10px;
 }
 
-.product-img {
-    flex: 1;
-    margin-left: 48px;
-    width: 100%;
-    background-position: 50%;
+img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: block;
 }
 
-.detail-product {
-    flex: 1;
+.product-status {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background: #256eff;
+    color: #fff;
+    padding: 0 0.3rem;
+    transition: all 0.5s ease;
 }
 
-.name-name {
-    font-size: 24px;
+.product-content {
+    padding: 2rem 1rem;
 }
 
-.name-price {
-    margin-top: 12px;
-    font-size: 22px;
-    color: blue;
+.product-title {
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
 }
 
-.name-type {
-    margin-top: 12px;
-    font-size: 22px;
-    color: blue;
+.product-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+
+.product-price {
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 1000;
+}
+
+.product-price span {
+    font-weight: 700;
+}
+
+.last-price span {
+    font-size: 18px;
+    color: #f64749;
+    text-decoration: line-through;
+}
+
+.new-price span {
+    font-size: 20px;
+    color: #256eff;
+}
+
+.product-gender span {
+    font-size: 18px;
+    color: #b44200;
+}
+
+.product-detail h2 {
+    text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+
+.product-detail p {
+    font-size: 16px;
+    padding: 0.3rem;
+    opacity: 0.8;
 }
