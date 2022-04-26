@@ -32,11 +32,11 @@ async function getAllProducts(callback) {
     displayLoading();
     await fetch(url + 'bills/getBills' + '?token=' + token)
 
-    .then(function(response) {
+        .then(function (response) {
 
-        return response.json();
+            return response.json();
 
-    }).then(callback);
+        }).then(callback);
     hideLoading();
 }
 
@@ -72,11 +72,11 @@ function renderProducts(products) {
 
         }
     }
-    $(function() {
+    $(function () {
 
         var TotalValue = 0;
 
-        $(" #price").each(function(index, value) {
+        $(" #price").each(function (index, value) {
             currentRow = parseFloat($(this).text());
             TotalValue += currentRow
         });
@@ -86,9 +86,6 @@ function renderProducts(products) {
     });
 
 
-<<<<<<< HEAD
-}
-=======
 }
 
 function tranfer() {
@@ -183,4 +180,3 @@ var submitBtn = document.getElementById('cancel');
 submitBtn.addEventListener('click', cancel);
 
 
->>>>>>> main
