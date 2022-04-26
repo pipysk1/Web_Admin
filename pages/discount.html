@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,61 +27,38 @@
     <link href="../css/startmin.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"
-    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css" />
 
-    <script
-      type="text/javascript"
-      charset="utf8"
-      src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"
-    ></script>
-  </head>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+</head>
 
-  <body>
+<body>
     <div>
-      <div id="wrapper">
-        <!-- Navigation -->
+        <div id="wrapper">
+            <!-- Navigation -->
 
-        <button
-          type="button"
-          class="navbar-toggle"
-          data-toggle="collapse"
-          data-target=".navbar-collapse"
-        >
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
 
-        <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
-        <div
-          class="w3-sidebar w3-bar-block w3-card w3-animate-left"
-          id="mySidebar"
-        >
-          <button
-            id="closeNav"
-            class="w3-button w3-teal w3-xlarge"
-            onclick="w3_close()"
-            style="float: right; margin-bottom: 72px"
-          >
+            <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+                <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right; margin-bottom: 72px">
             &#9776;
           </button>
-          <div class="navi">
-            <a href="./home.html" class="w3-bar-item w3-button">Home</a>
-            <a href="addProduct.html" class="w3-bar-item w3-button"
-              >Add Products</a
+                <div class="navi">
+                    <a href="./home.html" class="w3-bar-item w3-button">Home</a>
+                    <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a
             >
             <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
-            <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
-            <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
-            <a href="user.html" class="w3-bar-item w3-button">Users</a>
-            <a href="notification.html" class="w3-bar-item w3-button"
-              >Notification</a
+                    <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
+                    <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
+                    <a href="user.html" class="w3-bar-item w3-button">Users</a>
+                    <a href="notification.html" class="w3-bar-item w3-button">Notification</a
             >
           </div>
         </div>
@@ -95,10 +73,9 @@
             >
               <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li>
-                <a href="./changePassword.html"
-                  ><i class="fa fa-user fa-fw"></i> Change Password</a
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
                 >
               </li>
               <li class="divider"></li>
@@ -150,11 +127,11 @@
                               <th>STT</th>
                               <th>Id Discount</th>
                               <th>Mã giảm giá</th>
-                              <th>Số lượng</th>
-                              <th>max_used_by_user</th>
-                              <th>max_used</th>
-                              <th>date_start</th>
-                              <th>date_end</th>
+                              <th>Giá tiền giảm VND</th>
+                              <th>Số lần dùng trên 1 tài khoản</th>
+                              <th>Số lượng người dùng</th>
+                              <th>Ngày mã bắt đầu</th>
+                              <th>Ngày mã hết hạn</th>
                             </tr>
                           </thead>
                           <tbody id="data">

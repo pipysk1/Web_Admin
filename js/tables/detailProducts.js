@@ -1,10 +1,10 @@
 var token = localStorage.getItem('token');
 
 var id = localStorage.getItem('id');
-console.log(id);
+
 
 var addVariant = document.getElementById('addVariant');
-addVariant.onclick = function (e) {
+addVariant.onclick = function(e) {
     e.preventDefault();
     window.location.href = "addVariant.html";
 }
@@ -14,7 +14,7 @@ getAllProducts(renderProducts);
 
 async function getAllProducts(callback) {
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         }).then(callback);
 }
@@ -24,7 +24,7 @@ var data = []
 function renderProducts(products) {
     var img = document.getElementById('img-detail');
     var name = document.getElementById('detail-product')
-    // var name = document.getElementById('name');
+
     var price = document.getElementById('price');
     var type = document.getElementById('type');
     var tbody = document.getElementById('data');
@@ -37,7 +37,7 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
             var variant = data[i].variant;
-            console.log(variant)
+
             img.innerHTML += `
             <img style="width:70%;" src="${data[i].src}"/>
 `
@@ -73,7 +73,7 @@ function renderProducts(products) {
 }
 
 function handleEditProduct(id) {
-    console.log(id)
+
     localStorage.setItem('id', id);
     window.location.href = "editVariant.html";
 }
@@ -103,8 +103,7 @@ function handleDeleteVariant(id) {
                     alert('Xóa thành công.')
                 }
             }
-        }
-        )
+        })
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }

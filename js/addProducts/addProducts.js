@@ -5,11 +5,11 @@ var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 function handleCreateForm() {
 
     var createBtn = document.querySelector('#create-add');
-    createBtn.onclick = function (e) {
+    createBtn.onclick = function(e) {
         e.preventDefault();
         var name_products = document.querySelector('input[name="name_products"]').value;
         var status = document.querySelector('input[name="optionsRadios"]:checked').value;
-        console.log(status)
+
         var gender = document.querySelector('input[name="optionsRadios1"]:checked').value;
         var type = document.getElementById('list-type').value;
         let file = document.getElementById("imgFile").files[0];
@@ -18,7 +18,7 @@ function handleCreateForm() {
         var old_price = document.querySelector('input[name="numberold"]').value;
         var product_detail = document.getElementById('product_detail').value;
 
-        console.log(name_products);
+
         var formData = new FormData();
         formData.append("name", name_products);
         formData.append("gender", gender);
@@ -30,7 +30,7 @@ function handleCreateForm() {
         formData.append("type", type);
         formData.append("file", file);
         createProduct(formData);
-        console.log(formData);
+
     }
 }
 
@@ -57,11 +57,11 @@ function createProduct(data) {
 
         })
 
-        .then(result => console.log(result))
+    .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
 
-$(".image-box").click(function (event) {
+$(".image-box").click(function(event) {
     var previewImg = $(this).children("img");
 
     $(this)
@@ -72,10 +72,10 @@ $(".image-box").click(function (event) {
     $(this)
         .siblings()
         .children("input")
-        .change(function () {
+        .change(function() {
             var reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 var urll = e.target.result;
                 $(previewImg).attr("src", urll);
                 previewImg.parent().css("background", "transparent");
