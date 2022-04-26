@@ -14,7 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
-     <link rel="icon" href="../img/icon_fasions_1.png" />
+    <link rel="icon" href="../img/icon_fasions_1.png" />
     <!-- MetisMenu CSS -->
     <link href="../css/metisMenu.min.css" rel="stylesheet" />
 
@@ -50,20 +50,27 @@
         </button>
             <div class="navi">
                 <a href="./home.html" class="w3-bar-item w3-button">Home</a>
-                <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
-                <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
+                <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a
+          >
+          <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
                 <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
                 <a href="user.html" class="w3-bar-item w3-button">Users</a>
-                <a href="notification.html" class="w3-bar-item w3-button">Notification</a>
-            </div>
+                <a href="notification.html" class="w3-bar-item w3-button">Notification</a
+          >
         </div>
+      </div>
 
-        <div id="main" style="margin-left: 290px">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="name_admin">
-                    <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
-                </a>
+      <div id="main" style="margin-left: 290px">
+        <li class="dropdown">
+          <a
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            id="name_admin"
+          >
+            <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+          </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
                         <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
@@ -105,38 +112,37 @@
                   <div>
                     <button class="form-submit">Add New Product</button>
                   </div>
+                  <div>
+                    <form class="nosubmit">
+                      <input
+                        id="searchBar"
+                        type="search"
+                        placeholder="Search..."/>
+                    </form>
+                  </div>
+                  <ul id="charactersList"></ul>
+
                   <!-- /.panel-heading -->
                   <div class="panel-body">
                     <div class="table-responsive">
                       <table
                         class="cell-border compact stripe"
-                        style="width: 100%;"
-                        id="tableHome"
-                      >
+                        style="width: 100%"
+                        id="tableHome">
                         <thead>
                           <tr>
-                            <th col-index=1 >STT</th>
-                            <th col-index=2 >Tên sản phẩm</th>
-                            <th col-index=3 >Trạng thái sản phẩm
-                              <select class="table-filter">
-                                <option value="all"></option>
-                                  </select>
-                            </th>
-                            <th col-index=4 >Giá cũ sản phẩm</th>
-                            <th col-index=5 >Giá mới sản phẩm</th>
-                            <th col-index=6 >Giới tính
-                              <select class="table-filter">
-                                <option value="all"></option>
-                            </th>
-                            <th col-index=7 >Loại sản phẩm
-                              <select class="table-filter">
-                                <option value="all"></option>
-                            </th>
-                            <th col-index=8 >Ảnh sản phẩm</th>
-                            <th col-index=9 >Chi tiết sản phẩm</th>
-                            <th col-index=10 >Sửa Thông tin sản phẩm</th>
-                            <th col-index=11>Xóa sản phẩm</th>
-                            <th col-index=12 >Tạo loại sản phẩm</th>
+                            <th>STT</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Trạng thái sản phẩm</th>
+                            <th>Giá cũ sản phẩm</th>
+                            <th>Giá mới sản phẩm</th>
+                            <th>Giới tính</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Ảnh sản phẩm</th>
+                            <th>Chi tiết sản phẩm</th>
+                            <th>Sửa Thông tin sản phẩm</th>
+                            <th>Xóa sản phẩm</th>
+                            <th>Tạo loại sản phẩm</th>
                           </tr>
                         </thead>
                         <tbody id="data">
@@ -192,8 +198,6 @@
         //   document.getElementById("closeNav").style.display = 'none';
         //   document.getElementById("closeNav").style.marginLeft = "25%";
       }
-
-    
     </script>
   </body>
 </html>

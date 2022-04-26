@@ -1,5 +1,5 @@
 var token = localStorage.getItem('token');
-console.log(token);
+
 
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 
@@ -10,17 +10,12 @@ var btnCreate = document.getElementById('create-discount');
 btnCreate.onclick = function(e) {
     e.preventDefault();
     var code = document.getElementById('code').value;
-    console.log(code);
     var value = document.getElementById('value').value;
-    console.log(value)
     var max_used_by_user = document.getElementById('max_used_by_user').value;
-    console.log(max_used_by_user)
     var max_used = document.getElementById('max_used').value;
-    console.log(max_used)
     var date_start = document.getElementById('date_start').value;
-    console.log(date_start)
     var date_end = document.getElementById('date_end').value;
-    console.log(date_end)
+
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -49,7 +44,7 @@ btnCreate.onclick = function(e) {
 
             }
         })
-        .then(result => console.log(result))
+        .then(result => result)
         .catch(error => console.log('error', error));
 
 }

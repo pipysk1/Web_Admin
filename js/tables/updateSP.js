@@ -3,8 +3,7 @@ var id = localStorage.getItem('id');
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
-console.log(id);
-// console.log(token);
+
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
 var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=' + token;
@@ -16,7 +15,7 @@ test();
 
 async function getAllProducts(callback) {
     await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         }).then(callback);
 }
@@ -25,7 +24,7 @@ var data = []
 
 function renderProducts(products) {
     data = products;
-    console.log(data)
+
     var rates = document.getElementsByName('optionsRadios1');
 
     for (let i = 0; i < data.length; i++) {
@@ -34,23 +33,23 @@ function renderProducts(products) {
 
             var dataStatus = document.getElementsByName('optionsRadios').value = data[i].status;
 
-            console.log("gán dữ liệu" + dataStatus)
+
             if (dataStatus == "Hot Trending") {
-                console.log("1 " + dataStatus)
+
                 document.getElementById('optionsRadios1').checked = dataStatus;
             } else if (dataStatus == "New Arrival") {
-                console.log("2 " + dataStatus)
+
 
                 document.getElementById('optionsRadios2').checked = dataStatus;
             } else {
-                console.log("3 " + dataStatus)
+
 
                 document.getElementById('optionsRadios3').checked = dataStatus;
             }
 
             var gender1 = document.getElementsByName('optionsRadios1').value = data[i].gender;
 
-            console.log(gender1)
+
 
             if (gender1 == "Female") {
                 document.getElementById('gender2').checked = gender1;
@@ -74,14 +73,14 @@ function renderProducts(products) {
 
 function test() {
     var createBtn = document.querySelector('#create');
-    createBtn.onclick = function (e) {
+    createBtn.onclick = function(e) {
         e.preventDefault();
         var name_products = document.querySelector('input[name="name_products"]').value;
         var status = document.querySelector('input[name="optionsRadios"]:checked').value;
-        console.log("test " + status)
+
 
         var gender = document.querySelector('input[name="optionsRadios1"]:checked').value;
-        console.log("test " + gender)
+
         var type = document.getElementById('list-type').value;
 
 
@@ -128,14 +127,14 @@ function createProduct(data) {
 
         })
 
-        .then(result => console.log(result))
+    .then(result => console.log(result))
         .catch(error => console.log('error', error));
 }
 
 
 
 
-$(".image-box").click(function (event) {
+$(".image-box").click(function(event) {
     var previewImg = $(this).children("img");
 
     $(this)
@@ -146,10 +145,10 @@ $(".image-box").click(function (event) {
     $(this)
         .siblings()
         .children("input")
-        .change(function () {
+        .change(function() {
             var reader = new FileReader();
 
-            reader.onload = function (e) {
+            reader.onload = function(e) {
                 var urll = e.target.result;
                 $(previewImg).attr("src", urll);
                 previewImg.parent().css("background", "transparent");

@@ -1,5 +1,5 @@
-// showing loading
 var token = localStorage.getItem('token');
+
 
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
@@ -7,150 +7,61 @@ if (localStorage.getItem("token") === null) {
     // } else if (history.back()) {
     //     window.location.href = "login.html";
 }
-// console.log(token);
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/getProducts?token=' + token;
 var addProductApi = 'https://hieuhmph12287-lab5.herokuapp.com/products/addProduct?token=' + token;
 
 function start() {
-    getAllProducts(renderProducts);
+    getAllProducts();
     pagesAddProduct();
 
 }
 start();
 
-async function getAllProducts(callback) {
-    displayLoading()
-    await fetch(url + 'products/getProducts' + '?token=' + token)
-        .then(function (response) {
-            hideLoading()
-            return response.json();
-        }).then(callback);
+var charactersList = document.getElementById('data');
+var searchBar = document.getElementById('searchBar');
+var data = [];
+var data = [];
+
+
+
+async function getAllProducts() {
+
+    try {
+        displayLoading()
+        var res = await fetch(url + 'products/getProducts' + '?token=' + token);
+        data = await res.json();
+        displayCharacters(data);
+        hideLoading()
+    } catch (err) {
+        console.error(err);
+    }
 }
-var data = []
 
 
-function renderProducts(products) {
-    var tbody = document.querySelector('#data');
+function displayCharacters(characters) {
     var seq = 0;
-
-    data = products;
-    console.log(data)
-
-    for (let i = 0; i < data.length; i++) {
-        tbody.innerHTML +=
-            `<tr>
-<th>${seq++}</th>
-<th>${data[i].name}</th>
-<th>${data[i].status}</th>
-<th>${data[i].old_price}</th>
-<th>${data[i].price}</th>
-<th>${data[i].gender}</th>
-<th>${data[i].type}</th>
-<th><img src="${data[i].src}" height="100px" width="70px" /></th>
-<th><button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data[i].product_id}')">  <i class='far fa-trash-alt'>Xem</i></button></th>
-<th> <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data[i].product_id}')" >
-                  <i class='far fa-trash-alt'></i> Sửa
-                </button></th>
-<th> <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data[i].product_id}')" >
-                    <i class='far fa-trash-alt'></i> Xóa
-                </button></th>
-<th> <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data[i].product_id}')" >
-               <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
-                </button></th>
+    var tbody = characters
+        .map((character) => {
+            return ` <tr>
+            <th>${seq++}</th>
+            <th>${character.name}</th>
+            <th>${character.status}</th>
+            <th>${character.old_price}</th>
+            <th>${character.price}</th>
+            <th>${character.gender}</th>
+            <th>${character.type}</th>
+            <th><img src="${character.src}" height="100px" width="70px" /></th>
+            <th><button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${character.product_id}')"><i class='far fa-trash-alt'>Xem</i></button></th>
+            <th> <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${character.product_id}')" ><i class='far fa-trash-alt'></i> Sửa</button></th>
+            <th> <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${character.product_id}')"><i class='far fa-trash-alt'></i> Xóa</button></th>
+            <th> <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${character.product_id}')"<i class='far fa-trash-alt'></i> Tạo loại sản phẩm</button></th>
             </tr>`
 
-
-    }
-
-    // $('#tableHome').on('click', '.Mybtn', function() {
-
-    //     var RowIndex = $(this).closest('tr');
-    //     var data = Dtable.row(RowIndex).data();
-    //     alert(data[1]);
-    // });
-    // $('#tableHome').DataTable({
-    //     "lengthMenu": [
-    //         [5, 10, 25, 50, -1],
-    //         [5, 10, 25, 50, "All"]
-    //     ],
-
-    //     data: data,
-
-
-    //     columns: [{
-    //             "data": null,
-    //             "render": function(data, type, full, meta) {
-    //                 return meta.row + 1;
-    //             }
-    //         },
-    //         { data: 'name' },
-    //         { data: 'status' },
-    //         { data: 'old_price' },
-    //         { data: 'price' },
-    //         { data: 'gender' },
-    //         { data: 'type' },
-    //         {
-    //             "data": "src",
-    //             "render": function(data) {
-    //                 var img = data;
-    //                 return '<img src="' + img + '" height="150px" width="150px" >';
-    //             }
-    //         },
-    //         {
-    //             "data": null,
-    //             "render": function(data, type, row) {
-    //                 return `<div class="text-center">
-    //                 <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="handleDetailPrroduct('${data.product_id}')" >
-    //                    <i class='far fa-trash-alt'></i> Xem 
-    //                 </button></div>
-    //             `;
-    //             },
-    //             "width": "5%"
-    //         },
-    //         {
-    //             "data": null,
-    //             "render": function(data, type, row) {
-    //                 return `<div class="text-center">
-    //                 <button class='btn btn-info text-white' style='cursor:pointer; width:50px;' onclick="handleEditProduct('${data.product_id}')" >
-    //                    <i class='far fa-trash-alt'></i> Sửa
-    //                 </button></div>
-    //             `;
-    //             },
-    //             "width": "5%"
-    //         },
-    //         {
-    //             "data": null,
-    //             "render": function(data, type, row) {
-    //                 return `<div class="text-center">
-    //                 <button class='btn btn-danger text-white' style='cursor:pointer; width:50px;'  onclick="handleDeleteProduct('${data.product_id}')" >
-    //                    <i class='far fa-trash-alt'></i> Xóa
-    //                 </button></div>
-    //             `;
-    //             },
-    //             "width": "5%"
-    //         },
-    //         {
-    //             "data": null,
-    //             "render": function(data, type, row) {
-    //                 return `<div class="text-center">
-    //                 <button class='btn btn-success text-white' style='cursor:pointer; width:150px;'  onclick="handleAddVariant('${data.product_id}')" >
-    //                    <i class='far fa-trash-alt'></i> Tạo loại sản phẩm
-    //                 </button></div>
-    //             `;
-    //             },
-    //             "width": "5%"
-    //         }
-    //     ],
-
-
-
-    //     "pageLength": 5
-    // });
-
-
-}
-
+        })
+        .join('');
+    charactersList.innerHTML = tbody;
+};
 
 function reFresh() {
     window.open(location.reload(true))
@@ -160,7 +71,7 @@ window.setInterval("reFresh()", 30000);
 function handleDeleteProduct(id) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].product_id == id) {
-            console.log(id);
+
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
@@ -192,8 +103,18 @@ function handleDeleteProduct(id) {
     }
 
 }
+searchBar.addEventListener('keyup', (e) => {
+    var searchString = e.target.value.toLowerCase();
+    var filteredCharacters = data.filter((character) => {
+        return (
+            character.name.toLowerCase().includes(searchString) ||
+            character.gender.toLowerCase().includes(searchString) ||
+            character.status.toLowerCase().includes(searchString)
 
-
+        );
+    });
+    displayCharacters(filteredCharacters);
+});
 
 
 function handleDetailPrroduct(id) {
@@ -254,7 +175,7 @@ function handleEditProduct(id) {
 
 function pagesAddProduct() {
     var btnAddProducts = document.querySelector('.form-submit');
-    btnAddProducts.onclick = function () {
+    btnAddProducts.onclick = function() {
         window.location.href = "addProduct.html";
     }
 }
