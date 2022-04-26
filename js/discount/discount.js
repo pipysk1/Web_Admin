@@ -1,5 +1,5 @@
 var token = localStorage.getItem('token');
-console.log(token);
+
 
 var url = 'https://hieuhmph12287-lab5.herokuapp.com'
 
@@ -35,14 +35,10 @@ function renderDiscount(discounts) {
 
         var string_id = data[i].discount_id;
         var res = string_id.slice(0, 5);
-        var date = new Date();
-        var SHORT_1 = data[i].date_start;
 
-
-        // console.log(date);
-
-
-        console.log(string_id)
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var date_start = new Date(data[i].date_start);
+        var date_end = new Date(data[i].date_end);
         tbody.innerHTML +=
             `<tr>
             <th></th>
@@ -51,8 +47,8 @@ function renderDiscount(discounts) {
         <th>${data[i].value}</th>
         <th>${data[i].max_used_by_user}</th>
         <th>${data[i].max_used}</th>
-        <th>${data[i].date_start}</th>
-        <th>${data[i].date_end}</th>
+        <th>${date_start.toLocaleDateString("en-US",options)}</th>
+        <th>${date_end.toLocaleDateString("en-US",options)}</th>
        </tr>`
     }
 }
