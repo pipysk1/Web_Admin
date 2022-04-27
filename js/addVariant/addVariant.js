@@ -109,3 +109,22 @@ $(".image-box").click(function(event) {
             reader.readAsDataURL(this.files[0]);
         });
 });
+
+function ValidateFileUpload() {
+    var allowedExtension = ['jpeg', 'jpg', 'png'];
+    var fileExtension = document.getElementById('imgFile').value.split('.').pop().toLowerCase();
+    var isValidFile = false;
+    for (var index in allowedExtension) {
+        if (fileExtension === allowedExtension[index]) {
+            isValidFile = true;
+            break;
+        }
+    }
+    if (!isValidFile) {
+        document.getElementById("imgFile").value = "";
+
+        alert('Allowed Extensions are : *.' + allowedExtension.join(', *.'));
+    }
+
+    return isValidFile;
+}

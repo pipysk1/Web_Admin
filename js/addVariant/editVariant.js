@@ -2,7 +2,6 @@ var variant_id = localStorage.getItem('id_variant');
 
 var token = localStorage.getItem('token');
 
-
 var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
 
 getAllProducts(renderProducts);
@@ -107,6 +106,24 @@ $(".image-box").click(function(event) {
         });
 });
 
+function ValidateFileUpload() {
+    var allowedExtension = ['jpeg', 'jpg', 'png'];
+    var fileExtension = document.getElementById('imgFile').value.split('.').pop().toLowerCase();
+    var isValidFile = false;
+    for (var index in allowedExtension) {
+        if (fileExtension === allowedExtension[index]) {
+            isValidFile = true;
+            break;
+        }
+    }
+    if (!isValidFile) {
+        document.getElementById("imgFile").value = "";
+
+        alert('Allowed Extensions are : *.' + allowedExtension.join(', *.'));
+    }
+
+    return isValidFile;
+}
 
 var formdata = new FormData();
 formdata.append("variant_id", "cfe10734-1460-4e3a-8a81-6020cb4337e9");

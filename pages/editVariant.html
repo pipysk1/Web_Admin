@@ -39,11 +39,11 @@
 
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
 
 
 
@@ -57,8 +57,7 @@
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
                 <a href="status.html" class="w3-bar-item w3-button">Process Bills</a>
                 <a href="user.html" class="w3-bar-item w3-button">Users</a>
-                <a href="notification.html" class="w3-bar-item w3-button">Notification</a
-              >
+                <a href="notification.html" class="w3-bar-item w3-button">Notification</a>
             </div>
 
         </div>
@@ -71,11 +70,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
-                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
-                            >
-                          </li>
-                        <li class="divider"></li>
-                        <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout </button>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout
+                        </button>
                     </li>
                 </ul>
             </li>
@@ -106,7 +105,7 @@
                                     Sửa loại sản phẩm
                                 </div>
                                 <div class="panel-body">
-                                  
+
                                     <div class="row form-add">
                                         <div class="col-lg-12">
                                             <form role="form">
@@ -125,12 +124,12 @@
                                                 <div class="form-group">
                                                     <label>Size</label>
                                                     <select class="form-control" id="list-type">
-                                                            <option>S</option>
-                                                            <option>M</option>
-                                                            <option>L</option>
-                                                            <option>XL</option>
-                                                            <option>XXL</option>
-                                                        </select>
+                                                        <option>S</option>
+                                                        <option>M</option>
+                                                        <option>L</option>
+                                                        <option>XL</option>
+                                                        <option>XXL</option>
+                                                    </select>
                                                 </div>
                                                 <div class="col-ting">
                                                     <div class="control-group file-upload" id="file-upload1">
@@ -139,7 +138,8 @@
                                                             <img src="" alt="">
                                                         </div>
                                                         <div class="controls" style="display: none;">
-                                                            <input type="file" name="contact_image_1" id="imgFile" />
+                                                            <input type="file" name="contact_image_1" onchange="ValidateFileUpload()" id="imgFile" />
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -153,9 +153,9 @@
                                                 </div>
                                                 <div class="btn-add">
                                                     <div id="loading"></div>
-                                                    <div id="btn-confirm" class="btn btn-default form-submit btn-lg btn-success btn-block" data-toggle="modal" 
-                                                        data-target="#div-comfirm" >Sửa</div>
-                                                    <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset Button</button>
+                                                    <div id="btn-confirm" class="btn btn-default form-submit btn-lg btn-success btn-block" data-toggle="modal" data-target="#div-comfirm">Sửa</div>
+                                                    <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset
+                                                        Button</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -178,7 +178,7 @@
         <!-- /#wrapper -->
 
         <!-- show comfirm-->
-       <!-- <div class="modal fade" id="div-comfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="div-comfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">

@@ -88,7 +88,7 @@ $(".image-box").click(function(event) {
 });
 
 function ValidateFileUpload() {
-    var allowedExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+    var allowedExtension = ['jpeg', 'jpg', 'png'];
     var fileExtension = document.getElementById('imgFile').value.split('.').pop().toLowerCase();
     var isValidFile = false;
     for (var index in allowedExtension) {
