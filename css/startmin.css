@@ -11,7 +11,7 @@
 #page-wrapper {
     padding-top: 30px;
     min-height: 568px;
-    background-color: #fff;
+    background: #eee;
 }
 
 @media (min-width: 768px) {
@@ -112,6 +112,8 @@
 
 .sidebar .sidebar-search {
     padding: 15px;
+    background: #ffffff;
+    height: 50px;
 }
 
 .sidebar ul li {
@@ -150,9 +152,9 @@
 @media (min-width: 768px) {
     .sidebar {
         z-index: 1;
-        position: absolute;
-        width: 250px;
-        margin-top: 51px;
+        position: fixed;
+        width: 290px;
+   
     }
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
@@ -164,15 +166,16 @@
 .form-submit {
     outline: none;
     background-color: #1dbfaf;
-    margin-top: 12px;
+    margin: 12px;
     padding: 12px 16px;
     font-weight: 600;
     color: #fff;
     border: none;
-    width: 100%;
+    width: 10%;
     font-size: 14px;
     border-radius: 8px;
     cursor: pointer;
+
 }
 
 .form-submit:hover {
@@ -748,23 +751,21 @@
 }
 
 .dropdown {
-    position: relative;
-    float: right;
-    height: 50px;
+    /* float: right; */
+    /* height: 50px; */
     background: #fff;
     background-color: #fff;
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
-    list-style: none;
-    padding: 15px;
-    width: 165px;
+    /* list-style: none; */
+    /* padding: 15px; 
+    /* width: 165px;*/
 }
 
 .navedit {
     background: #fff;
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
     height: 50px;
-    overflow: hidden;
-    position: relative;
+    /* overflow: hidden; */
     background-color: #fff;
 }
 
@@ -790,10 +791,6 @@
 #notifyType:before {
     display: block;
     margin-top: 15px;
-}
-
-.active {
-    height: 50px;
 }
 
 .success:before {

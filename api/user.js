@@ -3,10 +3,10 @@ var data = [];
 if (localStorage.getItem("token") === null) {
     window.location.href = "login.html";
 }
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var xhr = new XMLHttpRequest();
     displayLoading();
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (this.readyState === 4) {
             if (this.status === 200) {
                 hideLoading();
@@ -25,16 +25,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         { data: 'phone_number' },
                         { data: 'full_name' },
                         { data: 'address_detail' },
-                        { data: 'sub_district' },
-                        { data: 'district' },
-                        { data: 'city' },
-
                         {
                             "data": null,
-                            "render": function(data, type, row) {
+                            "render": function (data, type, row) {
                                 return `<div class="text-center">
                                 <button class='btn btn-primary text-white' style='cursor:pointer; width:50px;'onclick="detailUser('${data._id}')" >
-                                   <i class='far fa-trash-alt'></i> Xem 
+                                <i class='fa fa-eye'></i> 
                                 </button></div>
                             `;
                             },
