@@ -234,7 +234,6 @@ function renderProducts(products) {
             { data: 'status' },
             { data: 'old_price' },
             { data: 'price' },
-            { data: 'gender' },
             { data: 'type' },
             {
                 "data": "src",

@@ -5,6 +5,7 @@ window.onbeforeunload = function() {
 };
 //call api login
 function handleLogin(data) {
+    displayLoading();
     var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
     var username = data.username;
     var password = data.password;
@@ -24,7 +25,7 @@ function handleLogin(data) {
         body: urlencoded,
         redirect: 'follow'
     };
-
+    displayLoading();
     fetch(url + "admins/loginAdmin", requestOptions)
         .then(response => {
             if (!response.ok) {
@@ -33,14 +34,17 @@ function handleLogin(data) {
                 alert("Đăng nhập thành công");
                 window.location.href = "home.html";
                 return response.text();
+                hideLoading()
             }
         })
         .then(result => {
             var result = JSON.parse(result)
             localStorage.setItem('token', result.token);
+           
 
         })
         .catch(error => console.log('error', error));
+        hideLoading()
     // $(".notify").addClass("active");
     // $("#notifyType").addClass("failure");
 

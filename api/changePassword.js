@@ -5,6 +5,7 @@ if (localStorage.getItem("token") === null) {
 }
 
 function changePassword() {
+  
     var inputPass = document.getElementById("changePass").value;
     var confirm_password = document.getElementById("confirm_password").value;
     var data = { password: inputPass };
@@ -14,6 +15,7 @@ function changePassword() {
     if (confirm_password == "") {
         alert("please comfirm password")
     } else {
+        displayLoading()
         fetch('https://hieuhmph12287-lab5.herokuapp.com/admins/changePassword?token=' + token, {
                 method: 'POST', // or 'PUT'
                 headers: {
@@ -26,6 +28,7 @@ function changePassword() {
 
                 alert("change password succes!!")
                 window.location.href = "home.html";
+                hideLoading()
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -41,9 +44,9 @@ var check = function() {
     if (document.getElementById('changePass').value ==
         document.getElementById('confirm_password').value) {
         document.getElementById('message').style.color = 'green';
-        document.getElementById('message').innerHTML = 'matching';
+        document.getElementById('message').innerHTML = 'Hợp lệ';
     } else {
         document.getElementById('message').style.color = 'red';
-        document.getElementById('message').innerHTML = 'not matching';
+        document.getElementById('message').innerHTML = 'Mật khẩu không khớp ';
     }
 }

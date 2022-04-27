@@ -14,6 +14,7 @@ function changePassword() {
     if (body == "") {
         alert("Please comfirm Details")
     } else {
+        displayLoading()
         fetch('https://hieuhmph12287-lab5.herokuapp.com/notify/sendNotifyMultiUser?token=' + token, {
                 method: 'POST', // or 'PUT'
                 headers: {
@@ -24,9 +25,10 @@ function changePassword() {
             .then(response => response.text())
             .then(text => console.log(text))
             .then(data => {
-
+hideLoading()
                 alert("Push notification succes!!")
                 window.location.href = "notification.html";
+
             })
             .catch((error) => {
                 console.log(error)

@@ -139,9 +139,10 @@
                                 </div>
                                 <div class="panel-body">
 
-                                    <div class="row form-add">
+                                    <div class="row ">
                                         <div class="col-lg-12">
                                             <form role="form">
+                                                <div class="div_left_add">
                                                 <div class="form-group">
                                                     <label>Tên sản phẩm</label>
                                                     <input id="nameproduct" class="form-control" placeholder="Tên sản phẩm" type="text" name="name_products">
@@ -189,7 +190,6 @@
                                                         </label>
                                                     </div>
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label>Loại sản phẩm</label>
                                                     <select class="form-control" id="list-type">
@@ -203,11 +203,33 @@
                                                         <option>Túi sách</option>
                                                     </select>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label>Bộ sưu tập</label>
+                                                    <input class="form-control" placeholder="Bộ sưu tập" type="text" name="collection_id">
+                                                </div>
+                                            </div>
+                                            <div class="div_right_add">
+                                                <div class="div_left"  style="/* padding: 16px; *//* margin: 10px; */width: 260px;margin: 5px; padding-top: 0;">
+                                                 <div class="form-group">
+                                                    <label>Giá sản phẩm</label>
+                                                    <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                 </div>
+                                                </div>
+                                                 <div class="div_right" style="/* padding: 16px; *//* margin: 10px; */width: 288px;margin: 5px;"> 
+                                                <div class="form-group">
+                                                    <label>Giá cũ sản phẩm</label>
+                                                    <input name="numberold" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                                </div>
+                                            </div>
 
+                                                <div class="form-group">
+                                                    <label>Mô tả sản phẩm</label>
+                                                    <textarea id="product_detail" class="form-control" rows="3"></textarea>
+                                                </div>
                                                 <div class="col-ting">
                                                     <div class="control-group file-upload" id="file-upload1">
                                                         <div class="image-box text-center">
-                                                            <p>Upload Image</p>
+                                                            <p>Tải ảnh lên</p>
                                                             <img src="" alt="">
                                                         </div>
                                                         <div class="controls" style="display: none;">
@@ -216,24 +238,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="form-group">
-                                                    <label>Bộ sưu tập</label>
-                                                    <input class="form-control" placeholder="Bộ sưu tập" type="text" name="collection_id">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Giá sản phẩm</label>
-                                                    <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Giá cũ sản phẩm</label>
-                                                    <input name="numberold" class="form-control" placeholder="Giá sản phẩm" type="number">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Mô tả sản phẩm</label>
-                                                    <textarea id="product_detail" class="form-control" rows="3"></textarea>
-                                                </div>
-                                                <div class="btn-add">
+                                            </div>
+                                                <div class="btn-add" style="width: 25%;">
                                                     <!-- <div id="loading"></div> -->
                                                     <button id="create-add" class="btn btn-default  btn-block">Create</button>
                                                     <button type="reset" class="btn btn-default  btn-block">Reset
@@ -241,6 +247,7 @@
                                                 </div>
                                             </form>
                                         </div>
+                                    </div>
                                     </div>
                                     <!-- /.row (nested) -->
                                 </div>

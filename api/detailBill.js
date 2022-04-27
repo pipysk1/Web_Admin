@@ -47,7 +47,12 @@ function renderProducts(products) {
     for (let i = 0; i < data.length; i++) {
 
         if (data[i].bill_id == id_bill) {
-
+            
+                
+               
+                  
+                    
+                  
             var bill_id = document.getElementById('bill_id').value = data[i].bill_id.slice(0, 6);
             var name_products = document.getElementById('name').value = data[i].name_receiver;
             var phone_number = document.getElementById('phone').value = data[i].phone_number;
@@ -55,7 +60,9 @@ function renderProducts(products) {
             var discount_value = document.getElementById('discount').value = data[i].discount_value;
             var payment_type = document.getElementById('payment').value = data[i].payment_type;
             var address = document.getElementById('address').value = data[i].address_detail;
-
+            if (status =="Đang xử lý"){
+                document.getElementById('status').style.color = 'green';
+            }
             product = data[i].product
             for (let i = 0; i < product.length; i++) {
                 document.querySelector("#main_table").innerHTML += `<tr>
@@ -87,6 +94,8 @@ function renderProducts(products) {
 
 
 }
+
+
 
 function tranfer() {
 

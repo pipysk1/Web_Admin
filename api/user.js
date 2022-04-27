@@ -50,16 +50,84 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.send();
 });
 
-function detailUser(id) {
+function myFunction(){
+   
+}
 
+function detailUser(id) {
+    var x = document.getElementById("hopthoai");
+    const closeModal= document.getElementById('close');
+    
+closeModal.addEventListener('click', () => {
+    x.close();
+
+  });
+    // if(y.open == true){
+    //     x.open = false;
+       
+    // }else{
+    //     y.open = true;
+        
+    // }
+    
+    if(x.open == true){
+        y.open = false;
+     
+       
+    }else{
+        x.open = true;
+
+       
+    }
     for (let i = 0; i < data.length; i++) {
         if (data[i]._id == id) {
             localStorage.setItem('user_id', data[i]._id)
-            window.location.href = "editUser.html";
         }
-
-
-
     }
-
+    var id = localStorage.getItem('id');
+    var id_bill = localStorage.getItem('user_id')
+    if (localStorage.getItem("token") === null) {
+        window.location.href = "login.html";
+    }
+    
+    var url = 'https://hieuhmph12287-lab5.herokuapp.com/'
+    var fasionApi = 'https://hieuhmph12287-lab5.herokuapp.com/users/getAllUsers?token=' + token;
+    getAllProducts(renderProducts);
+    
+    
+    async function getAllProducts(callback) {
+        displayLoading();
+        await fetch(url + 'users/getAllUsers' + '?token=' + token)
+    
+        .then(function(response) {
+            return response.json();
+    
+        }).then(callback);
+        hideLoading();
+    }
+    
+    function renderProducts(products) {
+    
+        data = products;
+    
+        for (let i = 0; i < data.length; i++) {
+            if (data[i]._id == id_bill) {
+                var user_id = document.getElementById('user_id').value = data[i]._id;
+                var bill_id = document.getElementById('bill_id').value = data[i].full_name;
+                var name_products = document.getElementById('name').value = data[i].email;
+                var phone_number = document.getElementById('phone').value = data[i].phone_number;
+                var status = document.getElementById('status').value = data[i].address_detail;
+                var discount_value = document.getElementById('discount').value = data[i].sub_district;
+                var payment_type = document.getElementById('payment').value = data[i].district;
+                var address = document.getElementById('address').value = data[i].city;
+    
+    console.log(data[i]._id);
+    
+            }
+        }
+    }
+    
 }
+
+
+
