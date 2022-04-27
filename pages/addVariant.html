@@ -39,11 +39,11 @@
 
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
 
 
 
@@ -57,8 +57,7 @@
                 <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
                 <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
                 <a href="user.html" class="w3-bar-item w3-button">Users</a>
-                <a href="notification.html" class="w3-bar-item w3-button">Notification</a
-              >
+                <a href="notification.html" class="w3-bar-item w3-button">Notification</a>
             </div>
 
 
@@ -72,11 +71,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
-                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
-                            >
-                          </li>
-                        <li class="divider"></li>
-                        <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout </button>
+                        <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><button class="btn-logOut" onclick="logOut()"><i class="fa fa-sign-out fa-fw"></i>Logout
+                        </button>
                     </li>
                 </ul>
             </li>
@@ -107,7 +106,7 @@
                                     Tạo loại sản phẩm
                                 </div>
                                 <div class="panel-body">
-                                  
+
                                     <div class="row form-add">
                                         <div class="col-lg-12">
                                             <form role="form">
@@ -121,39 +120,39 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>RGB</label>
-                                                    <input id="rgb"  class="form-control" type="color" name="rgb">
+                                                    <input id="rgb" class="form-control" type="color" name="rgb">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Kích cỡ</label>
                                                     <div class="radio">
                                                         <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios1" value="S" checked>S
-                                                            </label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios1"
+                                                                value="S" checked>S
+                                                        </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios2" value="M">M
-                                                            </label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios2"
+                                                                value="M">M
+                                                        </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios3" value="L">L
-                                                            </label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios3"
+                                                                value="L">L
+                                                        </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios3" value="XL">XL
-                                                            </label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios3"
+                                                                value="XL">XL
+                                                        </label>
                                                     </div>
                                                     <div class="radio">
                                                         <label>
-                                                                <input type="radio" name="optionsRadios"
-                                                                    id="optionsRadios3" value="XXL">XXL
-                                                            </label>
+                                                            <input type="radio" name="optionsRadios" id="optionsRadios3"
+                                                                value="XXL">XXL
+                                                        </label>
                                                     </div>
                                                 </div>
                                                 <div class="col-ting">
@@ -163,7 +162,7 @@
                                                             <img src="" alt="">
                                                         </div>
                                                         <div class="controls" style="display: none;">
-                                                            <input type="file" name="contact_image_1" id="imgFile" accept=".jpg, .jpeg, .png"/>
+                                                            <input type="file" name="contact_image_1" onchange="ValidateFileUpload()" id="imgFile" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,9 +180,9 @@
                                                 </div>
                                                 <div class="btn-add">
                                                     <div id="loading"></div>
-                                                    <div id="create" class="btn btn-default form-submit btn-lg btn-success btn-block" data-toggle="modal" 
-                                                        data-target="#div-comfirm" >Add</div>
-                                                    <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset Button</button>
+                                                    <div id="create" class="btn btn-default form-submit btn-lg btn-success btn-block" data-toggle="modal" data-target="#div-comfirm">Add</div>
+                                                    <button type="reset" class="btn btn-default form-submit btn-lg btn-success btn-block">Reset
+                                                        Button</button>
                                                 </div>
                                             </form>
                                         </div>

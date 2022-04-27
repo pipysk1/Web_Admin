@@ -38,119 +38,100 @@
             <!-- Navigation -->
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
             <!-- /.navbar-top-links -->
 
             <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
                 <button id="closeNav" class="w3-button w3-teal w3-xlarge" onclick="w3_close()" style="float: right; margin-bottom: 72px">
-            &#9776;
-          </button>
+          &#9776;
+        </button>
                 <div class="navi">
                     <a href="./home.html" class="w3-bar-item w3-button">Home</a>
-                    <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a
-            >
-            <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
+                    <a href="addProduct.html" class="w3-bar-item w3-button">Add Products</a>
+                    <a href="discount.html" class="w3-bar-item w3-button">Discount</a>
                     <a href="bill.html" class="w3-bar-item w3-button">Bill</a>
                     <!-- <a href="status.html" class="w3-bar-item w3-button">Process Bills</a> -->
                     <a href="user.html" class="w3-bar-item w3-button">Users</a>
-                    <a href="notification.html" class="w3-bar-item w3-button">Notification</a
-            >
-          </div>
-        </div>
+                    <a href="notification.html" class="w3-bar-item w3-button">Notification</a>
+                </div>
+            </div>
 
-        <div id="main" style="margin-left: 290px">
-          <li class="dropdown">
-            <a
-              class="dropdown-toggle"
-              data-toggle="dropdown"
-              href="#"
-              id="name_admin"
-            >
-              <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
-            </a>
+            <div id="main" style="margin-left: 290px">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="name_admin">
+                        <i class="fa fa-user fa-fw"></i> Admin <b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a
-                >
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="login.html"
-                  ><i class="fa fa-sign-out fa-fw"></i> Logout</a
-                >
-              </li>
-            </ul>
-          </li>
+                            <a href="./changePassword.html"><i class="fa fa-user fa-fw"></i> Change Password</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
 
-          <div class="navedit">
-            <button
-              id="openNav"
-              class="w3-button w3-xlarge"
-              onclick="w3_open()"
-              style="display: none"
-            >
-              &#9776;
-            </button>
-          </div>
+                <div class="navedit">
+                    <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()" style="display: none">
+            &#9776;
+          </button>
+                </div>
 
-          <div id="page-wrapper">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg-12">
-                  <h1 class="page-header">Danh sách mã khuyến mại</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-              </div>
-              <!-- /.row -->
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">Danh sách mã khuyến mại</div>
-                    <div>
-                      <button class="form-submit">Add Discount</button>
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">Danh sách mã khuyến mại</h1>
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Danh sách mã khuyến mại</div>
+                                    <div>
+                                        <button class="form-submit">Add Discount</button>
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <table class="container cell-border compact stripe" style="width: 100%" id="tableHome">
+                                                <thead>
+                                                    <tr>
+                                                        <th>STT</th>
+                                                        <th>Id Discount</th>
+                                                        <th>Mã giảm giá</th>
+                                                        <th>Giá tiền giảm VND</th>
+                                                        <th>Số lần dùng trên 1 tài khoản</th>
+                                                        <th>Số lượng người dùng</th>
+                                                        <th>Ngày mã bắt đầu</th>
+                                                        <th>Ngày mã hết hạn</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="data">
+                                                    <div id="loading"></div>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                      <div class="table-responsive">
-                        <table
-                          class="container cell-border compact stripe"
-                          style="width: 100%"
-                          id="tableHome"
-                        >
-                          <thead>
-                            <tr>
-                              <th>STT</th>
-                              <th>Id Discount</th>
-                              <th>Mã giảm giá</th>
-                              <th>Giá tiền giảm VND</th>
-                              <th>Số lần dùng trên 1 tài khoản</th>
-                              <th>Số lượng người dùng</th>
-                              <th>Ngày mã bắt đầu</th>
-                              <th>Ngày mã hết hạn</th>
-                            </tr>
-                          </thead>
-                          <tbody id="data">
-                            <div id="loading"></div>
-                          </tbody>
-                        </table>
-                      </div>
-                      <!-- /.table-responsive -->
-                    </div>
-                    <!-- /.panel-body -->
-                  </div>
+                    <!-- /.container-fluid -->
                 </div>
-              </div>
+                <!-- /#page-wrapper -->
             </div>
-            <!-- /.container-fluid -->
-          </div>
-          <!-- /#page-wrapper -->
         </div>
-      </div>
     </div>
 
     <!-- /#wrapper -->
@@ -173,21 +154,22 @@
 
     <script src="../js/discount/discount.js"></script>
     <script>
-      function w3_open() {
-        document.getElementById("main").style.marginLeft = "20%";
-        document.getElementById("mySidebar").style.width = "20%";
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("openNav").style.display = "none";
-      }
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "20%";
+            document.getElementById("mySidebar").style.width = "20%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = "none";
+        }
 
-      function w3_close() {
-        document.getElementById("main").style.marginLeft = "0%";
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("openNav").style.display = "inline-block";
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
 
-        //   document.getElementById("closeNav").style.display = 'none';
-        //   document.getElementById("closeNav").style.marginLeft = "25%";
-      }
+            //   document.getElementById("closeNav").style.display = 'none';
+            //   document.getElementById("closeNav").style.marginLeft = "25%";
+        }
     </script>
-  </body>
+</body>
+
 </html>
