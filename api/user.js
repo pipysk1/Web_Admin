@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     data: data,
 
                     columns: [
-                        { data: '_id' },
                         { data: 'email' },
                         { data: 'phone_number' },
                         { data: 'full_name' },
