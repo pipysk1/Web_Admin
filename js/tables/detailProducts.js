@@ -81,8 +81,8 @@ function renderProducts(products) {
             <th>${variant[i].price}</th>
             <th>${variant[i].stock}</th>
             <th><img src="${variant[i].src}" style="width:70%;height:100px"/></th>
-            <th><button id="myBtn" onclick="handleEditProduct('${variant[i].variant_id}')">Sửa</button></th>
-            <th><button onclick="handleDeleteVariant('${variant[i].variant_id}')">Xóa</button></th>
+            <th><button class='btn btn-primary text-white' id="myBtn" onclick="handleEditProduct('${variant[i].variant_id}')"><i class='fa fa-pencil-square-o'></i> </button></th>
+            <th><button class='btn btn-danger text-white' onclick="handleDeleteVariant('${variant[i].variant_id}')"><i class='fa fa-trash-o'></i></button></th>
             </tr>`
             }
         }
