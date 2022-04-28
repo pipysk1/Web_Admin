@@ -117,6 +117,7 @@ function handleDeleteVariant(id) {
                         alert('Xóa không thành công !')
                     } else {
                         alert('Xóa thành công.')
+                        location.reload();
                     }
                 }
             })

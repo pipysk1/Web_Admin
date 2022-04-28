@@ -329,9 +329,10 @@ function handleDeleteProduct(id) {
 
                             if (!response.ok) {
                                 alert("Xóa không thành công sản phẩm: " + data[i].name);
+                                
                             } else {
                                 alert("Xóa thành công sản phẩm: " + data[i].name);
-                                reFresh();
+                                location.reload();
                             }
                         }
 
