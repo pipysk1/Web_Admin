@@ -3,7 +3,7 @@ var token = localStorage.getItem('token');
 
 var url = 'https://hieuhmph12287-lab5.herokuapp.com'
 
-var btnAdd = document.querySelector('.form-submit');
+var btnAdd = document.querySelector('.btn-default');
 
 btnAdd.onclick = function(e) {
     e.preventDefault();
@@ -35,7 +35,7 @@ function renderDiscount(discounts) {
 
         var string_id = data[i].discount_id;
         var res = string_id.slice(0, 5);
-
+        
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         var date_start = new Date(data[i].date_start);
         var date_end = new Date(data[i].date_end);

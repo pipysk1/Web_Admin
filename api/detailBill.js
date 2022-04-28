@@ -60,9 +60,7 @@ function renderProducts(products) {
             var discount_value = document.getElementById('discount').value = data[i].discount_value;
             var payment_type = document.getElementById('payment').value = data[i].payment_type;
             var address = document.getElementById('address').value = data[i].address_detail;
-            if (status =="Đang xử lý"){
-                document.getElementById('status').style.color = 'green';
-            }
+            var city = document.getElementById('city').value = data[i].city;
             product = data[i].product
             for (let i = 0; i < product.length; i++) {
                 document.querySelector("#main_table").innerHTML += `<tr>

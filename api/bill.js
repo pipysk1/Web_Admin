@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.status === 200) {
                 hideLoading();
                 data = JSON.parse(this.responseText);
+                console.log(data)
                 $(document).ready(function () {
                     var table = $('#table2').DataTable({
                         "lengthMenu": [
