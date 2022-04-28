@@ -109,17 +109,19 @@ function handleDeleteVariant(id) {
         redirect: 'follow'
     };
     var result = confirm("Bạn có muốn xóa sản phẩm: " + id)
-
-    fetch(url + 'variants/hideVariant?token=' + token, requestOptions)
-        .then(response => {
-            if (result == true) {
-                if (!response.ok) {
-                    alert('Xóa không thành công !')
-                } else {
-                    alert('Xóa thành công.')
+    if (result == true) {
+        fetch(url + 'variants/hideVariant?token=' + token, requestOptions)
+            .then(response => {
+                if (result == true) {
+                    if (!response.ok) {
+                        alert('Xóa không thành công !')
+                    } else {
+                        alert('Xóa thành công.')
+                    }
                 }
-            }
-        })
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+            })
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    }
+
 }
