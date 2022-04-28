@@ -87,19 +87,21 @@ function handleDeleteProduct(id) {
                 redirect: 'follow'
             };
             var result = confirm("Bạn có muốn xóa sản phẩm: " + data[i].name)
-            fetch(url + 'products/hideProduct' + '?token=' + token, requestOptions)
-                .then(response => {
-                    if (result == true) {
-                        if (!response.ok) {
-                            alert("Xóa không thành công sản phẩm: " + data[i].name);
-                        } else {
-                            alert("Xóa thành công sản phẩm: " + data[i].name);
-                            reFresh();
-                        }
-                    }
+            if (result == true) {
+                fetch(url + 'products/hideProduct' + '?token=' + token, requestOptions)
+                    .then(response => {
 
-                })
-                .catch(error => console.log('error', error));
+                            if (!response.ok) {
+                                alert("Xóa không thành công sản phẩm: " + data[i].name);
+                            } else {
+                                alert("Xóa thành công sản phẩm: " + data[i].name);
+                                reFresh();
+                            }
+                        }
+
+                    ).catch(error => console.log('error', error));
+            }
+
         }
     }
 
