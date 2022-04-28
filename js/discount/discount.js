@@ -41,8 +41,8 @@ function renderDiscount(discounts) {
         var date_end = new Date(data[i].date_end);
         tbody.innerHTML +=
             `<tr>
-            <th></th>
-        <th>${res}</th>
+           
+        
         <th>${data[i].code}</th>
         <th>${data[i].value}</th>
         <th>${data[i].max_used_by_user}</th>

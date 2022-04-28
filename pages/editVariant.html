@@ -39,7 +39,7 @@
 
         <nav class="navedit" role="navigation">
             <div class="navbar-header">
-                 <a class="navbar-brand" href="home.html">FASIONS</a>
+                <a class="navbar-brand" href="home.html">FASIONS</a>
             </div>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -49,7 +49,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            
+
 
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown">
@@ -80,7 +80,7 @@
                         </li>
                                 <li style="margin-top: 50px;">
                             <a href="home.html"><i class="fa fa-product-hunt"></i>  MANAGER PRODUCT</a>
-                          
+
                         </li>
                         <li>
                             <a href="addProduct.html"><i class="fa fa-plus"></i> ADD PRODUCT </a>
@@ -102,115 +102,115 @@
                         </li>
                         <li>
                             <a href="user.html"><i class="fa fa-user"></i> USER</a>
-                            
+
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="notification.html"><i class="fa fa-bell"></i> NOTIFICATION</span></a>
-                            
+
                             <!-- /.nav-second-level -->
                         </li>
-                            
+
                         <!-- /.nav-second-level -->
-                    </li>
-                      
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                </li>
+
+                </ul>
+    </div>
+    </div>
+    </nav>
 
 
 
-        <div id="main" style="margin-left:290px">
-            
-            <!-- /.navbar-static-side -->
+    <div id="main" style="margin-left:290px">
+
+        <!-- /.navbar-static-side -->
 
 
-            <div id="page-wrapper">
-                <div class="container-fluid">
-            
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Sửa loại sản phẩm
-                                </div>
-                                <div class="panel-body">
+        <div id="page-wrapper">
+            <div class="container-fluid">
 
-                                    <div class="row form-add">
-                                        <div class="col-lg-12">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <label>ID sản phẩm</label>
-                                                    <input id="nameproduct" class="form-control" placeholder="ID sản phẩm" type="text" name="id" disabled>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Màu sắc</label>
-                                                    <input id="color" class="form-control" placeholder="Màu sắc" type="text" name="color">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>RGB</label>
-                                                    <input id="rgb" class="form-control" placeholder="RGB" type="text" name="rgb">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Size</label>
-                                                    <select class="form-control" id="list-type">
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Sửa loại sản phẩm
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="row form-add">
+                                    <div class="col-lg-12">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label>ID sản phẩm</label>
+                                                <input id="nameproduct" class="form-control" placeholder="ID sản phẩm" type="text" name="id" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Màu sắc</label>
+                                                <input id="color" class="form-control" placeholder="Màu sắc" type="text" name="color">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>RGB</label>
+                                                <input id="rgb" class="form-control" placeholder="RGB" type="color" name="rgb">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Size</label>
+                                                <select class="form-control" id="list-type">
                                                         <option>S</option>
                                                         <option>M</option>
                                                         <option>L</option>
                                                         <option>XL</option>
                                                         <option>XXL</option>
                                                     </select>
-                                                </div>
-                                                <div class="col-ting">
-                                                    <div class="control-group file-upload" id="file-upload1">
-                                                        <div class="image-box text-center">
-                                                            <p>Tải ảnh lên</p>
-                                                            <img src="" alt="">
-                                                        </div>
-                                                        <div class="controls" style="display: none;">
-                                                            <input type="file" name="contact_image_1" onchange="ValidateFileUpload()" id="imgFile" />
+                                            </div>
+                                            <div class="col-ting">
+                                                <div class="control-group " id="file-upload1">
+                                                    <div class="image-box text-center">
 
-                                                        </div>
+                                                        <img src="" alt="" id="src" style="display:'inline'">
+                                                    </div>
+                                                    <div class="controls" style="display: none;">
+                                                        <input type="file" name="contact_image_1" onchange="ValidateFileUpload()" id="imgFile" />
+
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Giá sản phẩm</label>
-                                                    <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Số lượng sản phẩm</label>
-                                                    <input name="numberold" class="form-control" placeholder="Số lượng sản phẩm" type="number">
-                                                </div>
-                                                <div class="btn-add">
-                                                    <div id="loading"></div>
-                                                    <div id="btn-confirm" class="btn btn-default btn-block" data-toggle="modal" data-target="#div-comfirm">Sửa</div>
-                                                    <button type="reset" class="btn btn-default  btn-block">Reset
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Giá sản phẩm</label>
+                                                <input name="numbernew" class="form-control" placeholder="Giá sản phẩm" type="number">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Số lượng sản phẩm</label>
+                                                <input name="numberold" class="form-control" placeholder="Số lượng sản phẩm" type="number">
+                                            </div>
+                                            <div class="btn-add">
+                                                <div id="loading"></div>
+                                                <div id="btn-confirm" class="btn btn-default btn-block" data-toggle="modal" data-target="#div-comfirm">Sửa</div>
+                                                <button type="reset" class="btn btn-default  btn-block">Reset
                                                         Button</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <!-- /.row (nested) -->
                                 </div>
-                                <!-- /.panel-body -->
+                                <!-- /.row (nested) -->
                             </div>
-                            <!-- /.panel -->
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.col-lg-12 -->
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.container-fluid -->
+                <!-- /.row -->
             </div>
-            <!-- /#page-wrapper -->
-
+            <!-- /.container-fluid -->
         </div>
-        <!-- /#wrapper -->
+        <!-- /#page-wrapper -->
 
-        <!-- show comfirm-->
-        <!-- <div class="modal fade" id="div-comfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- show comfirm-->
+    <!-- <div class="modal fade" id="div-comfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -261,38 +261,38 @@
             </div>
         </div> -->
 
-        <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenu.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
-        <script src="../js/loading.js"></script>
-        <script src="../js/logout.js"></script>
-        <script>
-            function w3_open() {
-                document.getElementById("main").style.marginLeft = "20%";
-                document.getElementById("mySidebar").style.width = "20%";
-                document.getElementById("mySidebar").style.display = "block";
-                document.getElementById("openNav").style.display = "none";
-            }
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/loading.js"></script>
+    <script src="../js/logout.js"></script>
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "20%";
+            document.getElementById("mySidebar").style.width = "20%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = "none";
+        }
 
-            function w3_close() {
-                document.getElementById("main").style.marginLeft = "0%";
-                document.getElementById("mySidebar").style.display = "none";
-                document.getElementById("openNav").style.display = "inline-block";
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
 
-                //   document.getElementById("closeNav").style.display = 'none';
-                //   document.getElementById("closeNav").style.marginLeft = "25%";
-            }
-        </script>
+            //   document.getElementById("closeNav").style.display = 'none';
+            //   document.getElementById("closeNav").style.marginLeft = "25%";
+        }
+    </script>
 
-        <script src="../js/addVariant/editVariant.js"></script>
+    <script src="../js/addVariant/editVariant.js"></script>
 </body>
 
 </html>

@@ -25,7 +25,6 @@ function renderProducts(products) {
         if (data[i].variant_id == variant_id) {
 
             var nameproduct = document.querySelector('input[name="id"]').value = data[i].variant_id;
-
             var color = document.querySelector('input[name="color"]').value = data[i].color;
             var rgb = document.querySelector('input[name="rgb"]').value = data[i].rgb;
             var size = document.getElementById('list-type').value = data[i].size;
@@ -33,13 +32,16 @@ function renderProducts(products) {
 
             var price = document.querySelector('input[name="numbernew"]').value = data[i].price;
             var stock = document.querySelector('input[name="numberold"]').value = data[i].stock;
-            let file = document.getElementById("imgFile").files[0] = data[i].file;
+            let file = document.getElementById("imgFile").files[0] = data[i].src;
+            let src = document.getElementById("src").src = data[i].src;
+            console.log(src)
+
+            console.log(data[i].src)
 
 
             btnAddVariant.onclick = function(e) {
                 e.preventDefault();
                 nameproduct = document.querySelector('input[name="id"]').value;
-
                 color = document.querySelector('input[name="color"]').value
                 rgb = document.querySelector('input[name="rgb"]').value
                 size = document.getElementById('list-type').value
@@ -73,6 +75,7 @@ function editVariant(formdata) {
                 alert("False")
             } else {
                 alert('success')
+                window.location.href = "detailProduct.html";
 
             }
         })
@@ -124,22 +127,3 @@ function ValidateFileUpload() {
 
     return isValidFile;
 }
-
-var formdata = new FormData();
-formdata.append("variant_id", "cfe10734-1460-4e3a-8a81-6020cb4337e9");
-formdata.append("color", "cam");
-formdata.append("rgb", "#ff");
-formdata.append("price", "123456");
-formdata.append("stock", "654321");
-formdata.append("size", "XL");
-
-var requestOptions = {
-    method: 'POST',
-    body: formdata,
-    redirect: 'follow'
-};
-
-fetch(url + 'variants/updateVariant?token=' + token, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
