@@ -1091,8 +1091,7 @@ main .list .item:hover {
     width: 200px;
     
     float: left;
-    
-    text-align: center;
+
     
     }
     
@@ -1121,4 +1120,7 @@ main .list .item:hover {
         
         margin: 20px;
         
+        }
+        th{
+            text-align: center;
         }
